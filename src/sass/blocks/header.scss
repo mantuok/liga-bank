@@ -8,6 +8,7 @@
 .header__container {
   display: flex;
   justify-content: flex-start;
+  // justify-content: space-between; 
   align-items: baseline;
 
   @include container;
@@ -15,6 +16,11 @@
 
 .header__logo {
   margin-right: 109px;
+  // margin-right: 8vw;
+
+  @media (max-width: $before-max-desktop-width) {
+    margin-right: 8vw;
+  }
 
   @media (max-width: $max-tablet-width) {
     margin-right: 50px;
@@ -23,6 +29,10 @@
 
 .header__navigation {
   margin-right: 218px;
+
+  @media (max-width: $before-max-desktop-width) {
+    margin-right: 16vw;
+  }
 
   @media (max-width: $max-tablet-width) {
     margin-right: 26px;

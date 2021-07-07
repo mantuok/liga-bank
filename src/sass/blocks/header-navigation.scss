@@ -3,6 +3,10 @@
   justify-content: flex-start;
 
   @include no-style-list;
+
+  @media (max-width: $max-mobile-width) {
+    flex-direction: column;
+  }
 }
 
 .header-navigation__item {
