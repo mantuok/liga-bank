@@ -1,4 +1,4 @@
-import react from 'react';
+import React from 'react';
 import Slider from '../slider/slider';
 import Promo from '../promo/promo';
 import Calculator from '../calculator/calculator';
