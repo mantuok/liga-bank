@@ -1,0 +1,26 @@
+.header-navigation__list {
+  display: flex;
+  justify-content: flex-start;
+
+  @include no-style-list;
+}
+
+.header-navigation__item {
+  margin-right: 25px;
+}
+
+.header-navigation__link {
+  color: var(--font-basic);
+  text-decoration: none;
+
+  @include opacity-on-hover;
+
+  &--active {
+    color: var(--basic-contrast);
+    cursor: auto;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

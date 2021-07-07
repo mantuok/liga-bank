@@ -1,0 +1,24 @@
+.user-login {
+  padding-left: 30px;
+  text-decoration: none;
+}
+
+.user-login__text {
+  position: relative;
+
+  color: var(--font-basic);
+
+  @include opacity-on-hover;
+  
+  &::before {
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    right: 180px;
+
+    width: 20px;
+    height: 22px;
+
+    background-image: url("../../img/login-desktop.svg");
+  }
+}

@@ -1,0 +1,15 @@
+.header {
+  padding-top: 27px;
+  padding-bottom: 35px;
+
+  background-color: var(--basic);
+}
+
+.header__container {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  column-gap: 61px;
+  align-items: baseline;
+
+  @include container;
+}
