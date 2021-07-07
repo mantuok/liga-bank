@@ -7,6 +7,10 @@
 
 .header-navigation__item {
   margin-right: 25px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-right: 20px;
+  }
 }
 
 .header-navigation__link {
@@ -22,5 +26,9 @@
     &:hover {
       opacity: 1;
     }
+  }
+
+  @media (max-width: $max-tablet-width) {
+    font-size: 14px;
   }
 }

@@ -6,10 +6,25 @@
 }
 
 .header__container {
-  display: grid;
-  grid-template-columns: max-content 1fr max-content;
-  column-gap: 61px;
+  display: flex;
+  justify-content: flex-start;
   align-items: baseline;
 
   @include container;
+}
+
+.header__logo {
+  margin-right: 109px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-right: 50px;
+  }
+}
+
+.header__navigation {
+  margin-right: 218px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-right: 26px;
+  }
 }
