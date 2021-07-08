@@ -18,15 +18,23 @@
 }
 
 .header-navigation__list {
-  display: none;
-  // display: flex;
+  // display: none;
+  display: flex;
   justify-content: flex-start;
 
   @include no-style-list;
 
   @media (max-width: $max-mobile-width) {
+    position: absolute;
+
+    top: 34px;
+    left: 0;
+
     flex-direction: column;
+
     height: 100%;
+
+    background-color: var(--basic);
   }
 }
 

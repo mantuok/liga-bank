@@ -46,3 +46,27 @@ export const NavigationItem = {
     }
   }
 };
+export const Viewport = {
+  Desktop: {
+    MIN: `1024px`
+  },
+  Tablet: {
+    MIN: `768px`,
+    MAX: `1023px`
+  },
+  Mobile: {
+    MIN: `320px`,
+    MAX: `767px`
+  }
+}
+
+export const MenuButton = {
+  Open: {
+    TEXT: `Открыть меню`,
+    CLASS: `header-navigation__open"`
+  },
+  Close: {
+    TEXT: `Закрыть меню`,
+    CLASS: `header-navigation__close"`
+  }
+}
