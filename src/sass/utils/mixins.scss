@@ -73,6 +73,11 @@
   @include button-general-style;
 }
 
+@mixin no-style-button {
+  background-color: transparent;
+  border: none;
+}
+
 @mixin no-style-list {
   margin: 0;
   padding: 0;

@@ -63,10 +63,10 @@ export const Viewport = {
 export const MenuButton = {
   Open: {
     TEXT: `Открыть меню`,
-    CLASS: `header-navigation__open"`
+    CLASS: `header-navigation__open`
   },
   Close: {
     TEXT: `Закрыть меню`,
-    CLASS: `header-navigation__close"`
+    CLASS: `header-navigation__close`
   }
 }
