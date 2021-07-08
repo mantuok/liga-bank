@@ -13,6 +13,12 @@
     padding-right: 45px;
     padding-left: 45px;
   }
+
+  @media (max-width: $max-mobile-width) {
+    width: 320px;
+    padding-right: 16px;
+    padding-left: 15px;
+  }
 }
 
 @mixin gradient-dark {

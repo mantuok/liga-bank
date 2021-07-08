@@ -18,6 +18,18 @@
     @media (max-width: $max-tablet-width) {
       right: 15px;
       bottom: -4px;
+
+      background-image: url("../../img/login-tablet.svg");
+    }
+
+    @media (max-width: $max-mobile-width) {
+      right: 15px;
+      bottom: -1px;
+
+      width: 14px;
+      height: 16px;
+  
+      background-image: url("../../img/login-mobile.svg");
     }
   }
 }
