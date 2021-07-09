@@ -31,36 +31,7 @@
 }
 
 .header__logo {
-  // margin-right: 109px;
-
-  // @media (max-width: $before-max-desktop-width) {
-  //   margin-right: 8vw;
-  // }
-
-  @media (max-width: $max-tablet-width) {
-    // margin-right: 50px;
-
-    // width: 134px;
-    // height: 24px;
-  }
-
   @media (max-width: $max-mobile-width) {
-    margin-right: 0;
     padding-left: 30px;
-
-    // width: 146px;
-    // height: 19px;
   }
 }
-
-// .header__navigation {
-//   margin-right: 218px;
-
-//   @media (max-width: $before-max-desktop-width) {
-//     margin-right: 16vw;
-//   }
-
-//   @media (max-width: $max-tablet-width) {
-//     margin-right: 26px;
-//   }
-// }

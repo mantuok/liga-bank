@@ -11,40 +11,10 @@
     right: 3px;
   }
 
-  // &::before {
-  //   content: "";
-  //   position: absolute;
-  //   bottom: 0px;
-  //   right: 185px;
-
-  //   width: 20px;
-  //   height: 22px;
-
-  //   background-image: url("../../img/login-desktop.svg");
-
-  //   @media (max-width: $max-tablet-width) {
-  //     right: 15px;
-  //     bottom: -4px;
-
-  //     background-image: url("../../img/login-tablet.svg");
-  //   }
-
-  //   @media (max-width: $max-mobile-width) {
-  //     left: 7px;
-  //     bottom: 25px;
-
-  //     width: 14px;
-  //     height: 16px;
-  
-  //     background-image: url("../../img/login-mobile.svg");
-  //   }
-  // }
-
   &--open-menu {
     position: relative;
 
     bottom: 0;
-    // margin-top: -44px;
 
     padding-top: 25px;
     padding-bottom: 24px;
@@ -93,12 +63,16 @@
     height: 22px;
 
     background-image: url("../../img/login-desktop.svg");
+    background-repeat: no-repeat;
+
+    @include opacity-on-hover;
 
     @media (max-width: $max-tablet-width) {
       right: 15px;
       bottom: -4px;
 
       background-image: url("../../img/login-tablet.svg");
+      background-repeat: no-repeat;
     }
 
     @media (max-width: $max-mobile-width) {
@@ -109,6 +83,7 @@
       height: 16px;
   
       background-image: url("../../img/login-mobile.svg");
+      background-repeat: no-repeat;
     }
   }
 }

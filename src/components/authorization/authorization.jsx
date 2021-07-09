@@ -8,7 +8,8 @@ const Authorization = () => {
   const dispatch = useDispatch();
   const [authData, setAuthData] = useState({
     login: ``,
-    password: ``
+    password: ``,
+    showPassword: false
   });
 
   useEffect(() => {
@@ -30,6 +31,15 @@ const Authorization = () => {
     onClosePopup();
   };
 
+  const handleInputChange = (evt) => {
+    console.log(authData.login)
+    const {name, value} = evt.target;
+    setAuthData({
+      ...authData,
+      [name]: value
+    })
+  };
+
   const onClosePopup = () => {
     dispatch(ActionCreator.closePopup());
     document.body.style.overflow = 'scroll';
@@ -45,18 +55,31 @@ const Authorization = () => {
         >
           <span className="visually-hidden">Закрыть окно</span>
         </button>
-        <form className="auth__form form" action="">
-          <label className="form__label form__label--login" htmlFor="login">Логин</label>
-          <input className="form__input form__input--login" id="login" name="login"></input>
-          <label className="form__label form__label--password" htmlFor="password">Логин</label>
-          <input className="form__input form__input--password" id="password" name="password"></input>
-          <button className="form__show-password">
+        <form className="auth__form auth-form" action="">
+          <label className="auth-form__label auth-form__label--login" htmlFor="login">Логин</label>
+          <input 
+            className="auth-form__input auth-form__input--login" 
+            id="login" 
+            name="login"
+            value={authData.login}
+            onChange={handleInputChange}
+            autoFocus
+          ></input>
+          <label className="auth-form__label auth-form__label--password" htmlFor="password">Пароль</label>
+          <input 
+            className="auth-form__input auth-form__input--password" 
+            id="password" 
+            name="password"
+            value={authData.value}
+            onChange={handleInputChange}
+          ></input>
+          <button className="auth-form__show-password">
             <span className="visually-hidden">Показать пароль</span>
           </button>
-          <Link className="auth__forgot-password" to="/page-not-found">Забыли пароль?</Link>
+          <Link className="auth-form__forgot-password" to="/page-not-found">Забыли пароль?</Link>
           <button 
-            className="auth__submit"
-            // onClick={}
+            className="auth-form__submit"
+            onClick={handleCloseButtonClick}
           >
             Войти
           </button>
