@@ -21,6 +21,8 @@ const Authorization = () => {
     )
   });
 
+  const getPasswordInputType = () => authData.showPassword ? `text` : `password`
+
   const escKeydownHandler = (evt) => {
     if (evt.keyCode === Key.ESC) {
       onClosePopup();
@@ -32,11 +34,26 @@ const Authorization = () => {
   };
 
   const handleInputChange = (evt) => {
-    console.log(authData.login)
     const {name, value} = evt.target;
     setAuthData({
       ...authData,
       [name]: value
+    })
+  };
+
+  const handleShowPassowrdMouseDown = (evt) => {
+    evt.preventDefault();
+    setAuthData({
+      ...authData,
+      showPassword: true
+    })
+  };
+
+  const handleShowPassowrdMouseUp = (evt) => {
+    evt.preventDefault();
+    setAuthData({
+      ...authData,
+      showPassword: false
     })
   };
 
@@ -64,22 +81,30 @@ const Authorization = () => {
             value={authData.login}
             onChange={handleInputChange}
             autoFocus
+            required
           ></input>
           <label className="auth-form__label auth-form__label--password" htmlFor="password">Пароль</label>
           <input 
             className="auth-form__input auth-form__input--password" 
+            type={getPasswordInputType()}
             id="password" 
             name="password"
             value={authData.value}
             onChange={handleInputChange}
+            required
           ></input>
-          <button className="auth-form__show-password">
+          <button
+           className="auth-form__show-password"
+           onMouseDown={handleShowPassowrdMouseDown}
+           onMouseUp={handleShowPassowrdMouseUp}
+           type="button"
+          >
             <span className="visually-hidden">Показать пароль</span>
           </button>
           <Link className="auth-form__forgot-password" to="/page-not-found">Забыли пароль?</Link>
           <button 
             className="auth-form__submit"
-            onClick={handleCloseButtonClick}
+            type="submit"
           >
             Войти
           </button>
