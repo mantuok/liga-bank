@@ -69,4 +69,8 @@ export const MenuButton = {
     TEXT: `Закрыть меню`,
     CLASS: `header-navigation__close`
   }
+};
+
+export const Key = {
+  ESC: 27
 }

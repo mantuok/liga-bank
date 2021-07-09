@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 import {useMediaQuery} from 'react-responsive';
+import {ActionCreator} from '../../store/action';
 import classNames from 'classnames';
 import {
   NavigationItem,
@@ -8,11 +10,19 @@ import {
   MenuButton
 } from '../../const';
 import NavigationElement from '../navigation-element/navigation-element';
+import Authorization from '../authorization/authorization';
 
 const Navigation = () => {
+  const dispatch = useDispatch();
+  const popupToBeOpen = useSelector((state) => state.popupToBeOpen)
   const [menuMobileStatus, setMenuMobileStatus] = useState({
     isMenuOpen: false 
-  })
+  });
+
+  const onOpenPopup = () => {
+    dispatch(ActionCreator.openPopup())
+    document.body.style.overflow = 'hidden';
+  }
 
   const isMobile = useMediaQuery({query: `(max-width: ${Viewport.Mobile.MAX})`});
   const isTablet = useMediaQuery({query: `(max-width: ${Viewport.Tablet.MAX})`});
@@ -49,6 +59,8 @@ const Navigation = () => {
     )
   };
 
+  const renderAuthorizationPopup = popupToBeOpen ? <Authorization /> : ``; 
+
   const handleMenuButtonClick = (type) => {
     switch (type) {
       case MenuButton.Open:
@@ -62,6 +74,10 @@ const Navigation = () => {
     }
   };
 
+  const handleLoginButtonClick = () => {
+    onOpenPopup();
+  }
+
   return (
     <nav className="header__navigation header-navigation">
       {isMobile && renderMenuButton(MenuButton.Open)}
@@ -72,7 +88,10 @@ const Navigation = () => {
           (isDesktopOrTablet && renderNavigationItems())
         }
         <li className={userLoginClass}>
-          <button className="user-login__button" to="/page-not-found">
+          <button 
+            className="user-login__button" to="/page-not-found"
+            onClick={handleLoginButtonClick}
+          >
             {
               (isDesktop && renderLoginText()) ||
               (menuMobileStatus.isMenuOpen && renderLoginText())
@@ -80,6 +99,7 @@ const Navigation = () => {
           </button>
         </li>
       </ul>
+      {renderAuthorizationPopup}
     </nav>
   )
 };
