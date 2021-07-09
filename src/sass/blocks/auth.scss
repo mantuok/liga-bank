@@ -32,10 +32,21 @@
 
   @media (max-width: $max-tablet-width) {
     width: 678px;
-    
+
     padding-right: 88px;
     padding-left: 88px;
   }
+
+  @media (max-width: $max-mobile-width) {
+    width: 290px;
+    height: 455px;
+
+    padding-top: 50px;
+    padding-right: 20px;
+    padding-bottom: 50px;
+    padding-left: 20px;
+  }
+  
 }
 
 .auth__logo {
@@ -55,4 +66,14 @@
 
   @include no-style-button;
   @include opacity-on-hover;
+
+  @media (max-width: $max-mobile-width) {
+    top: 50px;
+    right: 20px;
+
+    width: 14px;
+    height: 14px;
+
+    background-image: url("../../img/popup-close-mobile.svg");
+  }
 }
