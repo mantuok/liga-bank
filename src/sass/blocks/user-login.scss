@@ -7,8 +7,8 @@
 
   @media (max-width: $max-mobile-width) {
     position: absolute;
-    top: 19px;
-    right: 0;
+    top: 45px;
+    right: 3px;
   }
 
   &::before {
@@ -30,8 +30,8 @@
     }
 
     @media (max-width: $max-mobile-width) {
-      right: 15px;
-      bottom: -1px;
+      left: 7px;
+      bottom: 25px;
 
       width: 14px;
       height: 16px;
@@ -43,14 +43,18 @@
   &--open-menu {
     position: relative;
 
+    margin-top: -44px;
+
     padding-top: 25px;
     padding-bottom: 24px;
 
     font-size: 16px;
 
+    border-bottom: 1px solid var(--basic-decorative);
+
     ::before {
       top: 0;
-      left: 0
+      left: 0;
     }
 
     ::after {

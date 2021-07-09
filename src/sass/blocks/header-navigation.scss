@@ -40,7 +40,6 @@
   @media (max-width: $max-mobile-width) {
     flex-direction: column;
     
-
     background-color: var(--basic);
   }
 }
@@ -58,6 +57,10 @@
     @media (max-width: $max-tablet-width) {
       margin-right: 26px;
     }
+
+    @media (max-width: $max-mobile-width) {
+      margin-right: 0;
+    }
   }
 
   @media (max-width: $max-tablet-width) {
@@ -68,10 +71,13 @@
     margin-right: 0;
     padding-top: 25px;
     padding-bottom: 24px;
+    padding-left: 15px;
 
     border-bottom: 1px solid var(--basic-decorative);
 
     &:first-child {
+      margin-top: 20px;
+
       border-top: 1px solid var(--basic-decorative);
     }
   }
