@@ -72,13 +72,12 @@ const Navigation = () => {
           (isDesktopOrTablet && renderNavigationItems())
         }
         <li className={userLoginClass}>
-          <Link className="user-login__link" to="/page-not-found">
-            {/* <span className="user-login__text">Войти в Интернет-банк</span> */}
+          <button className="user-login__button" to="/page-not-found">
             {
               (isDesktop && renderLoginText()) ||
               (menuMobileStatus.isMenuOpen && renderLoginText())
             }
-          </Link>
+          </button>
         </li>
       </ul>
     </nav>

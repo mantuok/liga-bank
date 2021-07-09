@@ -74,6 +74,8 @@
 }
 
 @mixin no-style-button {
+  font-family: inherit;
+  font-size: inherit;
   background-color: transparent;
   border: none;
 }
