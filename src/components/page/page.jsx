@@ -7,8 +7,8 @@ const Page = () => {
   return (
     <div className='page'>
       <Header />
-      {/* <Main />
-      <Footer /> */}
+      <Main />
+      {/* <Footer /> */}
     </div>
   )
 }

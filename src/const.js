@@ -74,3 +74,5 @@ export const MenuButton = {
 export const Key = {
   ESC: 27
 }
+
+export const slideInterval = 4000;

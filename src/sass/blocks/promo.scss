@@ -1,0 +1,64 @@
+.promo {
+  position: relative;
+
+  min-height: 400px;
+
+  @include container;
+  margin-bottom: 66px;
+
+  padding-top: 115px;
+  padding-left: 268px;
+  padding-bottom: 40px;
+}
+
+.promo__container {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.promo__header {
+  margin: 0;
+  margin-bottom: 25px;
+
+  font-size: 54px;
+  font-weight: 700;
+  color: var(--basic);
+
+  z-index: 1;
+}
+
+.promo__cards-image {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+}
+
+.promo__description {
+  margin: 0;
+  margin-bottom: 40px;
+
+  font-size: 22px;
+  color: var(--font-light);
+
+  z-index: 1;
+}
+
+.promo__link {
+  width: max-content;
+  height: max-content;
+
+  padding-top: 19px;
+  padding-right: 36px;
+  padding-bottom: 21px;
+  padding-left: 36px;
+
+  text-decoration: none;
+
+  @include button-basic-style;
+
+  z-index: 1;
+}

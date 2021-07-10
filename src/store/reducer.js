@@ -1,7 +1,9 @@
 import {ActionType} from './action';
+import {promos} from '../mocks/promos';
 
 const initialState = {
-  popupToBeOpen: false
+  popupToBeOpen: false,
+  promos: promos
 }
 
 const reducer = (state = initialState, action) => {
