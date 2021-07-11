@@ -25,16 +25,31 @@
 
   font-size: 54px;
   font-weight: 700;
-  color: var(--basic);
 
   z-index: 1;
+
+  &--basic {
+    color: var(--basic);
+  }
+
+  &--contrast {
+    color: var(--font-basic);
+  }
 }
 
-.promo__cards-image {
+.promo__image {
   position: absolute;
 
   top: 0;
   left: 0;
+
+  &--basic {
+    background-color: var(--basic-contrast);
+  }
+
+  &--contrast {
+    background-color: var(--font-light);
+  }
 }
 
 .promo__description {
@@ -42,9 +57,16 @@
   margin-bottom: 40px;
 
   font-size: 22px;
-  color: var(--font-light);
 
   z-index: 1;
+
+  &--basic {
+    color: var(--font-light);
+  }
+
+  &--contrast {
+    color: var(--font-dark);
+  }
 }
 
 .promo__link {
@@ -58,7 +80,13 @@
 
   text-decoration: none;
 
-  @include button-basic-style;
-
   z-index: 1;
+
+  &--basic {
+    @include button-basic-style;
+  }
+
+  &--contrast {
+    @include button-contrast-style;
+  }
 }

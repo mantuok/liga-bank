@@ -1,35 +1,42 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
 import {slideInterval} from '../../const';
+import PromoSlide from '../promo-slide/promo-slide';
 
 const Promo = () => {
   const promos = useSelector((state) => state.promos);
+  const promosMaxIndex = promos.length - 1;
+  const initialPromoIndex = 0;
 
   const [activeSlidePromo, setActiveSlidePromo] = useState({
-    id: promos[0].id
+    elementIndex: initialPromoIndex
   });
 
   useEffect(() => {
     const interval = setInterval(() => {
-      renderPromoSlide()
-    }, slideInterval)
-  }, []);
+      changeActivePromoSlide()
+    }, slideInterval);
+    return () => clearInterval(interval);
+  });
 
-  const renderPromoSlide = () => {
 
+  const changeActivePromoSlide = () => {
+    if (activeSlidePromo.elementIndex < promosMaxIndex) {
+      setActiveSlidePromo({
+        ...activeSlidePromo,
+        elementIndex: activeSlidePromo.elementIndex + 1
+      })
+    } else if (activeSlidePromo.elementIndex === promosMaxIndex) {
+      setActiveSlidePromo({
+        ...activeSlidePromo,
+        elementIndex: initialPromoIndex
+      })
+    }
   }
-
-
 
   return (
     <section className="main__promo promo">
-      <div className="promo__container">
-        <h1 className="promo__header">Лига Банк</h1>
-        <p className="promo__description">Кредиты на любой случай</p>
-        <Link className="promo__link" to="/page-not-found">Рассчитать кредит</Link>
-        <img className="promo__cards-image" src="../img/cards-desktop.jpg" alt="Пример карт банка" width="1366" height="400" />
-      </div>
+      <PromoSlide promo={promos[activeSlidePromo.elementIndex]} />
     </section>
   )
 }
