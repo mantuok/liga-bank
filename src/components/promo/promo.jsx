@@ -23,7 +23,7 @@ const Promo = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      changeActivePromoSlide(SliderEvent.INTERVAL)
+      increaseActivePromoSlide(SliderEvent.INTERVAL)
     }, SLIDER_INTERVAL);
     return () => clearInterval(interval);
   });
@@ -31,11 +31,11 @@ const Promo = () => {
   const handleSwipe = (swipeType) => {
     switch (swipeType) {
       case SliderEvent.SWIPE_TO_LEFT:
-        return changeActivePromoSlide(swipeType);
+        return increaseActivePromoSlide(swipeType);
       case SliderEvent.SWIPE_TO_RIGHT:
         return decreaseActivePromoSlide(swipeType);
     }
-  }
+  };
 
   const decreaseActivePromoSlide = () => {
     if (activeSlidePromo.elementIndex > initialPromoIndex) {
@@ -49,9 +49,9 @@ const Promo = () => {
         elementIndex: promosMaxIndex
       })
     }
-  }
+  };
 
-  const changeActivePromoSlide = () => {
+  const increaseActivePromoSlide = () => {
     if (activeSlidePromo.elementIndex < promosMaxIndex) {
       setActiveSlidePromo({
         ...activeSlidePromo,
@@ -63,7 +63,7 @@ const Promo = () => {
         elementIndex: initialPromoIndex
       })
     }
-  }
+  };
 
   return (
     <section 
