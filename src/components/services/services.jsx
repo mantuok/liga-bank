@@ -1,7 +1,8 @@
 import React, {useState} from 'react';
 import {useSelector} from 'react-redux';
+import {nanoid} from 'nanoid';
 import classNames from 'classnames';
-
+import ServiceDetails from '../service-details/service-details';
 
 export const Services = () => {
   const services = useSelector((state) => state.services);
@@ -11,9 +12,11 @@ export const Services = () => {
 
   const isServiceActive = (serviceId) => serviceId === activeService.id;
 
+  const getActiveService = () => services.filter((service) => service.id === activeService.id)[0];
+
   const tabHeadingClass = (serviceId) => {
     return classNames(`headings__heading`, {"headings__heading--active": isServiceActive(serviceId)});
-  }
+  };
 
   const renderTabHeadings = () => {
     let serviceTabsNames = [];
@@ -22,11 +25,20 @@ export const Services = () => {
         <li 
           className={tabHeadingClass(service.id)}
           onClick={() => handleServiceTabClick(service.id)}
+          key={nanoid()}
         >{service.tabName}</li>
       )
     });
     return serviceTabsNames;
   };
+
+  const renderServiceDetails = () => {
+    return (
+      <ServiceDetails 
+        service={getActiveService()}
+      />
+    )
+  }
 
   const handleServiceTabClick = (selectedServiceId) => {
     if (selectedServiceId !== activeService.id) {
@@ -44,7 +56,7 @@ export const Services = () => {
         {renderTabHeadings()}
       </ul>
       <div className="services__service-details service-details">
-        {/* {renderServiceDetails()} */}
+        {renderServiceDetails()}
       </div>
     </section>
   )

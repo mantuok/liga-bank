@@ -11,7 +11,10 @@ export const services = [
       `Возможность ежемесячной капитализации или вывод процентов на банковскую карту`
     ],
     description: ``,
-    link: `Узнать подробнее`
+    link: `Узнать подробнее`,
+    directTo: `/page-not-found`,
+    img: `../img/deposits-desktop.jpg`,
+    alt: `Вклады банка`
   },
   {
     id: nanoid(),
@@ -23,7 +26,10 @@ export const services = [
       `Потребительский кредит`
     ],
     description: `Рассчитайте ежемесячный платеж и ставку по кредиту воспользовавшись нашим кредитным калькулятором`,
-    link: ``
+    link: ``,
+    directTo: ``,
+    img: `../img/loans-desktop.jpg`,
+    alt: `Кредиты банка`
   },
   {
     id: nanoid(),
@@ -35,7 +41,10 @@ export const services = [
       `Страхование недвижимости`
     ],
     description: ``,
-    link: `Узнать подробнее`
+    link: `Узнать подробнее`,
+    directTo: `/page-not-found`,
+    img: `../img/insurance-desktop.jpg`,
+    alt: `Страховые услуги банка`
   },
   {
     id: nanoid(),
@@ -46,6 +55,9 @@ export const services = [
       `Приложение Лига-проездной позволит вам оплачивать билеты по всему миру`
     ],
     description: ``,
-    link: `Узнать подробнее`
+    link: `Узнать подробнее`,
+    directTo: `/page-not-found`,
+    img: `../img/online-desktop.jpg`,
+    alt: `Онлайн-сервисы банка`
   }
 ]
