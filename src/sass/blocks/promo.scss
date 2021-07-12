@@ -21,6 +21,14 @@
     padding-left: 86px;
     padding-bottom: 15px;
   }
+
+  @media (max-width: $max-mobile-width) {
+    min-height: 226px;
+
+    padding-top: 48px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+  }
 }
 
 .promo__container {
@@ -52,6 +60,10 @@
     margin-bottom: 20px;
 
     font-size: 46px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    font-size: 38px;
   }
 }
 
@@ -90,6 +102,12 @@
     margin-bottom: 35px;
     
     font-size: 18px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 30px;
+    
+    font-size: 16px;
   }
 }
 

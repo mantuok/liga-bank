@@ -26,4 +26,13 @@
   &--active {
     background-color: var(--basic);
   }
+
+  @media (max-width: $max-mobile-width) {
+    width: 6px;
+    height: 6px;
+
+    &:not(:last-child) {
+      margin-right: 6px;
+    }
+  }
 }
