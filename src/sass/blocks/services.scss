@@ -1,0 +1,6 @@
+.services {
+  display: flex;
+  flex-direction: column;
+
+  @include container;
+}

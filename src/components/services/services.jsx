@@ -14,8 +14,11 @@ export const Services = () => {
 
   const getActiveService = () => services.filter((service) => service.id === activeService.id)[0];
 
-  const tabHeadingClass = (serviceId) => {
-    return classNames(`headings__heading`, {"headings__heading--active": isServiceActive(serviceId)});
+  const tabHeadingClass = (service) => {
+    return classNames(
+      `services-tabs__tab services-tabs__tab--${service.name}`,
+      {"services-tabs__tab--active": isServiceActive(service.id)}
+    );
   };
 
   const renderTabHeadings = () => {
@@ -23,7 +26,7 @@ export const Services = () => {
     services.forEach((service) => {
       serviceTabsNames.push(
         <li 
-          className={tabHeadingClass(service.id)}
+          className={tabHeadingClass(service)}
           onClick={() => handleServiceTabClick(service.id)}
           key={nanoid()}
         >{service.tabName}</li>
@@ -52,7 +55,7 @@ export const Services = () => {
   return (
     <section className="main__services services">
       <h2 className="services__heading visually-hidden">Услуги банка</h2>
-      <ul className="services__tab-headings headings">
+      <ul className="services__tab-headings services-tabs">
         {renderTabHeadings()}
       </ul>
       <div className="services__service-details service-details">

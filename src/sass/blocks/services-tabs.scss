@@ -1,0 +1,24 @@
+.services-tabs {
+  display: flex;
+  justify-content: space-between;
+
+  @include no-style-list;
+}
+
+.services-tabs__tab {
+  padding-top: 40px;
+  padding-right: 90px;
+  padding-bottom: 40px;
+  padding-left: 135px;
+
+  font-size: 18px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  @include opacity-on-hover;
+
+  &--active {
+    background-color: var(--basic);
+  }
+}

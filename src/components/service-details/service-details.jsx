@@ -19,14 +19,15 @@ const ServiceDetails = (props) => {
 
   return (
     <div className="services__service-details service-details">
-    <h3 className="service-details__heading">{heading}</h3>
-    {isElementEmpty(points) ? `` : 
-      <ul className="service-details__points">
-        {renderServicePoints()}
-      </ul>
-    }
-    {isElementEmpty(description) ? `` : <p className="service-details__description">{description}</p>}
-    {isElementEmpty(link) ? `` : <Link className="serive-details__link" to={directTo}>{link}</Link>}
+      <h3 className="service-details__heading">{heading}</h3>
+      {isElementEmpty(points) ? `` : 
+        <ul className="service-details__points">
+          {renderServicePoints()}
+        </ul>
+      }
+      {isElementEmpty(description) ? `` : <p className="service-details__description">{description}</p>}
+      {isElementEmpty(link) ? `` : <Link className="serive-details__link" to={directTo}>{link}</Link>}
+      <img className="service-details__image" src={img} alt={alt} width="440" height="290" />
     </div>
   )
 }

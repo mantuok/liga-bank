@@ -3,6 +3,7 @@ import {nanoid} from 'nanoid';
 export const services = [
   {
     id: nanoid(),
+    name: `deposits`,
     tabName: `Вклады`,
     heading: `Вклады Лига Банка – это выгодная инвестиция в свое будущее`,
     points: [
@@ -18,6 +19,7 @@ export const services = [
   },
   {
     id: nanoid(),
+    name: `loans`,
     tabName: `Кредиты`,
     heading: `Лига Банк выдает кредиты под любые цели`,
     points: [
@@ -33,6 +35,7 @@ export const services = [
   },
   {
     id: nanoid(),
+    name: `insurance`,
     tabName: `Страхование`,
     heading: `Лига Страхование — застрахуем все что захотите`,
     points: [
@@ -48,6 +51,7 @@ export const services = [
   },
   {
     id: nanoid(),
+    name: `online`,
     tabName: `Онлайн-сервисы`,
     heading: `Лига Банк — это огромное количество онлайн-сервисов для вашего удобства`,
     points: [
