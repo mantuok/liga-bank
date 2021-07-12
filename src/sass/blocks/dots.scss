@@ -3,6 +3,10 @@
   align-self: center;
 
   margin-left: -268px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-left: -86px;
+  }
 }
 
 .dots__dot {
