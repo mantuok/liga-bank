@@ -64,7 +64,6 @@ const Promo = () => {
   const renderDots = () => {
     let dots = [];
     for (let i = 0; i < dotsNumber; i++) {
-      console.log(isDotActive(i))
       dots.push(    
         <Dot 
           key={nanoid()}
