@@ -75,4 +75,10 @@ export const Key = {
   ESC: 27
 }
 
-export const slideInterval = 4000;
+export const SLIDER_INTERVAL = 4000;
+
+export const SliderEvent = {
+  SWIPE_TO_LEFT: `toLeft`,
+  SWIPE_TO_RIGHT: `toRight`,
+  INTERVAL: `Interval`
+}
