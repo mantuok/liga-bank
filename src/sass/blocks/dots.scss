@@ -1,0 +1,25 @@
+.dots {
+  display: flex;
+  align-self: center;
+
+  margin-left: -268px;
+}
+
+.dots__dot {
+  width: 8px;
+  height: 8px;
+
+  background-color: var(--gradient-contrast-dark);
+
+  border-radius: 50%;
+
+  z-index: 1;
+
+  &:not(:last-child) {
+    margin-right: 8px;
+  }
+
+  &--active {
+    background-color: var(--basic);
+  }
+}

@@ -1,9 +1,13 @@
 .promo {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   min-height: 400px;
 
   @include container;
+
   margin-bottom: 66px;
 
   padding-top: 115px;
@@ -77,6 +81,8 @@
   padding-right: 36px;
   padding-bottom: 21px;
   padding-left: 36px;
+
+  // margin-bottom: ;
 
   text-decoration: none;
 
