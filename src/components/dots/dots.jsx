@@ -3,9 +3,9 @@ import {nanoid} from 'nanoid';
 import Dot from '../dot/dot';
 
 const Dots = (props) => {
-  const {section, activeSlideIndex, dotsNumber} = props;
+  const {section, activeIndex, dotsNumber} = props;
 
-  const isDotActive = (dotIndex) => dotIndex === activeSlideIndex;
+  const isDotActive = (dotIndex) => dotIndex === activeIndex;
 
   const renderDots = () => {
     let dots = [];

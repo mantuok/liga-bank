@@ -78,8 +78,9 @@ export const Key = {
 
 export const SLIDER_INTERVAL = 4000;
 
-export const SliderEvent = {
+export const SwipeEvent = {
   SWIPE_TO_LEFT: `toLeft`,
   SWIPE_TO_RIGHT: `toRight`,
   INTERVAL: `Interval`
 };
+
