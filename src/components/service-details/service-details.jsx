@@ -5,7 +5,7 @@ import {nanoid} from 'nanoid';
 
 const ServiceDetails = (props) => {
   const {service} = props;
-  const {heading, points, description, link, directTo, img, alt} = service;
+  const {heading, points, description, link, directTo, imgDesktop, imgTablet, imgMobile, alt} = service;
 
   const isElementEmpty = (element) => element === ``;
 
@@ -27,7 +27,12 @@ const ServiceDetails = (props) => {
       }
       {isElementEmpty(description) ? `` : <p className="service-details__description">{description}</p>}
       {isElementEmpty(link) ? `` : <Link className="service-details__link" to={directTo}>{link}</Link>}
-      <img className="service-details__image" src={img} alt={alt} width="440" height="290" />
+      <picture className="service-details__image-wrapper" >
+        <source media="(max-width: 767px)" srcSet={imgMobile} />
+        <source media="(max-width: 1023px)" srcSet={imgTablet} />
+        <img className="service-details__image" src={imgDesktop} alt={alt} width="440" height="290" />
+      </picture>
+      
     </div>
   )
 }

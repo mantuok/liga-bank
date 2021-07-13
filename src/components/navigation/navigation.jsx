@@ -6,8 +6,8 @@ import {ActionCreator} from '../../store/action';
 import classNames from 'classnames';
 import {
   NavigationItem,
-  Viewport,
-  MenuButton
+  MenuButton,
+  Viewport
 } from '../../const';
 import NavigationElement from '../navigation-element/navigation-element';
 import Authorization from '../authorization/authorization';

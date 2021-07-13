@@ -11,6 +11,8 @@
   background-color: var(--transparent);
 
   overflow: hidden;
+
+  z-index: 2;
 }
 
 .auth__popup {

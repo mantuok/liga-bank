@@ -46,6 +46,7 @@ export const NavigationItem = {
     }
   }
 };
+
 export const Viewport = {
   Desktop: {
     MIN: `1024px`
@@ -58,7 +59,7 @@ export const Viewport = {
     MIN: `320px`,
     MAX: `767px`
   }
-}
+};
 
 export const MenuButton = {
   Open: {
@@ -73,7 +74,7 @@ export const MenuButton = {
 
 export const Key = {
   ESC: 27
-}
+};
 
 export const SLIDER_INTERVAL = 4000;
 
@@ -81,4 +82,4 @@ export const SliderEvent = {
   SWIPE_TO_LEFT: `toLeft`,
   SWIPE_TO_RIGHT: `toRight`,
   INTERVAL: `Interval`
-}
+};

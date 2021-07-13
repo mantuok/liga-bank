@@ -14,7 +14,9 @@ export const services = [
     description: ``,
     link: `Узнать подробнее`,
     directTo: `/page-not-found`,
-    img: `../img/deposits-desktop.jpg`,
+    imgDesktop: `../img/deposits-desktop.jpg`,
+    imgTablet: `../img/deposits-tablet.jpg`,
+    imgMobile: `../img/deposits-mobile.jpg`,
     alt: `Вклады банка`
   },
   {
@@ -28,10 +30,12 @@ export const services = [
       `Потребительский кредит`
     ],
     description: `Рассчитайте ежемесячный платеж и ставку по кредиту воспользовавшись нашим кредитным калькулятором`,
-    
+
     link: ``,
     directTo: ``,
-    img: `../img/loans-desktop.jpg`,
+    imgDesktop: `../img/loans-desktop.jpg`,
+    imgTablet: `../img/loans-tablet.jpg`,
+    imgMobile: `../img/loans-mobile.jpg`,
     alt: `Кредиты банка`
   },
   {
@@ -47,7 +51,9 @@ export const services = [
     description: ``,
     link: `Узнать подробнее`,
     directTo: `/page-not-found`,
-    img: `../img/insurance-desktop.jpg`,
+    imgDesktop: `../img/insurance-desktop.jpg`,
+    imgTablet: `../img/insurance-tablet.jpg`,
+    imgMobile: `../img/insurance-mobile.jpg`,
     alt: `Страховые услуги банка`
   },
   {
@@ -62,7 +68,9 @@ export const services = [
     description: ``,
     link: `Узнать подробнее`,
     directTo: `/page-not-found`,
-    img: `../img/online-desktop.jpg`,
+    imgDesktop: `../img/online-desktop.jpg`,
+    imgTablet: `../img/online-tablet.jpg`,
+    imgMobile: `../img/online-mobile.jpg`,
     alt: `Онлайн-сервисы банка`
   }
 ]
