@@ -9,15 +9,18 @@
   position: relative;
 
   padding-top: 40px;
-  padding-right: 90px;
+  // padding-right: 80px;
   padding-bottom: 40px;
-  padding-left: 135px;
+  padding-left: 112px;
+
+  width: 292px;
 
   font-size: 18px;
   font-weight: 500;
+  text-align: left;
 
   background-repeat: no-repeat;
-  background-position: 88px 33px;
+  background-position: 68px 33px;
 
   cursor: pointer;
 
@@ -33,10 +36,12 @@
 
   &--insurance {
     background-image: url("../../img/insurance-icon.svg");
+    background-position: 70px 33px;
   }
 
   &--online {
     background-image: url("../../img/online-icon.svg");
+    background-position: 77px 33px;
   }
 
   &--active {
