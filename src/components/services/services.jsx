@@ -58,9 +58,7 @@ export const Services = () => {
       <ul className="services__tab-headings services-tabs">
         {renderTabHeadings()}
       </ul>
-      <div className="services__service-details service-details">
-        {renderServiceDetails()}
-      </div>
+      {renderServiceDetails()}
     </section>
   )
 };

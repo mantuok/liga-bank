@@ -6,6 +6,8 @@
 }
 
 .services-tabs__tab {
+  position: relative;
+
   padding-top: 40px;
   padding-right: 90px;
   padding-bottom: 40px;
@@ -14,9 +16,28 @@
   font-size: 18px;
   font-weight: 500;
 
+  background-repeat: no-repeat;
+  background-position: 88px 33px;
+
   cursor: pointer;
 
   @include opacity-on-hover;
+
+  &--deposits {
+    background-image: url("../../img/deposit-icon.svg");
+  }
+
+  &--loans {
+    background-image: url("../../img/loan-icon.svg");
+  }
+
+  &--insurance {
+    background-image: url("../../img/insurance-icon.svg");
+  }
+
+  &--online {
+    background-image: url("../../img/online-icon.svg");
+  }
 
   &--active {
     background-color: var(--basic);

@@ -26,7 +26,7 @@ const ServiceDetails = (props) => {
         </ul>
       }
       {isElementEmpty(description) ? `` : <p className="service-details__description">{description}</p>}
-      {isElementEmpty(link) ? `` : <Link className="serive-details__link" to={directTo}>{link}</Link>}
+      {isElementEmpty(link) ? `` : <Link className="service-details__link" to={directTo}>{link}</Link>}
       <img className="service-details__image" src={img} alt={alt} width="440" height="290" />
     </div>
   )
