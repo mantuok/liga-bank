@@ -2,5 +2,9 @@
   display: flex;
   flex-direction: column;
 
+  @media (max-width: $max-tablet-width) {
+    background-color: var(--basic);
+  }
+
   @include container;
 }
