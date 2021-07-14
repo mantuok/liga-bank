@@ -142,11 +142,18 @@
     padding-left: 30px;
   }
 
-
   @media (max-width: $max-mobile-width) {
     padding-top: 14px;
     padding-right: 30px;
     padding-bottom: 15px;
     padding-left: 30px;
+  }
+}
+
+.promo__dots {
+  margin-left: -268px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-left: -86px;
   }
 }

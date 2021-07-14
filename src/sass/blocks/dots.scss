@@ -2,11 +2,11 @@
   display: flex;
   align-self: center;
 
-  margin-left: -268px;
+  // margin-left: -268px;
 
-  @media (max-width: $max-tablet-width) {
-    margin-left: -86px;
-  }
+  // @media (max-width: $max-tablet-width) {
+  //   margin-left: -86px;
+  // }
 }
 
 .dots__dot {
@@ -24,7 +24,7 @@
   }
 
   &--active {
-    background-color: var(--basic);
+    background-color: var(--background-basic);
   }
 
   @media (max-width: $max-mobile-width) {
