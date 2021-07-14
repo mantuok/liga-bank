@@ -36,6 +36,14 @@ export const Services = () => {
     );
   };
 
+  const renderTabsList = () => {
+    return (
+      <ul className="services__tab-headings services-tabs">
+        {renderTabHeadings()}
+      </ul>
+    )
+  }
+
   const renderTabHeadings = () => {
     let serviceTabsNames = [];
     services.forEach((service) => {
@@ -130,9 +138,10 @@ export const Services = () => {
      {...swipeHandler}
     >
       <h2 className="services__heading visually-hidden">Услуги банка</h2>
-      <ul className="services__tab-headings services-tabs">
+      {/* <ul className="services__tab-headings services-tabs">
         {isDesktop && renderTabHeadings()}
-      </ul>
+      </ul> */}
+      {isDesktop && renderTabsList()}
       {renderServiceDetails()}
       {isTabletOrMobile && renderDots()}
     </section>

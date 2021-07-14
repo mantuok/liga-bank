@@ -1,11 +1,19 @@
 .services {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
 
   @media (max-width: $max-tablet-width) {
+    min-height: 380px;
     padding-bottom: 15px;
-    
+
     background-color: var(--basic);
+  }
+
+  @media (max-width: $max-mobile-width) {
+    position: relative;
+
+    min-height: 362px;
   }
 
   @include container;

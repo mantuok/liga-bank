@@ -1,14 +1,11 @@
 .service-details {
   display: grid;
-
   grid-template-areas: 
     "heading image"
     "points image"
     "description image"
     "link image";
-  
   grid-template-columns: 1fr max-content;
-
   column-gap: 133px;
 
   padding-top: 60px;
@@ -26,6 +23,12 @@
     padding-right: 0;
     padding-bottom: 0;
     padding-left: 0;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    column-gap: 0;
+    
+    padding-top: 55px;
   }
 }
 
@@ -48,6 +51,8 @@
   }
 
   @media (max-width: $max-mobile-width) {
+    padding-right: 0;
+
     font-size: 16px;
     line-height: 22px;
   }
@@ -65,7 +70,10 @@
   @media (max-width: $max-tablet-width) {
     margin-bottom: 25px;
   }
-  
+
+  @media (max-width: $max-mobile-width) {
+    padding-right: 10px;
+  }
 }
 
 .service-details__point {
@@ -137,6 +145,7 @@
   padding-left: 30px;
 
   text-decoration: none;
+  text-align: center;
 
   @include button-contrast-style;
 
@@ -150,13 +159,27 @@
   }
 
   @media (max-width: $max-mobile-width) {
+    justify-self: stretch;
+
     font-size: 14px;
     line-height: 16px;
+
+    padding-top: 17px;
+    padding-bottom: 16px;
   }
 }
 
 .service-details__image-wrapper {
   grid-area: image;
+
+  @media (max-width: $max-mobile-width) {
+    position: absolute;
+    top: 96px;
+    right: 0;
+
+    width: 87px;
+    height: 113px;
+  }
 }
 
 .service-details__image {
