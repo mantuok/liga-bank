@@ -6,7 +6,7 @@ export const loans = [
     type: `mortgage`,
     name: `Ипотечное кредитование`,
     minCost: 1200000,
-    maxCost: 2500000,
+    maxCost: 25000000,
     initialMin: 0.1,
     minMortgage: 500000,
     maternal: 470000,

@@ -8,44 +8,81 @@ import {
 
 const CostAmount = () => {
   const dispatch = useDispatch();
-  const [inputValue, setInputValue] = useState({
-    current: `` 
-  })
+  const [inputData, setInputData] = useState({
+    value: '',
+    isValid: true 
+  });
 
   const loan = useSelector((state) => state.activeLoan);
   const costAmount = useSelector((state) => state.costAmount);
   const loanType = loan.type;
 
+  const getInvalidPlaceholder = () => inputData.isValid ? `` : `Error`
+
   const handleCostAmountChange = (evt) => {
-    setInputValue({
-      ...inputValue,
-      current: evt.target.value
+    setInputData({
+      ...inputData,
+      value: parseInt(evt.target.value),
+      isValid: true
     })
   };
 
-  const handleCostAmountBlur = (evt) => {
-    const enteredCostAmount = parseInt(evt.target.value);
-    onInputBlur(enteredCostAmount)
+  const isCostAmountValid = () => {
+    if ((inputData.value < loan.minCost) || (inputData.value > loan.maxCost)) {
+      setInputData({
+        ...inputData,
+        value: ``,
+        isValid: false
+      });
+    }
+    return inputData.isValid
+  }
+
+  const handleCostAmountBlur = () => {
+    if (isCostAmountValid()) {
+      onInputBlur(inputData.value);
+    }
   };
 
   const onInputBlur = (value) => {
     dispatch(ActionCreator.setCostAmount(value))
   };
 
-  const getUpdatedCostAmount = (clickType) => {
+
+  // const getUpdatedInputValue = (clickType) => {
+  //   // debugger
+  //   switch (clickType) {
+  //     case InputButtonType.MINUS:
+  //       return (inputData.value - LoanMeta[loanType].COST_STEP);
+  //     case (InputButtonType.PLUS):
+  //       return getIncreasedInputValue();
+  //     default:
+  //       return inputData.value;
+  //   } 
+  // };
+
+  const getUpdatedInputValue = (clickType) => {
+    // debugger
     switch (clickType) {
       case InputButtonType.MINUS:
-        return (costAmount - LoanMeta[loanType].COST_STEP)
+        return (inputData.value - LoanMeta[loanType].COST_STEP)
       case InputButtonType.PLUS:
-        return (costAmount + LoanMeta[loanType].COST_STEP)
+        return (inputData.value + LoanMeta[loanType].COST_STEP)
       default:
         return costAmount
     } 
   };
 
   const handleButtonClick = (clickType) => {
-    const updatedCostAmount = getUpdatedCostAmount(clickType);
-    onInputBlur(updatedCostAmount);
+    const updatedInputValue = parseInt(getUpdatedInputValue(clickType));
+    setInputData({
+      ...inputData,
+      value: updatedInputValue,
+      isValid: true
+    })    
+    if (isCostAmountValid()) {
+     onInputBlur(updatedInputValue);
+    }
   };
 
   return (
@@ -64,7 +101,8 @@ const CostAmount = () => {
           type="number" 
           name="cost-amount" 
           id="cost-amount"
-          value={costAmount}
+          placeholder={getInvalidPlaceholder()}
+          value={inputData.value}
           onChange={handleCostAmountChange}
           onBlur={handleCostAmountBlur}
         />
