@@ -84,3 +84,30 @@ export const SwipeEvent = {
   INTERVAL: `Interval`
 };
 
+export const LoanType = {
+  AUTO: `auto`,
+  MORTGAGE: `mortgage`
+};
+
+export const LoanMeta = {
+  mortgage: {
+    TYPE: `mortgage`,
+    COST_AMOUNT_LABEL: `Стоимость недвижимости`,
+    COST_STEP: 100000
+  },
+  auto: {
+    TYPE: `auto`,
+    COST_AMOUNT_LABEL: `Стоимость автомобиля`,
+    COST_STEP: 50000
+  }
+};
+
+export const InputError = {
+  text: `Некорректное значение`,
+  class: `--invalid`
+};
+
+export const InputButtonType = {
+  PLUS: `plus`,
+  MINUS: `minus`
+};

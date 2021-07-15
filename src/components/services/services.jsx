@@ -138,9 +138,6 @@ export const Services = () => {
      {...swipeHandler}
     >
       <h2 className="services__heading visually-hidden">Услуги банка</h2>
-      {/* <ul className="services__tab-headings services-tabs">
-        {isDesktop && renderTabHeadings()}
-      </ul> */}
       {isDesktop && renderTabsList()}
       {renderServiceDetails()}
       {isTabletOrMobile && renderDots()}

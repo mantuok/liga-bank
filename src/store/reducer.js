@@ -1,11 +1,15 @@
 import {ActionType} from './action';
 import {promos} from '../mocks/promos';
 import {services} from '../mocks/services';
+import {loans} from '../mocks/loans';
 
 const initialState = {
   popupToBeOpen: false,
   promos: promos,
-  services: services
+  services: services,
+  loans: loans,
+  activeLoan: undefined,
+  costAmount: 0
 }
 
 const reducer = (state = initialState, action) => {
@@ -19,6 +23,16 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         popupToBeOpen: false
+      }
+    case ActionType.SELECT_LOAN: 
+      return {
+        ...state,
+        activeLoan: action.payload
+      }
+    case ActionType.SET_COST_AMOUNT:
+      return {
+        ...state,
+        costAmount: action.payload
       }
     default:
       return state

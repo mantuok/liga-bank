@@ -9,8 +9,8 @@ const Main = () => {
     <main className="page__main Main">
       <Promo />
       <Services />
-      {/* <Calculator />
-      <Branches /> */}
+      <Calculator />
+      {/* <Branches /> */}
     </main>
   )
 }
