@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import classNames from 'classnames';
 import {ActionCreator} from '../../store/action';
 import {
   LoanMeta,
-  InputButtonType
+  InputButtonType,
+  InputError
 } from '../../const';
 
 const CostAmount = () => {
@@ -17,7 +19,8 @@ const CostAmount = () => {
   const costAmount = useSelector((state) => state.costAmount);
   const loanType = loan.type;
 
-  const getInvalidPlaceholder = () => inputData.isValid ? `` : `Error`
+  const getInvalidPlaceholder = () => inputData.isValid ? `` : InputError.TEXT;
+  const inputClass = classNames(`cost-amount__input`, {"cost-amount__input--invalid" : !inputData.isValid})
 
   const handleCostAmountChange = (evt) => {
     setInputData({
@@ -97,7 +100,7 @@ const CostAmount = () => {
           <span className="visually-hidden">{`Увеличить на ${LoanMeta[loanType].COST_STEP}`}</span>
         </button>
         <input 
-          className="cost-amount__input" 
+          className={inputClass} 
           type="number" 
           name="cost-amount" 
           id="cost-amount"

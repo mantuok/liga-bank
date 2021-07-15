@@ -103,8 +103,8 @@ export const LoanMeta = {
 };
 
 export const InputError = {
-  text: `Некорректное значение`,
-  class: `--invalid`
+  TEXT: `Некорректное значение`,
+  CLASS: `--invalid`
 };
 
 export const InputButtonType = {
