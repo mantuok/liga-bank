@@ -23,16 +23,22 @@ const CostAmount = () => {
   const getInvalidPlaceholder = () => inputData.isValid ? `` : InputError.TEXT;
   const inputClass = classNames(`cost-amount__input`, {"cost-amount__input--invalid" : !inputData.isValid});
 
+  const setUpdatedState = (value = inputData.value, status = inputData.isValid) => {
+    setInputData({
+      ...inputData,
+      value: value,
+      isValid: status
+    })
+  };
+  
   const getIncreasedInputValue = () => {
-    // debugger
     if (inputData.value >= loan.minCost) {
       return (inputData.value + LoanMeta[loanType].COST_STEP)
     } 
     return loan.minCost;
-  }
+  };
 
   const getUpdatedInputValue = (clickType) => {
-    // debugger
     switch (clickType) {
       case InputButtonType.MINUS:
         return (inputData.value - LoanMeta[loanType].COST_STEP);
@@ -44,114 +50,34 @@ const CostAmount = () => {
   };
 
   const handleCostAmountChange = (evt) => {
-    if ((evt.target.value < loan.minCost) || (evt.target.value > loan.maxCost)) {
-      return setInputData({
-        ...inputData,
-        value: parseInt(evt.target.value),
-        isValid: false
-      });
-    }
-    setInputData({
-      ...inputData,
-      value: parseInt(evt.target.value),
-      isValid: true
-    })
+    const enteredValue = parseInt(evt.target.value);
+    if ((enteredValue < loan.minCost) || (enteredValue > loan.maxCost)) {
+      return setUpdatedState(enteredValue, false)
+    };
+    setUpdatedState(enteredValue, true)
   };
 
-  // const isCostAmountValid = (currentCostAmount) => {
-  //   if ((currentCostAmount < loan.minCost) || (currentCostAmount > loan.maxCost)) {
-  //     setInputData({
-  //       ...inputData,
-  //       value: ``,
-  //       isValid: false
-  //     });
-  //   }
-  //   return inputData.isValid
-  // }
-
-  const isCostAmountValid = (currentCostAmount) => {
-    if ((currentCostAmount < loan.minCost) || (currentCostAmount > loan.maxCost)) {
-      setInputData({
-        ...inputData,
-        value: ``,
-        isValid: false
-      });
-    }
-    return inputData.isValid
-  }
-
-
-  // const handleCostAmountBlur = () => {
-  //   // debugger
-  //   if (isCostAmountValid(inputData.value)) {
-  //     onInputBlur(inputData.value);
-  //   }
-  // };
-
   const handleCostAmountBlur = () => {
-    // debugger
     if (!inputData.isValid) {
-      setInputData({
-        ...inputData,
-        value: ``
-      });
+      setUpdatedState(``)
       onInputBlur(INITIAL_VALUE)
     } else {
       onInputBlur(inputData.value);
     }
   };
 
-  // const handleCostAmountBlur = () => {
-  //   if (inputData.isValid) {
-  //     onInputBlur(inputData.value);
-  //   }
-  // };
+  const handleButtonClick = (clickType) => {
+    const updatedInputValue = parseInt(getUpdatedInputValue(clickType));
+    if ((updatedInputValue < loan.minCost) || (updatedInputValue > loan.maxCost)) {
+      setUpdatedState(``, false)
+    } else {
+      setUpdatedState(updatedInputValue, true)
+      onInputBlur(updatedInputValue)
+    }
+  };
 
   const onInputBlur = (value) => {
     dispatch(ActionCreator.setCostAmount(value))
-  };
-
-
-
-
-  // const getUpdatedInputValue = (clickType) => {
-  //   // debugger
-  //   switch (clickType) {
-  //     case InputButtonType.MINUS:
-  //       return (inputData.value - LoanMeta[loanType].COST_STEP)
-  //     case InputButtonType.PLUS:
-  //       return (inputData.value + LoanMeta[loanType].COST_STEP)
-  //     default:
-  //       return costAmount
-  //   } 
-  // };
-
-  const handleButtonClick = (clickType) => {
-    const updatedInputValue = parseInt(getUpdatedInputValue(clickType));
-    console.log(updatedInputValue)
-    if ((updatedInputValue < loan.minCost) || (updatedInputValue > loan.maxCost)) {
-      setInputData({
-        ...inputData,
-        value: ``,
-        isValid: false
-      });
-    } else {
-      setInputData({
-        ...inputData,
-        value: parseInt(updatedInputValue),
-        isValid: true
-      });
-      onInputBlur(updatedInputValue)
-    }
-    // setInputData({
-    //   ...inputData,
-    //   value: updatedInputValue,
-    //   isValid: true
-    // }) ;
-    // onInputBlur(updatedInputValue);   
-    // if (inputData.isValid) {
-    //   onInputBlur(updatedInputValue);
-    // }
   };
 
   return (

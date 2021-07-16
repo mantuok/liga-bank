@@ -60,6 +60,7 @@ const Calculator = () => {
           />
         </div>
         {renderCalculator()}
+        {/* {renderOffer()} */}
       </div>
     </section>
   )
