@@ -5,6 +5,7 @@ import Select from 'react-select';
 import {LoanType} from '../../const';
 import CostAmount from '../cost-amount/cost-amount';
 import InitialPayment from '../initial-payment/initial-payment';
+import LoanTerm from '../loan-term/loan-term';
 
 const Calculator = () => {
   const loans = useSelector((state) => state.loans);
@@ -33,6 +34,7 @@ const Calculator = () => {
           <form className="data-entry__form form">
             <CostAmount />
             <InitialPayment />
+            <LoanTerm />
           </form>
         </div>
       )

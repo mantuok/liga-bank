@@ -83,7 +83,7 @@ const InitialPayment = () => {
         className="initial-payment__input" 
         type="number" 
         name="initial-payment" 
-        id="cost-amount"
+        id="initial-payment"
         value={inputData.amount}
         onChange={handleCostAmountChange}
         onBlur={handleCostAmountBlur}

@@ -9,10 +9,10 @@ export const loans = [
     maxCost: 25000000,
     initialPaymentMin: 10,
     initialPaymentMax: 100,
-    minMortgage: 500000,
+    minLoan: 500000,
     maternal: 470000,
-    yearsMin: 5,
-    yearsMax: 30
+    termMin: 5,
+    termMax: 30
   },
   {
     id: nanoid(),
@@ -20,5 +20,10 @@ export const loans = [
     name: `Автомобильное кредитование`,
     minCost: 500000,
     maxCost: 5000000,
+    initialPaymentMin: 10,
+    initialPaymentMax: 100,
+    minLoan: 200000,
+    termMin: 1,
+    termMax: 5
   }
 ]
