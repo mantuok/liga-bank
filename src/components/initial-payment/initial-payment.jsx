@@ -17,11 +17,6 @@ const InitialPayment = () => {
 
   const PERCENTS = 100;
 
-  const getInitialValue = () => {
-    console.log(costAmount)
-    return costAmount * loan.initialPaymentMin
-  };
-
   const [inputData, setInputData] = useState({
     amount: costAmount * loan.initialPaymentMin,
     percent: [loan.initialPaymentMin],
@@ -31,30 +26,53 @@ const InitialPayment = () => {
   useEffect(() => {
     setInputData({
       ...inputData,
-      amount: (costAmount * loan.initialPaymentMin) / PERCENTS
+      amount: Math.round((costAmount * loan.initialPaymentMin) / PERCENTS)
     })
   }, [costAmount]);
 
+  // useEffect(() => {
+  //   setInputData({
+  //     ...inputData,
+  //     percent: [getValidPercents(Math.round((inputData.amount / costAmount) * PERCENTS))]
+  //   })
+  // }, [inputData.amount]);
+
   useEffect(() => {
-    setInputData({
-      ...inputData,
-      percent: [((inputData.amount / costAmount) * PERCENTS)]
-    })
+    let timeout = setTimeout(() => {
+      setInputData({
+        ...inputData,
+        percent: [getValidPercents((inputData.amount / costAmount) * PERCENTS)]
+      })
+    }, 1000);
+    return () => clearTimeout(timeout);
   }, [inputData.amount]);
 
   useEffect(() => {
-    setInputData({
-      ...inputData,
-      amount: (costAmount * inputData.percent) / PERCENTS
-    })
-  }, [inputData.percent]);
+    let timeout = setTimeout(() => {
+      setInputData({
+        ...inputData,
+        amount: Math.round((costAmount * inputData.percent) / PERCENTS)
+      })
+    }, 1000);
+    return () => clearTimeout(timeout);
+  }, [inputData.percent])
+    
+
+  const getValidPercents = (percents) => {
+    if (percents < loan.initialPaymentMin) {
+      return loan.initialPaymentMin;
+    } else if (percents > loan.initialPaymentMax) {
+      return  loan.initialPaymentMax;
+    }
+    return percents;
+  }
 
   const handleCostAmountChange = (evt) => {
     setInputData({
       ...inputData,
       amount: parseInt(evt.target.value)
     })
-  }
+  };
 
   return (
     <div className="form__initial-payment initial-payment">
