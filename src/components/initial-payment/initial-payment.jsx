@@ -5,13 +5,13 @@ import {Range, getTrackBackground} from 'react-range';
 import {ActionCreator} from '../../store/action';
 import {
   LoanMeta,
-  SliderStyle
+  SliderStyleTrack
 } from '../../const';
 
 const InitialPayment = () => {
   const dispatch = useDispatch();
   const loan = useSelector((state) => state.activeLoan);
-  const InitialPayment = useSelector((state) => state.initialPayment);
+  const initialPayment = useSelector((state) => state.initialPayment);
   const costAmount = useSelector((state) => state.costAmount);
   const loanType = loan.type;
 
@@ -26,40 +26,39 @@ const InitialPayment = () => {
   useEffect(() => {
     setInputData({
       ...inputData,
-      amount: Math.round((costAmount * loan.initialPaymentMin) / PERCENTS)
+      amount: Math.round((costAmount * inputData.percent) / PERCENTS)
     })
   }, [costAmount]);
 
   // useEffect(() => {
-  //   setInputData({
-  //     ...inputData,
-  //     percent: [getValidPercents(Math.round((inputData.amount / costAmount) * PERCENTS))]
-  //   })
+  //   let timeout = setTimeout(() => {
+  //     setInputData({
+  //       ...inputData,
+  //       percent: [getValidPercents((inputData.amount / costAmount) * PERCENTS)]
+  //     })
+  //   }, 1000);
+  //   return () => clearTimeout(timeout);
   // }, [inputData.amount]);
 
   useEffect(() => {
-    let timeout = setTimeout(() => {
-      setInputData({
-        ...inputData,
-        percent: [getValidPercents((inputData.amount / costAmount) * PERCENTS)]
-      })
-    }, 1000);
-    return () => clearTimeout(timeout);
-  }, [inputData.amount]);
+    setInputData({
+      ...inputData,
+      percent: [getValidPercents((initialPayment / costAmount) * PERCENTS)]
+    })
+  }, [initialPayment]);
 
   useEffect(() => {
-    let timeout = setTimeout(() => {
       setInputData({
         ...inputData,
         amount: Math.round((costAmount * inputData.percent) / PERCENTS)
       })
-    }, 1000);
-    return () => clearTimeout(timeout);
-  }, [inputData.percent])
+  }, [inputData.percent]);
     
 
   const getValidPercents = (percents) => {
-    if (percents < loan.initialPaymentMin) {
+    if (costAmount === 0) {
+      return loan.initialPaymentMin
+    } else if (percents < loan.initialPaymentMin) {
       return loan.initialPaymentMin;
     } else if (percents > loan.initialPaymentMax) {
       return  loan.initialPaymentMax;
@@ -74,6 +73,14 @@ const InitialPayment = () => {
     })
   };
 
+  const handleCostAmountBlur = () => {
+    onInutBlur();
+  };
+
+  const onInutBlur = () => {
+    dispatch(ActionCreator.setInitialPayment(inputData.amount))
+  };
+
   return (
     <div className="form__initial-payment initial-payment">
     <label className="initial-payment__label" htmlFor="initial-payment">{LoanMeta[loanType].INITIAL_PAYMENT_LABEL}</label>
@@ -86,7 +93,7 @@ const InitialPayment = () => {
         // placeholder={getInvalidPlaceholder()}
         value={inputData.amount}
         onChange={handleCostAmountChange}
-        // onBlur={handleCostAmountBlur}
+        onBlur={handleCostAmountBlur}
       />
       <Range
         step={LoanMeta[loanType].INITIAL_PAYMENT_STEP}
