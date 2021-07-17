@@ -10,15 +10,14 @@ import {
 
 const CostAmount = () => {
   const dispatch = useDispatch();
+  const loan = useSelector((state) => state.activeLoan);
+  const costAmount = useSelector((state) => state.costAmount);
+  const loanType = loan.type;
   const INITIAL_VALUE = 0;
   const [inputData, setInputData] = useState({
     value: '',
     isValid: true 
   });
-
-  const loan = useSelector((state) => state.activeLoan);
-  const costAmount = useSelector((state) => state.costAmount);
-  const loanType = loan.type;
 
   const getInvalidPlaceholder = () => inputData.isValid ? `` : InputError.TEXT;
   const inputClass = classNames(`cost-amount__input`, {"cost-amount__input--invalid" : !inputData.isValid});
@@ -30,7 +29,7 @@ const CostAmount = () => {
       isValid: status
     })
   };
-  
+
   const getIncreasedInputValue = () => {
     if (inputData.value >= loan.minCost) {
       return (inputData.value + LoanMeta[loanType].COST_STEP)

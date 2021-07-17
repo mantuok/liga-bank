@@ -93,12 +93,16 @@ export const LoanMeta = {
   mortgage: {
     TYPE: `mortgage`,
     COST_AMOUNT_LABEL: `Стоимость недвижимости`,
-    COST_STEP: 100000
+    COST_STEP: 100000,
+    INITIAL_PAYMENT_LABEL: `Первоначальный взнос`,
+    INITIAL_PAYMENT_STEP: 5
   },
   auto: {
     TYPE: `auto`,
     COST_AMOUNT_LABEL: `Стоимость автомобиля`,
-    COST_STEP: 50000
+    COST_STEP: 50000,
+    INITIAL_PAYMENT_LABEL: `Первоначальный взнос`,
+    INITIAL_PAYMENT_STEP: 0.05
   }
 };
 
@@ -111,3 +115,23 @@ export const InputButtonType = {
   PLUS: `plus`,
   MINUS: `minus`
 };
+
+export const SliderStyle = {
+  RAIL_STYLE: { 
+    width: `600`,
+    backgroundColor: `#C1C2CA`, 
+    height: 1
+  },
+  TRACK_STYLE: {
+    width: `600`,
+    backgroundColor: `#C1C2CA`, 
+    height: 1
+  },
+  HANDLE_STYLE: {
+    border: `none`,
+    backgroundColor: `#2C36F2`,
+    width: `14`,
+    height: `14`
+  }
+  
+}

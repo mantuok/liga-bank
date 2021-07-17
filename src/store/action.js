@@ -2,7 +2,8 @@ export const ActionType = {
   OPEN_POPUP: `popup/openPopup`,
   CLOSE_POPUP: `popup/closePopup`,
   SELECT_LOAN: `loan/selectLoan`,
-  SET_COST_AMOUNT: `loan/setCostAmount`
+  SET_COST_AMOUNT: `loan/setCostAmount`,
+  SET_INITIAL_PAYMENT: `loan/setInitialPayment`
 };
 
 export const ActionCreator = {
@@ -19,6 +20,9 @@ export const ActionCreator = {
   setCostAmount: (costAmount) => ({
     type: ActionType.SET_COST_AMOUNT,
     payload: costAmount
-  })
-
+  }),
+  setInitialPayment: (initialPayment) => ({
+    type: ActionType.SET_INITIAL_PAYMENT,
+    payload: initialPayment
+  }),
 };

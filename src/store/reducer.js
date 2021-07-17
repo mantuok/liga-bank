@@ -9,7 +9,8 @@ const initialState = {
   services: services,
   loans: loans,
   activeLoan: undefined,
-  costAmount: 0
+  costAmount: 0,
+  initialPayment: 0
 }
 
 const reducer = (state = initialState, action) => {
@@ -33,6 +34,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         costAmount: action.payload
+      }
+    case ActionType.SET_INITIAL_PAYMENT:
+      return {
+        ...state,
+        initialPayment: action.payload
       }
     default:
       return state

@@ -4,6 +4,7 @@ import {ActionCreator} from '../../store/action';
 import Select from 'react-select';
 import {LoanType} from '../../const';
 import CostAmount from '../cost-amount/cost-amount';
+import InitialPayment from '../initial-payment/initial-payment';
 
 const Calculator = () => {
   const loans = useSelector((state) => state.loans);
@@ -31,6 +32,7 @@ const Calculator = () => {
           <h3 className="data-entry__heading">Шаг 2. Введите параметры кредита</h3>
           <form className="data-entry__form form">
             <CostAmount />
+            <InitialPayment />
           </form>
         </div>
       )
