@@ -9,35 +9,78 @@ import {
 const LoanTerm = () => {
   const dispatch = useDispatch();
   const loan = useSelector((state) => state.activeLoan);
-  const initialPayment = useSelector((state) => state.initialPayment);
-  const costAmount = useSelector((state) => state.costAmount);
+  const loanTerm = useSelector((state) => state.loanTerm);
   const loanType = loan.type;
 
+  const StateName = {
+    TYPED_YEARS: `typedYears`,
+    RANGE_YEARS: `rangeYears`
+  }
+
   const [inputData, setInputData] = useState({
-    years: [loan.termMin]
+    typedYears: loan.termMin,
+    rangeYears: [loan.termMin]
   });
+
+  const setUpdatedState = (name, value) => {
+    setInputData({
+      ...inputData,
+      [name]: value
+    })
+  };
+
+  useEffect(() => {
+    const changedYears = [getValidYears(loanTerm)];
+    setUpdatedState(StateName.RANGE_YEARS, changedYears);
+  }, [loanTerm]);
+
+  useEffect(() => {
+    const changedYears = inputData.rangeYears[0];
+    setUpdatedState(StateName.TYPED_YEARS, changedYears);
+    onLoanTermChange(changedYears);
+  }, [inputData.rangeYears]);
+
+  const getValidYears = (years) => {
+    if (years < loan.termMin) {
+      return loan.termMin;
+    } else if (years > loan.termMax) {
+      return  loan.termMax;
+    }
+    return years;
+  }
+
+  const handleLoanTermChange = (evt) => {
+    const changedYears = parseInt(evt.target.value);
+    setUpdatedState(StateName.TYPED_YEARS, changedYears);
+  };
+
+  const handleLoanTermBlur = () => {
+    onLoanTermChange(inputData.typedYears);
+  }
+
+  const onLoanTermChange = (years) => {
+    dispatch(ActionCreator.setLoanTerm(years));
+  };
 
   return (
     <div className="form__loan-term loan-term">
-      <label className="loan-term__label" htmlFor="loan-term">{LoanMeta[loanType].INITIAL_PAYMENT_LABEL}</label>
+      <label className="loan-term__label" htmlFor="loan-term">{LoanMeta[loanType].LOAN_TERM_LABEL}</label>
       <div className="loan-term__input-wrapper">
         <input 
           className="loan-term__input" 
           type="number" 
           name="loan-term" 
           id="loan-term"
-          // value={inputData.amount}
-          // onChange={handleCostAmountChange}
-          // onBlur={handleCostAmountBlur}
+          value={inputData.typedYears}
+          onChange={handleLoanTermChange}
+          onBlur={handleLoanTermBlur}
         />
         <Range
           step={LoanMeta[loanType].TERM_STEP}
           min={loan.termMin}
           max={loan.termMax}
-          // min={1}
-          // max={100}
-          values={inputData.years}
-          onChange={(values) => setInputData({...inputData, years: values})}
+          values={inputData.rangeYears}
+          onChange={(values) => setInputData({...inputData, rangeYears: values})}
           renderTrack={({ props, children }) => (
             <div
               {...props}
@@ -78,11 +121,13 @@ const LoanTerm = () => {
                   backgroundColor: '#FFFFFF'
                 }}
               >
-                {inputData.years[0].toFixed(1)}
+                {inputData.rangeYears[0].toFixed(1)}
               </div>
             </div>
           )}
         />  
+        <span className="loan-term__range loan-term__range--min">{loan.termMin}</span>
+        <span className="loan-term__range loan-term__range--max">{loan.termMax}</span>
       </div>
     </div>
   )

@@ -61,13 +61,11 @@ const InitialPayment = () => {
   }
 
   const handleCostAmountChange = (evt) => {
-    setInputData({
-      ...inputData,
-      amount: parseInt(evt.target.value)
-    })
+    const changedAmount = parseInt(evt.target.value);
+    setUpdatedState(StateName.AMOUNT, changedAmount);
   };
 
-  const handleCostAmountBlur = () => {
+  const handleInitialPaymentBlur = () => {
     onInitialPaymentChange(inputData.amount);
   };
 
@@ -86,7 +84,7 @@ const InitialPayment = () => {
         id="initial-payment"
         value={inputData.amount}
         onChange={handleCostAmountChange}
-        onBlur={handleCostAmountBlur}
+        onBlur={handleInitialPaymentBlur}
       />
       <Range
         step={LoanMeta[loanType].INITIAL_PAYMENT_STEP}

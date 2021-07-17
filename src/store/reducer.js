@@ -11,7 +11,7 @@ const initialState = {
   activeLoan: undefined,
   costAmount: 0,
   initialPayment: 0,
-  loanTerm: 1
+  loanTerm: 5
 }
 
 const reducer = (state = initialState, action) => {
