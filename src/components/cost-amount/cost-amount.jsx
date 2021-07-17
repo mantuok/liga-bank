@@ -59,9 +59,9 @@ const CostAmount = () => {
   const handleCostAmountBlur = () => {
     if (!inputData.isValid) {
       setUpdatedState(``)
-      onInputBlur(INITIAL_VALUE)
+      onCostAmountChange(INITIAL_VALUE)
     } else {
-      onInputBlur(inputData.value);
+      onCostAmountChange(inputData.value);
     }
   };
 
@@ -71,11 +71,11 @@ const CostAmount = () => {
       setUpdatedState(``, false)
     } else {
       setUpdatedState(updatedInputValue, true)
-      onInputBlur(updatedInputValue)
+      onCostAmountChange(updatedInputValue)
     }
   };
 
-  const onInputBlur = (value) => {
+  const onCostAmountChange = (value) => {
     dispatch(ActionCreator.setCostAmount(value))
   };
 

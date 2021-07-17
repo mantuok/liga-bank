@@ -24,34 +24,29 @@ const InitialPayment = () => {
   });
 
   useEffect(() => {
+    const changedAmount = Math.round((costAmount * inputData.percent) / PERCENTS);
     setInputData({
       ...inputData,
-      amount: Math.round((costAmount * inputData.percent) / PERCENTS)
-    })
+      amount: changedAmount
+    });
+    onInitialPaymentChange(changedAmount);
   }, [costAmount]);
 
-  // useEffect(() => {
-  //   let timeout = setTimeout(() => {
-  //     setInputData({
-  //       ...inputData,
-  //       percent: [getValidPercents((inputData.amount / costAmount) * PERCENTS)]
-  //     })
-  //   }, 1000);
-  //   return () => clearTimeout(timeout);
-  // }, [inputData.amount]);
-
   useEffect(() => {
+    const changedPercent = [getValidPercents((initialPayment / costAmount) * PERCENTS)];
     setInputData({
       ...inputData,
-      percent: [getValidPercents((initialPayment / costAmount) * PERCENTS)]
-    })
+      percent: changedPercent
+    });
   }, [initialPayment]);
 
   useEffect(() => {
-      setInputData({
-        ...inputData,
-        amount: Math.round((costAmount * inputData.percent) / PERCENTS)
-      })
+    const changedAmount = Math.round((costAmount * inputData.percent) / PERCENTS);
+    setInputData({
+      ...inputData,
+      amount: changedAmount
+    });
+    onInitialPaymentChange(changedAmount);
   }, [inputData.percent]);
     
 
@@ -74,11 +69,11 @@ const InitialPayment = () => {
   };
 
   const handleCostAmountBlur = () => {
-    onInutBlur();
+    onInitialPaymentChange(inputData.amount);
   };
 
-  const onInutBlur = () => {
-    dispatch(ActionCreator.setInitialPayment(inputData.amount))
+  const onInitialPaymentChange = (amount) => {
+    dispatch(ActionCreator.setInitialPayment(amount))
   };
 
   return (
