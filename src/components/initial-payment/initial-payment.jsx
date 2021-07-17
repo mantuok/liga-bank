@@ -2,8 +2,6 @@ import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
 import {Range, getTrackBackground} from 'react-range';
-// import Slider, {createSliderWithTooltip, SliderTooltip} from 'rc-slider';
-// import 'rc-slider/assets/index.css';
 import {ActionCreator} from '../../store/action';
 import {
   LoanMeta,
@@ -17,6 +15,8 @@ const InitialPayment = () => {
   const costAmount = useSelector((state) => state.costAmount);
   const loanType = loan.type;
 
+  const PERCENTS = 100;
+
   const getInitialValue = () => {
     console.log(costAmount)
     return costAmount * loan.initialPaymentMin
@@ -24,27 +24,37 @@ const InitialPayment = () => {
 
   const [inputData, setInputData] = useState({
     amount: costAmount * loan.initialPaymentMin,
-    percent: [10],
+    percent: [loan.initialPaymentMin],
     isValid: true 
   });
 
   useEffect(() => {
     setInputData({
       ...inputData,
-      amount: costAmount * loan.initialPaymentMin
+      amount: (costAmount * loan.initialPaymentMin) / PERCENTS
     })
   }, [costAmount]);
 
-     
-  // console.log(LoanMeta[loanType].INITIAL_PAYMENT_STEP)
-  // console.log(loan.initialPaymentMin)
-  // console.log(loan.initialPaymentMax)
-          // step={LoanMeta[loanType].INITIAL_PAYMENT_STEP}
-        // min={loan.initialPaymentMin}
-        // max={loan.initialPaymentMax}
- 
+  useEffect(() => {
+    setInputData({
+      ...inputData,
+      percent: [((inputData.amount / costAmount) * PERCENTS)]
+    })
+  }, [inputData.amount]);
 
-  // const InitialPaymentSlider = createSliderWithTooltip(Slider)
+  useEffect(() => {
+    setInputData({
+      ...inputData,
+      amount: (costAmount * inputData.percent) / PERCENTS
+    })
+  }, [inputData.percent]);
+
+  const handleCostAmountChange = (evt) => {
+    setInputData({
+      ...inputData,
+      amount: parseInt(evt.target.value)
+    })
+  }
 
   return (
     <div className="form__initial-payment initial-payment">
@@ -56,8 +66,8 @@ const InitialPayment = () => {
         name="initial-payment" 
         id="cost-amount"
         // placeholder={getInvalidPlaceholder()}
-        // value={inputData.value}
-        // onChange={handleCostAmountChange}
+        value={inputData.amount}
+        onChange={handleCostAmountChange}
         // onBlur={handleCostAmountBlur}
       />
       <Range
@@ -71,9 +81,9 @@ const InitialPayment = () => {
             {...props}
             style={{
               ...props.style,
-              height: '6px',
+              height: '1px',
               width: '100%',
-              backgroundColor: '#ccc'
+              backgroundColor: '#C1C2CA'
             }}
           >
             {children}
@@ -84,38 +94,30 @@ const InitialPayment = () => {
             {...props}
             style={{
               ...props.style,
-              height: '42px',
-              width: '42px',
-              borderRadius: '4px',
-              backgroundColor: '#FFF',
+              height: '10px',
+              width: '10px',
+              borderRadius: '50%',
+              backgroundColor: '#2C36F2',
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              boxShadow: '0px 2px 6px #AAA'
             }}
           >
             <div
               style={{
                 position: 'absolute',
                 bottom: '-28px',
-                color: '#fff',
-                fontWeight: 'bold',
+                color: '#707C87',
+                fontWeight: '400',
                 fontSize: '14px',
-                fontFamily: 'Arial,Helvetica Neue,Helvetica,sans-serif',
+                fontFamily: 'inherit',
                 padding: '4px',
                 borderRadius: '4px',
-                backgroundColor: '#548BF4'
+                backgroundColor: '#FFFFFF'
               }}
             >
               {inputData.percent[0].toFixed(1)}
             </div>
-            <div
-              style={{
-                height: '16px',
-                width: '5px',
-                backgroundColor: isDragged ? '#548BF4' : '#CCC'
-              }}
-            />
           </div>
         )}
       />  
