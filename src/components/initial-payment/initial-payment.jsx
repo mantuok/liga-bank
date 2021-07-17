@@ -1,11 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import classNames from 'classnames';
-import {Range, getTrackBackground} from 'react-range';
+import {Range} from 'react-range';
 import {ActionCreator} from '../../store/action';
 import {
-  LoanMeta,
-  SliderStyleTrack
+  LoanMeta
 } from '../../const';
 
 const InitialPayment = () => {
@@ -16,36 +14,37 @@ const InitialPayment = () => {
   const loanType = loan.type;
 
   const PERCENTS = 100;
+  const StateName = {
+    AMOUNT: `amount`,
+    PERCENT: `percent`
+  }
 
   const [inputData, setInputData] = useState({
     amount: costAmount * loan.initialPaymentMin,
-    percent: [loan.initialPaymentMin],
-    isValid: true 
+    percent: [loan.initialPaymentMin]
   });
+
+  const setUpdatedState = (name, value) => {
+    setInputData({
+      ...inputData,
+      [name]: value
+    })
+  };
 
   useEffect(() => {
     const changedAmount = Math.round((costAmount * inputData.percent) / PERCENTS);
-    setInputData({
-      ...inputData,
-      amount: changedAmount
-    });
+    setUpdatedState(StateName.AMOUNT, changedAmount);
     onInitialPaymentChange(changedAmount);
   }, [costAmount]);
 
   useEffect(() => {
     const changedPercent = [getValidPercents((initialPayment / costAmount) * PERCENTS)];
-    setInputData({
-      ...inputData,
-      percent: changedPercent
-    });
+    setUpdatedState(StateName.PERCENT, changedPercent);
   }, [initialPayment]);
 
   useEffect(() => {
     const changedAmount = Math.round((costAmount * inputData.percent) / PERCENTS);
-    setInputData({
-      ...inputData,
-      amount: changedAmount
-    });
+    setUpdatedState(StateName.AMOUNT, changedAmount);
     onInitialPaymentChange(changedAmount);
   }, [inputData.percent]);
     
@@ -85,7 +84,6 @@ const InitialPayment = () => {
         type="number" 
         name="initial-payment" 
         id="cost-amount"
-        // placeholder={getInvalidPlaceholder()}
         value={inputData.amount}
         onChange={handleCostAmountChange}
         onBlur={handleCostAmountBlur}

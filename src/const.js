@@ -115,10 +115,3 @@ export const InputButtonType = {
   PLUS: `plus`,
   MINUS: `minus`
 };
-
-export const SliderStyleTrack = 
-  {
-    height: '1px',
-    width: '100%',
-    backgroundColor: '#C1C2CA'
-  }
