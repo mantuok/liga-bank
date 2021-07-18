@@ -1,65 +1,59 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useRef} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {nanoid} from 'nanoid'
-import classNames from 'classnames';
 import {ActionCreator} from '../../store/action';
-import {
-  LoanMeta
-} from '../../const';
 
-const AdditionalCondition = () => {
+
+const AdditionalCondition = (props) => {
+  const {condition} = props;
   const dispatch = useDispatch();
-  const loan = useSelector((state) => state.activeLoan);
-  const loanAdditionalConditions = loan.additionalConditions; 
-  const loanType = loan.type;
+  const additionalConditions = useSelector((state) => state.additionalConditions)
+  const conditionCheckBox = useRef();
 
-  const conditionCheckBox = useRef()
+  const [checkboxData, setCheckboxData] = useState({
+    status: false
+  })
 
-  // const additionalConditionClass = classNames(
-  //   `additional-condition__wrapper additional-condition--${condition.name}`
-  // );
-
-  const renderAdditionalConditions = () => {
-    return loanAdditionalConditions.map((condition) => {
-      return (
-        <div 
-          className="additional-condition__wrapper"
-          key={nanoid()}
-        >
-          <input 
-            className="additional-condition__input" 
-            type="checkbox"
-            id={condition.name}
-            name={condition.name}
-            ref={conditionCheckBox}
-            onClick={handleAdditionalConditionClick}
-          />
-          <label className="additional-condition__label" htmlFor="additional-condition">{condition.label}</label>
-        </div>
-      )
-    })
+  const addCondition = (currentCondition) => {
+    additionalConditions.push(currentCondition);
+    onAdditionalConditionChange(additionalConditions);
   }
 
-  const handleAdditionalConditionClick = (evt) => {
-    // debugger
+  const removeCondition = (currentCondition) => {
+    const changedConditions = additionalConditions.filter((condition) => condition !== currentCondition);
+    onAdditionalConditionChange(changedConditions);
+  }
+
+  const handleAdditionalConditionChange = (evt) => {
     const currentCondition = evt.target.name;
-    const selectedConditions = [];
     if (conditionCheckBox.current.checked) {
-      selectedConditions.push(currentCondition);
+      setCheckboxData({status: true});
+      addCondition(currentCondition);
     } else if (!conditionCheckBox.current.checked) {
-      selectedConditions.filter((condition) => condition !== selectedConditions)
+      setCheckboxData({status: false});
+      removeCondition(currentCondition);
     }
-    console.log(selectedConditions);
-    console.log(conditionCheckBox.current)
+  }
+  
+  const onAdditionalConditionChange = (conditions) => {
+    dispatch(ActionCreator.setAdditionalCondition(conditions))
   };
 
-  const onAdditionalConditionChange = () => {
-    dispatch(ActionCreator.setAdditionalCondition())
-  }
-
   return (
-    <div className="form__additional-conditions additional-conditions">
-      {renderAdditionalConditions()}
+    <div 
+      className="additional-condition__wrapper"
+      key={nanoid()}
+    >
+      <input 
+        className="additional-condition__input" 
+        type="checkbox"
+        id={condition.name}
+        name={condition.name}
+        ref={conditionCheckBox}
+        checked={checkboxData.status}
+        onChange={handleAdditionalConditionChange}
+      />
+      <label className="additional-condition__label" htmlFor={condition.name}>{condition.label}</label>
     </div>
   )
 };
