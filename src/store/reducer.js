@@ -10,6 +10,7 @@ const initialState = {
   loans: loans,
   activeLoan: undefined,
   costAmount: 0,
+  costAmountUpdated: true,
   initialPayment: 0,
   loanTerm: 1,
   additionalConditions: []
@@ -35,12 +36,14 @@ const reducer = (state = initialState, action) => {
     case ActionType.SET_COST_AMOUNT:
       return {
         ...state,
-        costAmount: action.payload
+        costAmount: action.payload,
+        costAmountUpdated: true
       }
     case ActionType.SET_INITIAL_PAYMENT:
       return {
         ...state,
-        initialPayment: action.payload
+        initialPayment: action.payload,
+        costAmountUpdated: false
       }
     case ActionType.SET_LOAN_TERM:
       return {
