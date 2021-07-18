@@ -29,16 +29,11 @@ const LoanTerm = () => {
     })
   };
 
-  useEffect(() => {
-    const changedYears = [getValidYears(loanTerm)];
-    setUpdatedState(StateName.RANGE_YEARS, changedYears);
-  }, [loanTerm]);
+  // useEffect(() => {
+  //   const changedYears = [getValidYears(loanTerm)];
+  //   setUpdatedState(StateName.RANGE_YEARS, changedYears);
+  // }, [loanTerm]);
 
-  useEffect(() => {
-    const changedYears = inputData.rangeYears[0];
-    setUpdatedState(StateName.TYPED_YEARS, changedYears);
-    onLoanTermChange(changedYears);
-  }, [inputData.rangeYears]);
 
   const getValidYears = (years) => {
     if (years < loan.termMin) {
@@ -50,17 +45,35 @@ const LoanTerm = () => {
   }
 
   const handleLoanTermChange = (evt) => {
-    const changedYears = parseInt(evt.target.value);
+    // const changedYears = parseInt(evt.target.value) || 0;
+    // // debugger
+    // console.log(changedYears)
+    // if (evt.target.value !== '') {
+    const changedYears = parseInt(evt.target.value) || 0;
     setUpdatedState(StateName.TYPED_YEARS, changedYears);
+    // }
   };
 
   const handleLoanTermBlur = () => {
-    onLoanTermChange(inputData.typedYears);
+    const changedYears = getValidYears(inputData.typedYears)
+    // setUpdatedState(StateName.RANGE_YEARS, [changedYears]);
+    // setUpdatedState(StateName.TYPED_YEARS, changedYears);
+    setInputData({
+      typedYears: changedYears,
+      rangeYears: [changedYears]
+    })
+    onLoanTermChange(changedYears);
   }
 
   const onLoanTermChange = (years) => {
     dispatch(ActionCreator.setLoanTerm(years));
   };
+
+  // useEffect(() => {
+  //   // const changedYears = inputData.rangeYears[0];
+  //   // setUpdatedState(StateName.TYPED_YEARS, changedYears);
+  //   onLoanTermChange(inputData.rangeYears[0]);
+  // }, [inputData.rangeYears, onLoanTermChange]);
 
   return (
     <div className="form__loan-term loan-term">
@@ -80,7 +93,7 @@ const LoanTerm = () => {
           min={loan.termMin}
           max={loan.termMax}
           values={inputData.rangeYears}
-          onChange={(values) => setInputData({...inputData, rangeYears: values})}
+          onChange={(values) => setInputData({...inputData, rangeYears: values, typedYears: values[0]})}
           renderTrack={({ props, children }) => (
             <div
               {...props}

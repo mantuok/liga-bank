@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {nanoid} from 'nanoid'
 import {ActionCreator} from '../../store/action';
 
-
 const AdditionalCondition = (props) => {
   const {condition} = props;
   const dispatch = useDispatch();
