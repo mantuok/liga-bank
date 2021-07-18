@@ -97,7 +97,11 @@ export const LoanMeta = {
     INITIAL_PAYMENT_LABEL: `Первоначальный взнос`,
     INITIAL_PAYMENT_STEP: 5,
     TERM_LABEL: `Срок кредитования`,
-    TERM_STEP: 1
+    TERM_STEP: 1,
+    LOAN_AMOUNT_LABEL: `Сумма ипотеки`,
+    AdditionalCondition: {
+      MATERNAL: `maternal`
+    }
   },
   auto: {
     TYPE: `auto`,
@@ -106,7 +110,12 @@ export const LoanMeta = {
     INITIAL_PAYMENT_LABEL: `Первоначальный взнос`,
     INITIAL_PAYMENT_STEP: 0.05,
     TERM_LABEL: `Срок кредитования`,
-    TERM_STEP: 1
+    TERM_STEP: 1,
+    LOAN_AMOUNT_LABEL: `Сумма автокредита`,
+    AdditionalCondition: {
+      AUTO_INSURANCE: `autoInsurance`,
+      LIFE_INSURANCE: `lifeInsurance`
+    }
   }
 };
 
