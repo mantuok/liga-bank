@@ -6,6 +6,7 @@ import {LoanType} from '../../const';
 import CostAmount from '../cost-amount/cost-amount';
 import InitialPayment from '../initial-payment/initial-payment';
 import LoanTerm from '../loan-term/loan-term';
+import AdditionalCondition from '../additional-condition/additional-condition';
 
 const Calculator = () => {
   const loans = useSelector((state) => state.loans);
@@ -35,6 +36,7 @@ const Calculator = () => {
             <CostAmount />
             <InitialPayment />
             <LoanTerm />
+            <AdditionalCondition />
           </form>
         </div>
       )

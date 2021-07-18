@@ -11,7 +11,8 @@ const initialState = {
   activeLoan: undefined,
   costAmount: 0,
   initialPayment: 0,
-  loanTerm: 5
+  loanTerm: 1,
+  additionalCondition: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -45,6 +46,11 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         loanTerm: action.payload
+      }
+    case ActionType.SET_ADDITIONAL_CONDITION:
+      return {
+        ...state,
+        additionalCondition: action.payload
       }
     default:
       return state
