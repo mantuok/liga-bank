@@ -9,31 +9,19 @@ import {
 const LoanTerm = () => {
   const dispatch = useDispatch();
   const loan = useSelector((state) => state.activeLoan);
-  const loanTerm = useSelector((state) => state.loanTerm);
   const loanType = loan.type;
-
-  const StateName = {
-    TYPED_YEARS: `typedYears`,
-    RANGE_YEARS: `rangeYears`
-  }
 
   const [inputData, setInputData] = useState({
     typedYears: loan.termMin,
     rangeYears: [loan.termMin]
   });
 
-  const setUpdatedState = (name, value) => {
-    setInputData({
-      ...inputData,
-      [name]: value
-    })
-  };
-
-  // useEffect(() => {
-  //   const changedYears = [getValidYears(loanTerm)];
-  //   setUpdatedState(StateName.RANGE_YEARS, changedYears);
-  // }, [loanTerm]);
-
+  useEffect(() => {
+    const onLoanTermChange = (years) => {
+      dispatch(ActionCreator.setLoanTerm(years));
+    };
+    onLoanTermChange(inputData.rangeYears[0])
+  }, [dispatch, inputData.rangeYears]);
 
   const getValidYears = (years) => {
     if (years < loan.termMin) {
@@ -45,35 +33,17 @@ const LoanTerm = () => {
   }
 
   const handleLoanTermChange = (evt) => {
-    // const changedYears = parseInt(evt.target.value) || 0;
-    // // debugger
-    // console.log(changedYears)
-    // if (evt.target.value !== '') {
     const changedYears = parseInt(evt.target.value) || 0;
-    setUpdatedState(StateName.TYPED_YEARS, changedYears);
-    // }
+    setInputData({...inputData, typedYears: changedYears})
   };
 
   const handleLoanTermBlur = () => {
     const changedYears = getValidYears(inputData.typedYears)
-    // setUpdatedState(StateName.RANGE_YEARS, [changedYears]);
-    // setUpdatedState(StateName.TYPED_YEARS, changedYears);
     setInputData({
       typedYears: changedYears,
       rangeYears: [changedYears]
     })
-    onLoanTermChange(changedYears);
-  }
-
-  const onLoanTermChange = (years) => {
-    dispatch(ActionCreator.setLoanTerm(years));
   };
-
-  // useEffect(() => {
-  //   // const changedYears = inputData.rangeYears[0];
-  //   // setUpdatedState(StateName.TYPED_YEARS, changedYears);
-  //   onLoanTermChange(inputData.rangeYears[0]);
-  // }, [inputData.rangeYears, onLoanTermChange]);
 
   return (
     <div className="form__loan-term loan-term">
