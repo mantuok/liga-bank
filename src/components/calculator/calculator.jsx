@@ -1,8 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {ActionCreator} from '../../store/action';
 import Select from 'react-select';
-import {LoanType} from '../../const';
 import CostAmount from '../cost-amount/cost-amount';
 import InitialPayment from '../initial-payment/initial-payment';
 import LoanTerm from '../loan-term/loan-term';
@@ -13,12 +12,6 @@ const Calculator = () => {
   const activeLoan = useSelector((state) => state.activeLoan);
   const dispatch = useDispatch();
 
-  // const [activeCalculator, setActiveCalculator] = useState({
-  //   type: ``,
-  //   id: null,
-  //   loanData: ``
-  // });
-
   const options = [
     {value: loans[0].id, label: loans[0].name},
     {value: loans[1].id, label: loans[1].name}
@@ -27,7 +20,6 @@ const Calculator = () => {
   const getLoanDataById = (id) => loans.filter((loan) => loan.id === id)[0];
 
   const renderCalculator = () => {
-    // debugger
     if (activeLoan) {
       return (
         <div className="calculation__data-entry data-entry">

@@ -119,6 +119,8 @@ export const Services = () => {
         return increaseActiveServiceSlide(swipeType);
       case SwipeEvent.SWIPE_TO_RIGHT:
         return decreaseActiveServiceSlide(swipeType);
+      default:
+        return 
     }
   };
 

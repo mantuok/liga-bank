@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import {useSwipeable} from 'react-swipeable';
-import {nanoid} from 'nanoid';
 import {
   SLIDER_INTERVAL,
   SwipeEvent
@@ -65,6 +64,8 @@ const Promo = () => {
         return increaseActivePromoSlide(swipeType);
       case SwipeEvent.SWIPE_TO_RIGHT:
         return decreaseActivePromoSlide(swipeType);
+      default:
+        return
     }
   };
 

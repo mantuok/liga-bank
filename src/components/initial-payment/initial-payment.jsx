@@ -9,7 +9,6 @@ import {
 const InitialPayment = () => {
   const dispatch = useDispatch();
   const loan = useSelector((state) => state.activeLoan);
-  const initialPayment = useSelector((state) => state.initialPayment);
   const costAmountUpdated = useSelector((state) => state.costAmountUpdated);
   const costAmount = useSelector((state) => state.costAmount);
   const loanType = loan.type;
@@ -33,7 +32,7 @@ const InitialPayment = () => {
         amount: Math.round((costAmount * inputData.percent) / PERCENTS),
       });
     }
-  }, [costAmountUpdated, costAmount, inputData.percent]);
+  }, [costAmountUpdated, costAmount, inputData.percent, inputData]);
     
   const getValidPercents = (percents) => {
     if (costAmount === 0) {

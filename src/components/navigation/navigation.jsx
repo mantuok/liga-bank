@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
 import {useMediaQuery} from 'react-responsive';
 import {ActionCreator} from '../../store/action';
 import classNames from 'classnames';
@@ -25,7 +24,6 @@ const Navigation = () => {
   }
 
   const isMobile = useMediaQuery({query: `(max-width: ${Viewport.Mobile.MAX})`});
-  const isTablet = useMediaQuery({query: `(max-width: ${Viewport.Tablet.MAX})`});
   const isDesktop = useMediaQuery({query: `(min-width: ${Viewport.Desktop.MIN})`});
   const isDesktopOrTablet = useMediaQuery({query: `(min-width: ${Viewport.Tablet.MIN})`});
 
@@ -71,6 +69,8 @@ const Navigation = () => {
         return setMenuMobileStatus({
           isMenuOpen: false
         })
+      default:
+        return
     }
   };
 

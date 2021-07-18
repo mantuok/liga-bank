@@ -65,7 +65,7 @@ const Authorization = () => {
   return (
     <section className="header__authorization auth">
       <div className="auth__popup">
-        <img className="auth__logo" src="../img/liga-logo-full.svg"></img>
+        <img className="auth__logo" src="../img/liga-logo-full.svg" alt="Лига Банк"></img>
         <button 
           className="auth__close"
           onClick={handleCloseButtonClick}
