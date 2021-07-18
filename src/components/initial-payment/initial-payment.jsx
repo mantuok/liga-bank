@@ -32,23 +32,15 @@ const InitialPayment = () => {
   };
 
   useEffect(() => {
-    const changedAmount = Math.round((costAmount * inputData.percent) / PERCENTS);
-    setUpdatedState(StateName.AMOUNT, changedAmount);
-    onInitialPaymentChange(changedAmount);
-  }, [costAmount]);
+    dispatch(ActionCreator.setInitialPayment(inputData.amount))
+  }, [dispatch, inputData.amount]);
 
-  useEffect(() => {
-    const changedPercent = [getValidPercents((initialPayment / costAmount) * PERCENTS)];
-    setUpdatedState(StateName.PERCENT, changedPercent);
-  }, [initialPayment]);
-
-  useEffect(() => {
-    const changedAmount = Math.round((costAmount * inputData.percent) / PERCENTS);
-    setUpdatedState(StateName.AMOUNT, changedAmount);
-    onInitialPaymentChange(changedAmount);
-  }, [inputData.percent]);
+  // useEffect(() => {
+  //   const changedAmount = Math.round((costAmount * inputData.percent) / PERCENTS);
+  //   setUpdatedState(StateName.AMOUNT, changedAmount);
+  //   // onInitialPaymentChange(changedAmount);
+  // }, [costAmount]);
     
-
   const getValidPercents = (percents) => {
     if (costAmount === 0) {
       return loan.initialPaymentMin
@@ -66,11 +58,12 @@ const InitialPayment = () => {
   };
 
   const handleInitialPaymentBlur = () => {
-    onInitialPaymentChange(inputData.amount);
-  };
-
-  const onInitialPaymentChange = (amount) => {
-    dispatch(ActionCreator.setInitialPayment(amount))
+    const changedPercent = [getValidPercents((inputData.amount / costAmount) * PERCENTS)];
+    const changedAmount = Math.round((costAmount * changedPercent) / PERCENTS);
+    setInputData({
+      amount: changedAmount,
+      percent: changedPercent
+    })
   };
 
   return (
@@ -91,7 +84,7 @@ const InitialPayment = () => {
         min={loan.initialPaymentMin}
         max={loan.initialPaymentMax}
         values={inputData.percent}
-        onChange={(values) => setInputData({...inputData, percent: values})}
+        onChange={(values) => setInputData({...inputData, amount: (Math.round((costAmount * values[0]) / PERCENTS)), percent: values})}
         renderTrack={({ props, children }) => (
           <div
             {...props}
