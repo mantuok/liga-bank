@@ -108,7 +108,7 @@ export const LoanMeta = {
     COST_AMOUNT_LABEL: `Стоимость автомобиля`,
     COST_STEP: 50000,
     INITIAL_PAYMENT_LABEL: `Первоначальный взнос`,
-    INITIAL_PAYMENT_STEP: 0.05,
+    INITIAL_PAYMENT_STEP: 5,
     TERM_LABEL: `Срок кредитования`,
     TERM_STEP: 1,
     LOAN_AMOUNT_LABEL: `Сумма автокредита`,

@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {
   LoanMeta,
-  PERCENTS
 } from '../../const';
-import {getLoanAmount} from '../../utils/calculations'
+import {
+  getLoanAmount,
+  getLoanRate,
+  getMonthlyPayment,
+  getIncome
+} from '../../utils/calculations'
 
 const Offer = () => {
   const costAmount = useSelector((state) => state.costAmount);
@@ -14,41 +18,6 @@ const Offer = () => {
   const initialPayment = useSelector((state) => state.initialPayment);
   const additionalConditions = useSelector((state) => state.additionalConditions);
 
-  // const getLoanAmount = () => {
-  //   if (additionalConditions.includes(LoanMeta[loanType].AdditionalCondition.MATERNAL)) {
-  //     return (costAmount - initialPayment - loan.additionalConditions[0].value);
-  //   } else {
-  //     return (costAmount - initialPayment);
-  //   }
-  // }
-
-  const getLoanRate = () => {
-    if (
-      ((initialPayment / costAmount) < loan.rate.condition) ||
-      (initialPayment === 0)
-     ) {
-      return (loan.rate.rate1 * PERCENTS)
-    } else {
-      return (loan.rate.rate2 * PERCENTS)
-    }
-  };
-
-  const getMonthlyPayment = () => {
-    // debugger
-    if (loanAmount !== 0) {
-      const monthlyRate = loanRate / (12 * 100);
-      const months = loanTerm * 12;
-      const monthlyPayment = Math.round((loanAmount * monthlyRate) / (1 - (1 / Math.pow((1 + monthlyRate), months))))
-      return monthlyPayment;
-    } else {
-      return 0;
-    }
-  };
-
-  const getIncome = () => {
-    return Math.round(monthlyPayment / loan.incomePercent);
-  }
-
   const loanAmount = getLoanAmount(
     loanType,
     costAmount,
@@ -56,9 +25,23 @@ const Offer = () => {
     additionalConditions,
     loan.additionalConditions
   );
-  const loanRate = getLoanRate();
-  const monthlyPayment = getMonthlyPayment();
-  const income = getIncome();
+  const loanRate = getLoanRate(
+    loanType,
+    loan.rate,
+    loan.additionalConditions,
+    costAmount,
+    initialPayment,
+    additionalConditions
+  );
+  const monthlyPayment = getMonthlyPayment(
+    loanAmount,
+    loanRate,
+    loanTerm
+  );
+  const income = getIncome(
+    monthlyPayment,
+    loan.incomePercent
+  );
 
   return (
     <div className="form__offer offer">

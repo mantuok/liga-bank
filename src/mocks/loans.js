@@ -32,7 +32,7 @@ export const loans = [
     name: `Автомобильное кредитование`,
     minCost: 500000,
     maxCost: 5000000,
-    initialPaymentMin: 10,
+    initialPaymentMin: 20,
     initialPaymentMax: 100,
     minLoan: 200000,
     termMin: 1,
@@ -40,9 +40,9 @@ export const loans = [
     rate: {
       rate1: 0.16,
       rate2: 0.15,
-      rate3: 0.85,
-      rate4: 0.35,
-      value: 2000000
+      rate3: 0.085,
+      rate4: 0.035,
+      condition: 2000000
     },
     additionalConditions: [
       {
@@ -55,6 +55,7 @@ export const loans = [
         label: `Оформить Страхование жизни в нашем банке`,
         value: `8,5`
       }
-    ]
+    ],
+    incomePercent: 0.45
   }
 ]

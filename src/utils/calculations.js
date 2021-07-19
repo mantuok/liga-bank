@@ -20,37 +20,58 @@ export const getLoanAmount = (loanType, costAmount, initialPayment, additionalCo
     case LoanMeta.auto.TYPE:
       loanAmount = costAmount - initialPayment;
       return loanAmount;
+    default: 
+      return
   }
 };
 
-export const getRate = (loanType, initialPayment, costAmount, loan, additionalConditions, loanConditions) => {
+export const getLoanRate = (loanType, loanRate, loanConditions, costAmount, initialPayment, additionalConditions) => {
   let rate = 0;
   switch (loanType) {
     case LoanMeta.mortgage.TYPE: 
+    // debugger
       if (
-        ((initialPayment / costAmount) < loan.rate.condition) ||
+        ((initialPayment / costAmount) < loanRate.condition) ||
         (initialPayment === 0)
       ) {
-        rate = loan.rate.rate1 * PERCENTS;
+        rate = loanRate.rate1 * PERCENTS;
       } else {
-        rate = loan.rate.rate2 * PERCENTS;
+        rate = loanRate.rate2 * PERCENTS;
       }
+      return rate;
     case LoanMeta.auto.TYPE:
       if ((
         additionalConditions.includes(loanLifeInsuranceCondition)) &&
         (additionalConditions.includes(loanAutoInsuranceCondition)))
        {
-        rate = loan.rates.rate4
+        rate = loanRate.rate4 * PERCENTS
       } else if ((
         additionalConditions.includes(loanLifeInsuranceCondition)) ||
         (additionalConditions.includes(loanAutoInsuranceCondition)))
        {
-        rate = loan.rates.rate3
-      } else if (costAmount >= loan.rate.value) {
-        rate = loan.rates.rate2
-      } else if (costAmount < loan.rate.value) {
-        rate = loan.rates.rate1
+        rate = loanRate.rate3 * PERCENTS
+      } else if (costAmount >= loanRate.condition) {
+        rate = loanRate.rate2 * PERCENTS
+      } else if (costAmount < loanRate.condition) {
+        rate = loanRate.rate1 * PERCENTS
       }
       return rate;
+    default:
+      return
   }
+};
+
+export const getMonthlyPayment = (loanAmount, loanRate, loanTerm) => {
+  if (loanAmount !== 0) {
+    const monthlyRate = loanRate / (12 * 100);
+    const months = loanTerm * 12;
+    const monthlyPayment = Math.round((loanAmount * monthlyRate) / (1 - (1 / Math.pow((1 + monthlyRate), months))))
+    return monthlyPayment;
+  } else {
+    return 0;
+  }
+};
+
+export const getIncome = (monthlyPayment, loanIncomePercent) => {
+  return Math.round(monthlyPayment / loanIncomePercent);
 }
