@@ -4,6 +4,7 @@ import {
   LoanMeta,
   PERCENTS
 } from '../../const';
+import {getLoanAmount} from '../../utils/calculations'
 
 const Offer = () => {
   const costAmount = useSelector((state) => state.costAmount);
@@ -13,13 +14,13 @@ const Offer = () => {
   const initialPayment = useSelector((state) => state.initialPayment);
   const additionalConditions = useSelector((state) => state.additionalConditions);
 
-  const getLoanAmount = () => {
-    if (additionalConditions.includes(LoanMeta[loanType].AdditionalCondition.MATERNAL)) {
-      return (costAmount - initialPayment - loan.additionalConditions[0].value);
-    } else {
-      return (costAmount - initialPayment);
-    }
-  }
+  // const getLoanAmount = () => {
+  //   if (additionalConditions.includes(LoanMeta[loanType].AdditionalCondition.MATERNAL)) {
+  //     return (costAmount - initialPayment - loan.additionalConditions[0].value);
+  //   } else {
+  //     return (costAmount - initialPayment);
+  //   }
+  // }
 
   const getLoanRate = () => {
     if (
@@ -48,7 +49,13 @@ const Offer = () => {
     return Math.round(monthlyPayment / loan.incomePercent);
   }
 
-  const loanAmount = getLoanAmount();
+  const loanAmount = getLoanAmount(
+    loanType,
+    costAmount,
+    initialPayment,
+    additionalConditions,
+    loan.additionalConditions
+  );
   const loanRate = getLoanRate();
   const monthlyPayment = getMonthlyPayment();
   const income = getIncome();

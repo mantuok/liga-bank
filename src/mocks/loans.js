@@ -37,6 +37,13 @@ export const loans = [
     minLoan: 200000,
     termMin: 1,
     termMax: 5,
+    rate: {
+      rate1: 0.16,
+      rate2: 0.15,
+      rate3: 0.85,
+      rate4: 0.35,
+      value: 2000000
+    },
     additionalConditions: [
       {
         name: `autoInsurance`,
