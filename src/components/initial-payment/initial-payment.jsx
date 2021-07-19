@@ -3,7 +3,8 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Range} from 'react-range';
 import {ActionCreator} from '../../store/action';
 import {
-  LoanMeta
+  LoanMeta,
+  PERCENTS
 } from '../../const';
 
 const InitialPayment = () => {
@@ -12,8 +13,6 @@ const InitialPayment = () => {
   const costAmountUpdated = useSelector((state) => state.costAmountUpdated);
   const costAmount = useSelector((state) => state.costAmount);
   const loanType = loan.type;
-
-  const PERCENTS = 100;
 
   const [inputData, setInputData] = useState({
     amount: costAmount * loan.initialPaymentMin,

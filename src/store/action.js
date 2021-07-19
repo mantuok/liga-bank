@@ -5,7 +5,11 @@ export const ActionType = {
   SET_COST_AMOUNT: `loan/setCostAmount`,
   SET_INITIAL_PAYMENT: `loan/setInitialPayment`,
   SET_LOAN_TERM: `loan/setLoanTerm`,
-  SET_ADDITIONAL_CONDITION: `loan/setAdditionalCondition`
+  SET_ADDITIONAL_CONDITION: `loan/setAdditionalCondition`,
+  SET_LOAN_AMOUNT: `loan/setLoanAmount`,
+  SET_RATE: `loan/setRate`,
+  SET_MONTHLY_PAYMENT: `loan/setMonthlyPayment`,
+  SET_INCOME: `loan/setIncome`
 };
 
 export const ActionCreator = {
@@ -34,5 +38,21 @@ export const ActionCreator = {
   setAdditionalCondition: (condition) => ({
     type: ActionType.SET_ADDITIONAL_CONDITION,
     payload: condition
+  }),
+  setLoanAmount: (loanAmount) => ({
+    type: ActionType.SET_LOAN_AMOUNT,
+    payload: loanAmount
+  }),
+  setRate: (rate) => ({
+    type: ActionType.SET_RATE,
+    payload: rate
+  }),
+  setMonthlyPayment: (monthlyPayment) => ({
+    type: ActionType.SET_MONTHLY_PAYMENT,
+    payload: monthlyPayment
+  }),
+  setIncome: (income) => ({
+    type: ActionType.SET_INCOME,
+    payload: income
   })
 };

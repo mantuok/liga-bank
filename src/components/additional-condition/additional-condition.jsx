@@ -6,7 +6,8 @@ import {ActionCreator} from '../../store/action';
 const AdditionalCondition = (props) => {
   const {condition} = props;
   const dispatch = useDispatch();
-  const additionalConditions = useSelector((state) => state.additionalConditions)
+  const additionalConditions = useSelector((state) => state.additionalConditions);
+  let changedConditions = additionalConditions.slice();
   const conditionCheckBox = useRef();
 
   const [checkboxData, setCheckboxData] = useState({
@@ -14,12 +15,13 @@ const AdditionalCondition = (props) => {
   })
 
   const addCondition = (currentCondition) => {
-    additionalConditions.push(currentCondition);
-    onAdditionalConditionChange(additionalConditions);
+    changedConditions.push(currentCondition);
+    // additionalConditions.push(currentCondition);
+    onAdditionalConditionChange(changedConditions);
   }
 
   const removeCondition = (currentCondition) => {
-    const changedConditions = additionalConditions.filter((condition) => condition !== currentCondition);
+    changedConditions = additionalConditions.filter((condition) => condition !== currentCondition);
     onAdditionalConditionChange(changedConditions);
   }
 

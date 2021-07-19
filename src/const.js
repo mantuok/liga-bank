@@ -128,3 +128,5 @@ export const InputButtonType = {
   PLUS: `plus`,
   MINUS: `minus`
 };
+
+export const PERCENTS = 100;

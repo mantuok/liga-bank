@@ -9,6 +9,11 @@ export const loans = [
     maxCost: 25000000,
     initialPaymentMin: 10,
     initialPaymentMax: 100,
+    rate: {
+      rate1: 0.094,
+      rate2: 0.085,
+      condition: 0.15
+    },
     minLoan: 500000,
     termMin: 5,
     termMax: 30,
@@ -18,7 +23,8 @@ export const loans = [
         label: `Использовать материнский капитал`,
         value: 470000
       }
-    ]
+    ],
+    incomePercent: 0.45
   },
   {
     id: nanoid(),
