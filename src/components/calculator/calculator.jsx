@@ -7,10 +7,14 @@ import InitialPayment from '../initial-payment/initial-payment';
 import LoanTerm from '../loan-term/loan-term';
 import AdditionalConditions from '../additional-conditions/additional-conditions';
 import Offer from '../offer/offer';
+import Application from '../application/application';
+import ApplicationSent from "../application-sent/application-sent";
 
 const Calculator = () => {
   const loans = useSelector((state) => state.loans);
   const activeLoan = useSelector((state) => state.activeLoan);
+  const isApplicationToBeCreated = useSelector((state) => state.isApplicationToBeCreated);
+  const  applicationSentPopupToBeOpen = useSelector((state) => state.applicationSentPopupToBeOpen);
   const dispatch = useDispatch();
 
   const options = [
@@ -35,7 +39,11 @@ const Calculator = () => {
         </div>
       )
     }
-  }
+  };
+
+  const renderApplication = () => isApplicationToBeCreated ? <Application /> : ``;
+  
+  const renderApplicationSent = () => applicationSentPopupToBeOpen ? <ApplicationSent /> : ``;
 
   const handleCalculatorChange = (selectedOption) => {
     const selectedLoan = getLoanDataById(selectedOption.value);
@@ -60,7 +68,8 @@ const Calculator = () => {
           />
         </div>
         {renderCalculator()}
-        {/* {renderOffer()} */}
+        {renderApplication()}
+        {renderApplicationSent()}
       </div>
     </section>
   )

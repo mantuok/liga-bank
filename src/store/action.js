@@ -9,7 +9,11 @@ export const ActionType = {
   SET_LOAN_AMOUNT: `loan/setLoanAmount`,
   SET_RATE: `loan/setRate`,
   SET_MONTHLY_PAYMENT: `loan/setMonthlyPayment`,
-  SET_INCOME: `loan/setIncome`
+  SET_INCOME: `loan/setIncome`,
+  SET_APPLICATION_NUMBER: `loan/setApplicationNumber`,
+  CREATE_APPLICATION: `application/createApplication`,
+  OPEN_APPLICATION_SENT_POPUP: `applivation/openApplicationSentPopup`,
+  CLOSE_APPLICATION_SENT_POPUP: `applivation/closeApplicationSentPopup`
 };
 
 export const ActionCreator = {
@@ -54,5 +58,19 @@ export const ActionCreator = {
   setIncome: (income) => ({
     type: ActionType.SET_INCOME,
     payload: income
-  })
+  }),
+  setApplicationNumber: (number) => ({
+    type: ActionType.SET_APPLICATION_NUMBER,
+    payload: number
+  }),
+  createApplication: (status) => ({
+    type: ActionType.CREATE_APPLICATION,
+    payload: status
+  }),
+  openApplicationSentPopup: () => ({
+    type: ActionType.OPEN_APPLICATION_SENT_POPUP
+  }),
+  closeApplicationSentPopup: () => ({
+    type: ActionType.CLOSE_APPLICATION_SENT_POPUP
+  }),
 };

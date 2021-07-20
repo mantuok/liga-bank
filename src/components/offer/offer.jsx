@@ -9,8 +9,10 @@ import {
   getMonthlyPayment,
   getIncome
 } from '../../utils/calculations'
+import { ActionCreator } from '../../store/action';
 
 const Offer = () => {
+  const dispatch = useDispatch();
   const costAmount = useSelector((state) => state.costAmount);
   const loan = useSelector((state) => state.activeLoan);
   const loanType = loan.type;
@@ -43,6 +45,10 @@ const Offer = () => {
     loan.incomePercent
   );
 
+  const handleCheckoutButtonClick = () => {
+    dispatch(ActionCreator.createApplication(true))
+  }
+
   return (
     <div className="form__offer offer">
       <ul className="offer__list">
@@ -63,7 +69,13 @@ const Offer = () => {
           <span className="offer__label">Необходимый доход</span>
         </li>
       </ul>
-      <button type="button" className="offer__checkout">Оформить заявку</button>
+      <button 
+        type="button" 
+        className="offer__checkout"
+        onClick={handleCheckoutButtonClick}
+      >
+        Оформить заявку
+      </button>
     </div>
   )
 };

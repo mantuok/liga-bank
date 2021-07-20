@@ -17,7 +17,10 @@ const initialState = {
   loanAmount: 0,
   rate: 0,
   monthlyPayment: 0,
-  income: 0
+  income: 0,
+  applicationNumber: 0,
+  isApplicationToBeCreated: false,
+  applicationSentPopupToBeOpen: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -78,6 +81,26 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         income: action.payload
+      }
+    case ActionType.SET_APPLICATION_NUMBER:
+      return {
+        ...state,
+        applicationNumber: action.payload
+      }
+    case ActionType.CREATE_APPLICATION:
+      return {
+        ...state,
+        isApplicationToBeCreated: action.payload
+      }
+    case ActionType.OPEN_APPLICATION_SENT_POPUP: 
+      return {
+        ...state,
+        applicationSentPopupToBeOpen: true
+      }
+    case ActionType.CLOSE_APPLICATION_SENT_POPUP: 
+      return {
+        ...state,
+        applicationSentPopupToBeOpen: false
       }
     default:
       return state
