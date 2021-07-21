@@ -1,0 +1,49 @@
+.cost-amount {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.cost-amount__label {
+  margin-bottom: 15px;
+
+  font-size: 16px;
+}
+
+.cost-amount__input {
+  @include calculator-input;
+
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.cost-amount__button {
+  @include no-style-button;
+
+  position: absolute;
+
+  width: 16px;
+  height: 16px;
+  
+  background-repeat: no-repeat;
+  background-position: 0 0;
+
+  &--minus {
+    top: 63px;
+    left: 25px;
+    background-image: url(../../img/minus-icon.svg);
+  }
+
+  &--plus {
+    top: 56px;
+    right: 25px;
+    background-image: url(../../img/plus-icon.svg);
+  }
+}
+
+.cost-amount__hint {
+  font-size: 14px;
+  color: var(--font-additional);
+}
+
+

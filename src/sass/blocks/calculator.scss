@@ -3,16 +3,10 @@
   margin-bottom: 100px;
 }
 
-.tooltip {
-  position: absolute;
-  display: block;
-  color: black;
-  // padding: 20px;
-  background-color: #fff;
-  width: 37px;
-  height: 26px;
-  top: 0;
-  left: -3px;
-  // vertical-align: middle;
-  text-align: center;
+.calculator__heading {
+  margin: 0;
+  margin-bottom: 70px;
+  
+  font-size: 41px;
 }
+

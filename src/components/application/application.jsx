@@ -16,15 +16,14 @@ const Application = () => {
   const currentApplicationNumber = previousApplicationNumber + 1;
 
   const handleApplicationSubmit = () => {
-    debugger
     dispatch(ActionCreator.setApplicationNumber(currentApplicationNumber));
     dispatch(ActionCreator.createApplication(false));
-    dispatch(ActionCreator.openApplicationSentPopup())
+    dispatch(ActionCreator.openApplicationSentPopup());
     document.body.style.overflow = 'hidden';
   }
 
   return (
-    <section className="data-entry__application application">
+    <section className="calculation__application application">
       <h3 className="application__heading">Шаг 3. Оформление заявки</h3>
         <ul className="application__loan-data loan-data">
           <li className="loan-data__item">

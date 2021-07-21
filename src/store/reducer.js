@@ -20,7 +20,8 @@ const initialState = {
   income: 0,
   applicationNumber: 0,
   isApplicationToBeCreated: false,
-  applicationSentPopupToBeOpen: false
+  applicationSentPopupToBeOpen: false,
+  isloanDataToBeCleared: false
 }
 
 const reducer = (state = initialState, action) => {
@@ -81,6 +82,19 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         income: action.payload
+      }
+    case ActionType.CLEAR_LOAN_DATA: 
+      return {
+        ...state,
+        isloanDataToBeCleared: true,
+        costAmount: 0,
+        initialPayment: 0,
+        loanTerm: 1,
+        additionalConditions: [],
+        loanAmount: 0,
+        rate: 0,
+        monthlyPayment: 0,
+        income: 0
       }
     case ActionType.SET_APPLICATION_NUMBER:
       return {

@@ -14,7 +14,7 @@ const Calculator = () => {
   const loans = useSelector((state) => state.loans);
   const activeLoan = useSelector((state) => state.activeLoan);
   const isApplicationToBeCreated = useSelector((state) => state.isApplicationToBeCreated);
-  const  applicationSentPopupToBeOpen = useSelector((state) => state.applicationSentPopupToBeOpen);
+  const applicationSentPopupToBeOpen = useSelector((state) => state.applicationSentPopupToBeOpen);
   const dispatch = useDispatch();
 
   const options = [
@@ -34,12 +34,17 @@ const Calculator = () => {
             <InitialPayment />
             <LoanTerm />
             <AdditionalConditions />
-            <Offer />
           </form>
         </div>
       )
     }
   };
+
+  const renderOffer  = () => {
+    if (activeLoan) {
+     return <Offer />
+    }
+  }
 
   const renderApplication = () => isApplicationToBeCreated ? <Application /> : ``;
   
@@ -54,6 +59,58 @@ const Calculator = () => {
     dispatch(ActionCreator.selectLoan(selectedLoan))
   }
 
+  const customSelectStyle = {
+    control: (provided, state) => ({
+      ...provided,
+      height: 60,
+      paddingRight: 18,
+      paddingLeft: 20,
+      fontSize: 16,
+      fontWeight: 500,
+      color: `#1F1E25`,
+      borderRadius: 4,
+      borderBottomLeftRadius: state.isFocused ? 0 : 4,
+      borderBottomRightRadius: state.isFocused ? 0 : 4,
+      borderColor: `#1F1E25`,
+    }),
+    placeholder: (provided, state) => ({
+      ...provided,
+      color: `#1F1E25`
+    }),
+    indicatorSeparator: (provided, state) => ({
+      ...provided,
+      display: `none`
+    }),
+    dropdownIndicator: (provided, state) => ({
+      ...provided,
+      color: `#1F1E25`
+    }),
+    menu: (provided, state) => ({
+      ...provided,
+      margin: 0,
+      padding: 0,
+      border: `1px solid #1F1E25`,
+      boxShadow: `none`,
+      borderRadius: 0,
+      borderBottomLeftRadius: 4,
+      borderBottomRightRadius: 4
+    }),
+    menuList: (provided, state) => ({
+      ...provided,
+      margin: 0,
+      padding: 0,
+    }),
+    option: (provided, state) => ({
+      ...provided,
+      margin: 0,
+      paddingTop: 25,
+      paddingBottom: 24,
+      paddingLeft: 24,
+      fontWeight: 400,
+      borderBottom: `1px solid #C1C2CA`
+    }),
+  };
+
   return (
     <section className="main__calculator calculator">
       <h2 className="calculator__heading">Кредитный калькулятор</h2>
@@ -61,13 +118,16 @@ const Calculator = () => {
         <div className="calculation__calculator-selection calculator-selection">
           <h3 className="calculator-selection__heading">Шаг 1. Цель кредита</h3>
           <Select 
-            className="calculator-selection__select"
+            className="calculator-selection__select select"
+            classNamePrefix="select"
+            styles={customSelectStyle}
             onChange={handleCalculatorChange}
             options={options}
             placeholder={`Выберите цель кредита`}
           />
         </div>
         {renderCalculator()}
+        {renderOffer()}
         {renderApplication()}
         {renderApplicationSent()}
       </div>

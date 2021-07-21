@@ -100,3 +100,16 @@
     font-size: 14px;
   }
 }
+
+@mixin calculator-input {
+  height: 60px;
+  text-align: center;
+
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 25px;
+  color: var(--font-basic);
+
+  border: 1px solid var(--font-basic);
+  border-radius: 4px;
+}

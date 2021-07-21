@@ -27,6 +27,7 @@ const ApplicationSent = () => {
 
   const onClosePopup = () => {
     dispatch(ActionCreator.closeApplicationSentPopup());
+    dispatch(ActionCreator.clearLoanData());
     document.body.style.overflow = 'scroll';
   }
 

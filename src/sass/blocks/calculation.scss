@@ -1,0 +1,26 @@
+.calculation {
+  display: grid;
+  grid-template-areas: 
+  "calculator-selection offer"
+  "data-entry offer"
+  "application application";
+  grid-template-columns: 6fr 5fr;
+  column-gap: 70px;
+
+}
+
+.calculation__calculator-selection {
+  grid-area: calculator-selection;
+}
+
+.calculation__data-entry {
+  grid-area: data-entry;
+}
+
+.calculation__application {
+  grid-area: application;
+}
+
+.calculation__offer {
+  grid-area: offer;
+}

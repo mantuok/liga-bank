@@ -10,6 +10,7 @@ export const ActionType = {
   SET_RATE: `loan/setRate`,
   SET_MONTHLY_PAYMENT: `loan/setMonthlyPayment`,
   SET_INCOME: `loan/setIncome`,
+  CLEAR_LOAN_DATA: `loan/clearLoanData`,
   SET_APPLICATION_NUMBER: `loan/setApplicationNumber`,
   CREATE_APPLICATION: `application/createApplication`,
   OPEN_APPLICATION_SENT_POPUP: `applivation/openApplicationSentPopup`,
@@ -62,6 +63,9 @@ export const ActionCreator = {
   setApplicationNumber: (number) => ({
     type: ActionType.SET_APPLICATION_NUMBER,
     payload: number
+  }),
+  clearLoanData: () => ({
+    type: ActionType.CLEAR_LOAN_DATA
   }),
   createApplication: (status) => ({
     type: ActionType.CREATE_APPLICATION,
