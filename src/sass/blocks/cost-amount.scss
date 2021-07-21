@@ -8,6 +8,7 @@
   margin-bottom: 15px;
 
   font-size: 16px;
+  line-height: 22px;
 }
 
 .cost-amount__input {
@@ -43,8 +44,20 @@
 }
 
 .cost-amount__hint {
+  margin-bottom: 30px;
+
   font-size: 14px;
+  line-height: 20px;
   color: var(--font-additional);
+
+  @media (max-width: $max-tablet-width) {
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 20px;
+  }
 }
+
 
 

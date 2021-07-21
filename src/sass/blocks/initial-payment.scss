@@ -16,3 +16,15 @@
   margin-bottom: 15px;
 }
 
+.initial-payment__range {
+  margin-bottom: 55px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 38px;
+  }
+}
+

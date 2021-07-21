@@ -1,0 +1,1 @@
+export const getSeparatedNumber = (number) => number.toLocaleString('ru-RU')

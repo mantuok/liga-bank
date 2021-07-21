@@ -12,6 +12,17 @@
   position: relative;
   padding-left: 24px;
 
+  @media (max-width: $max-tablet-width) {
+    margin-bottom: 45px;
+  }  
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 35px;
+
+    font-size: 14px;
+    line-height: 20px;
+  }  
+
   &::before {
     content: "";
     position: absolute;

@@ -17,7 +17,7 @@
 }
 
 .loan-term__range {
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 }
 
 .loan-term__hint {
@@ -29,5 +29,14 @@
   display: flex;
   justify-content: space-between;
 
-  width: 100%
+  width: 100%;
+  margin-bottom: 8px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-bottom: 8px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 3px;
+  }
 }

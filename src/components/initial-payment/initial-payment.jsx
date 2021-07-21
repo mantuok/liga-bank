@@ -71,59 +71,61 @@ const InitialPayment = () => {
         onChange={handleCostAmountChange}
         onBlur={handleInitialPaymentBlur}
       />
-      <Range
-        step={LoanMeta[loanType].INITIAL_PAYMENT_STEP}
-        min={loan.initialPaymentMin}
-        max={loan.initialPaymentMax}
-        values={inputData.percent}
-        onChange={(values) => setInputData({...inputData, amount: (Math.round((costAmount * values[0]) / PERCENTS)), percent: values})}
-        renderTrack={({ props, children }) => (
-          <div
-            {...props}
-            style={{
-              ...props.style,
-              height: '1px',
-              width: '100%',
-              backgroundColor: '#C1C2CA'
-            }}
-          >
-            {children}
-          </div>
-        )}
-        renderThumb={({ props, isDragged }) => (
-          <div
-            {...props}
-            style={{
-              ...props.style,
-              height: '14px',
-              width: '14px',
-              borderRadius: '50%',
-              backgroundColor: '#2C36F2',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-          >
+      <div className="initial-payment__range">
+        <Range
+          step={LoanMeta[loanType].INITIAL_PAYMENT_STEP}
+          min={loan.initialPaymentMin}
+          max={loan.initialPaymentMax}
+          values={inputData.percent}
+          onChange={(values) => setInputData({...inputData, amount: (Math.round((costAmount * values[0]) / PERCENTS)), percent: values})}
+          renderTrack={({ props, children }) => (
             <div
+              {...props}
               style={{
-                position: 'absolute',
-                bottom: '-28px',
-                width: '60px',
-                color: '#707C87',
-                fontWeight: '400',
-                fontSize: '14px',
-                fontFamily: 'inherit',
-                textAlign: 'center',
-                padding: '4px',
-                borderRadius: '4px',
-                backgroundColor: '#FFFFFF'
+                ...props.style,
+                height: '1px',
+                width: '100%',
+                backgroundColor: '#C1C2CA'
               }}
             >
-              {inputData.percent[0].toFixed(0) + `%`}
+              {children}
             </div>
-          </div>
-        )}
-      />  
+          )}
+          renderThumb={({ props, isDragged }) => (
+            <div
+              {...props}
+              style={{
+                ...props.style,
+                height: '14px',
+                width: '14px',
+                borderRadius: '50%',
+                backgroundColor: '#2C36F2',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <div
+                style={{
+                  position: 'absolute',
+                  bottom: '-28px',
+                  width: '60px',
+                  color: '#707C87',
+                  fontWeight: '400',
+                  fontSize: '14px',
+                  fontFamily: 'inherit',
+                  textAlign: 'center',
+                  padding: '4px',
+                  borderRadius: '4px',
+                  backgroundColor: '#FFFFFF'
+                }}
+              >
+                {inputData.percent[0].toFixed(0) + `%`}
+              </div>
+            </div>
+          )}
+        />  
+      </div>
     </div>
   </div>
   )

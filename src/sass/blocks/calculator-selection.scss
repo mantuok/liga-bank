@@ -1,5 +1,9 @@
 .calculator-selection {
   margin-bottom: 40px;
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 30px;
+  }
 }
 
 .calculator-selection__heading {
@@ -7,4 +11,18 @@
 
   font-size: 22px;
   font-weight: 500;
+
+  @media (max-width: $max-tablet-width) {
+    margin-bottom: 25px;
+
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 20px;
+
+    font-size: 22px;
+    line-height: 16px;
+  }
 }

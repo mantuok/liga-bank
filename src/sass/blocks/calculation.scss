@@ -7,6 +7,15 @@
   grid-template-columns: 6fr 5fr;
   column-gap: 70px;
 
+  @media (max-width: $max-tablet-width) {
+    grid-template-areas: 
+    "calculator-selection"
+    "data-entry"
+    "offer"
+    "application";
+    grid-template-columns: 1fr;
+    column-gap: 0;
+  }
 }
 
 .calculation__calculator-selection {

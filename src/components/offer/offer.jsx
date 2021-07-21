@@ -60,6 +60,7 @@ const Offer = () => {
     } else {
       return (
         <div className="offer__result offer-result">
+          <h4 className="offer-result__heading">Наше предложение</h4>
           <ul className="offer-result__list">
             <li className="offer-result__item">
               <span className="offer-result__value">{loanAmount + ` рублей`}</span>

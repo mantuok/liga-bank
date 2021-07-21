@@ -2,6 +2,14 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  @media (max-width: $max-tablet-width) {
+    margin-bottom: 45px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 35px;
+  }
 }
 
 .additional-conditions__additional-condition {
