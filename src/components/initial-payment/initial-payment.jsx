@@ -95,8 +95,8 @@ const InitialPayment = () => {
             {...props}
             style={{
               ...props.style,
-              height: '10px',
-              width: '10px',
+              height: '14px',
+              width: '14px',
               borderRadius: '50%',
               backgroundColor: '#2C36F2',
               display: 'flex',
@@ -108,16 +108,18 @@ const InitialPayment = () => {
               style={{
                 position: 'absolute',
                 bottom: '-28px',
+                width: '60px',
                 color: '#707C87',
                 fontWeight: '400',
                 fontSize: '14px',
                 fontFamily: 'inherit',
+                textAlign: 'center',
                 padding: '4px',
                 borderRadius: '4px',
                 backgroundColor: '#FFFFFF'
               }}
             >
-              {inputData.percent[0].toFixed(1)}
+              {inputData.percent[0].toFixed(0) + `%`}
             </div>
           </div>
         )}

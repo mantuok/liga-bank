@@ -42,7 +42,7 @@ const AdditionalCondition = (props) => {
 
   return (
     <div 
-      className="additional-condition__wrapper"
+      className="additional-conditions__additional-condition additional-condition"
       key={nanoid()}
     >
       <input 

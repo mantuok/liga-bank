@@ -58,59 +58,65 @@ const LoanTerm = () => {
           onChange={handleLoanTermChange}
           onBlur={handleLoanTermBlur}
         />
-        <Range
-          step={LoanMeta[loanType].TERM_STEP}
-          min={loan.termMin}
-          max={loan.termMax}
-          values={inputData.rangeYears}
-          onChange={(values) => setInputData({...inputData, rangeYears: values, typedYears: values[0]})}
-          renderTrack={({ props, children }) => (
-            <div
-              {...props}
-              style={{
-                ...props.style,
-                height: '1px',
-                width: '100%',
-                backgroundColor: '#C1C2CA'
-              }}
-            >
-              {children}
-            </div>
-          )}
-          renderThumb={({ props, isDragged }) => (
-            <div
-              {...props}
-              style={{
-                ...props.style,
-                height: '10px',
-                width: '10px',
-                borderRadius: '50%',
-                backgroundColor: '#2C36F2',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
-            >
+        <div className="loan-term__range">
+          <Range
+            step={LoanMeta[loanType].TERM_STEP}
+            min={loan.termMin}
+            max={loan.termMax}
+            values={inputData.rangeYears}
+            onChange={(values) => setInputData({...inputData, rangeYears: values, typedYears: values[0]})}
+            renderTrack={({ props, children }) => (
               <div
+                {...props}
                 style={{
-                  position: 'absolute',
-                  bottom: '-28px',
-                  color: '#707C87',
-                  fontWeight: '400',
-                  fontSize: '14px',
-                  fontFamily: 'inherit',
-                  padding: '4px',
-                  borderRadius: '4px',
-                  backgroundColor: '#FFFFFF'
+                  ...props.style,
+                  height: '1px',
+                  width: '100%',
+                  backgroundColor: '#C1C2CA'
                 }}
               >
-                {inputData.rangeYears[0].toFixed(1)}
+                {children}
               </div>
-            </div>
-          )}
-        />  
-        <span className="loan-term__range loan-term__range--min">{loan.termMin}</span>
-        <span className="loan-term__range loan-term__range--max">{loan.termMax}</span>
+            )}
+            renderThumb={({ props, isDragged }) => (
+              <div
+                {...props}
+                style={{
+                  ...props.style,
+                  height: '14px',
+                  width: '14px',
+                  borderRadius: '50%',
+                  backgroundColor: '#2C36F2',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                }}
+              >
+                {/* <div
+                  style={{
+                    position: 'absolute',
+                    bottom: '-28px',
+                    width: '40px',
+                    color: '#707C87',
+                    fontWeight: '400',
+                    fontSize: '14px',
+                    fontFamily: 'inherit',
+                    textAlign: 'center',
+                    padding: '4px',
+                    borderRadius: '4px',
+                    backgroundColor: '#FFFFFF'
+                  }}
+                >
+                  {inputData.rangeYears[0].toFixed(0)} */}
+                {/* </div> */}
+              </div>
+            )}
+          />
+        </div>
+        <div className="loan-term__hint-wrapper">
+          <span className="loan-term__range loan-term__hint loan-term__hint--min">{loan.termMin}</span>
+          <span className="loan-term__range loan-term__hint loan-term__hint--max">{loan.termMax}</span>
+        </div>  
       </div>
     </div>
   )

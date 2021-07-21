@@ -1,0 +1,18 @@
+.initial-payment {
+  display: flex;
+  flex-direction: column;
+}
+
+.initial-payment__label {
+  margin-bottom: 15px;
+
+  font-size: 16px;
+}
+
+.initial-payment__input {
+  @include calculator-input;
+
+  width: 100%;
+  margin-bottom: 15px;
+}
+

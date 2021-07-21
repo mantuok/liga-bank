@@ -1,0 +1,11 @@
+.additional-conditions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.additional-conditions__additional-condition {
+  &:not(:last-child) {
+    margin-bottom: 15px;
+  }
+}
