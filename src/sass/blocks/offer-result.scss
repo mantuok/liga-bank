@@ -1,0 +1,38 @@
+.offer-result {
+  display: flex;
+  flex-direction: column;
+  
+  padding-top: 60px;
+  padding-right: 60px;
+  padding-bottom: 60px;
+  padding-left: 58px;
+}
+
+.offer-result__list {
+  @include no-style-list;
+
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: 50px;
+  row-gap: 40px;
+
+  margin-bottom: 40px;
+}
+
+.offer-result__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-result__value {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 31px;
+}
+
+.offer-result__checkout {
+  @include button-contrast-style;
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

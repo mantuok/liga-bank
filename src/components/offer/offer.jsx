@@ -52,35 +52,35 @@ const Offer = () => {
   const renderLoanResult = () => {
     if (loanAmount <= loan.minLoan) {
       return (
-        <div className="offer__error error">
-          <h4>Наш банк не выдаёт ипотечные кредиты меньше {loan.minLoan} рублей.</h4>
-          <p>Попробуйте использовать другие параметры для расчёта.</p>
+        <div className="offer__error offer-error">
+          <h4 className="offer-error__heading">Наш банк не выдаёт ипотечные кредиты меньше {loan.minLoan} рублей.</h4>
+          <p className="offer-error__text">Попробуйте использовать другие параметры для расчёта.</p>
         </div>
       )
     } else {
       return (
-        <div className="offer__result">
-          <ul className="offer__list">
-            <li className="offer__item">
-              <span className="offer__value">{loanAmount + ` рублей`}</span>
-              <span className="offer__label">{LoanMeta[loanType].LOAN_AMOUNT_LABEL}</span>
+        <div className="offer__result offer-result">
+          <ul className="offer-result__list">
+            <li className="offer-result__item">
+              <span className="offer-result__value">{loanAmount + ` рублей`}</span>
+              <span className="offer-result__label">{LoanMeta[loanType].LOAN_AMOUNT_LABEL}</span>
             </li>
-            <li className="offer__item">
-              <span className="offer__value">{loanRate + ` %`}</span>
-              <span className="offer__label">Процентная ставка</span>
+            <li className="offer-result__item">
+              <span className="offer-result__value">{loanRate + ` %`}</span>
+              <span className="offer-result__label">Процентная ставка</span>
             </li>
-            <li className="offer__item">
-              <span className="offer__value">{monthlyPayment + ` рублей`}</span>
-              <span className="offer__label">Ежемесячный платеж</span>
+            <li className="offer-result__item">
+              <span className="offer-result__value">{monthlyPayment + ` рублей`}</span>
+              <span className="offer-result__label">Ежемесячный платеж</span>
             </li>
-            <li className="offer__item">
-              <span className="offer__value">{income + ` рублей`}</span>
-              <span className="offer__label">Необходимый доход</span>
+            <li className="offer-result__item">
+              <span className="offer-result__value">{income + ` рублей`}</span>
+              <span className="offer-result__label">Необходимый доход</span>
             </li>
           </ul>
           <button 
           type="button" 
-          className="offer__checkout"
+          className="offer-result__checkout"
           onClick={handleCheckoutButtonClick}
         >
           Оформить заявку
