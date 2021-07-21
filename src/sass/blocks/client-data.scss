@@ -1,0 +1,32 @@
+.client-data {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.client-data__value {
+  height: 60px;
+  padding-left: 24px;
+
+  border: 1px solid var(--font-dark);
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-size: 18px;
+  line-height: 25px;
+
+  &--name {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  &--tel {
+    width: 48%;
+    margin-right: 4%;
+    margin-bottom: 30px;
+  }
+
+  &--email {
+    width: 48%;
+  }
+}

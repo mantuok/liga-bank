@@ -33,15 +33,17 @@ const ApplicationSent = () => {
 
   return (
     <section className="calculator_application-sent application-sent">
-      <h3 className="application-sent__heading">Спасибо за обращение в наш банк.</h3>
-      <p className="application-sent__text">Наш менеджер скоро свяжется с вами по указанному номеру телефона.</p>
-      <button 
-        className="application-sent__close"
-        type="button"
-        onClick={handleCloseButtonClick}
-      >
-        <span className="application-sent__close-text visually-hidden">Закрыть</span>
-      </button>
+      <div className="application-sent__popup">
+        <h3 className="application-sent__heading">Спасибо за обращение в наш банк.</h3>
+        <p className="application-sent__text">Наш менеджер скоро свяжется с вами по указанному номеру телефона.</p>
+        <button 
+          className="application-sent__close"
+          type="button"
+          onClick={handleCloseButtonClick}
+        >
+          <span className="application-sent__close-text visually-hidden">Закрыть</span>
+        </button>
+      </div>
     </section>
   )
 }

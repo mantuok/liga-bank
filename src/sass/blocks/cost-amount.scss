@@ -19,6 +19,7 @@
 
 .cost-amount__button {
   @include no-style-button;
+  @include opacity-on-hover;
 
   position: absolute;
 

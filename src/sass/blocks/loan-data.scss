@@ -1,0 +1,24 @@
+.loan-data {
+  @include no-style-list;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.loan-data__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding-top: 22px;
+  padding-bottom: 22px;
+  
+  border-bottom: 1px solid var(--font-light);
+  border-radius: 4px;
+}
+
+.loan-data__value {
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 31px;
+}

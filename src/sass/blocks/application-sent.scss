@@ -1,0 +1,65 @@
+.application-sent {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  display: flex;
+
+  width: 100%;
+  min-height: 100%;
+
+  background-color: var(--transparent);
+
+  overflow: hidden;
+
+  z-index: 2;
+}
+
+.application-sent__popup {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 500px;
+  height: 193px;
+
+  margin: auto;
+  padding-top: 60px;
+  padding-right: 67px;
+  padding-bottom: 60px;
+  padding-left: 67px;
+
+  background-color: var(--basic);
+}
+
+.application-sent__heading {
+  margin: 0;
+
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 31px;
+
+  text-align: center;
+}
+
+.application-sent__text {
+  text-align: center;
+}
+
+.application-sent__close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+
+  width: 18px;
+  height: 18px;
+
+  background-image: url("../../img/popup-close-desktop-tablet.svg");
+  background-repeat: no-repeat;
+
+  @include no-style-button;
+  @include opacity-on-hover;
+}
