@@ -33,20 +33,39 @@
   padding-left: 67px;
 
   background-color: var(--basic);
+
+  @media (max-width: $max-mobile-width) {
+    width: 290px;
+    height: 198px;
+  
+    margin: auto;
+    padding-top: 40px;
+    padding-right: 47px;
+    padding-bottom: 40px;
+    padding-left: 47px;
+  }
 }
 
 .application-sent__heading {
   margin: 0;
+  margin-bottom: 25px;
 
   font-size: 22px;
   font-weight: 500;
   line-height: 31px;
 
   text-align: center;
+
+  @media (max-width: $max-mobile-width) {
+    font-size: 18px;
+    line-height: 25px;
+  }
 }
 
 .application-sent__text {
   text-align: center;
+
+  margin: 0;
 }
 
 .application-sent__close {
@@ -62,4 +81,14 @@
 
   @include no-style-button;
   @include opacity-on-hover;
+
+  @media (max-width: $max-mobile-width) {
+    top: 15px;
+    right: 15px;
+
+    width: 12px;
+    height: 12px;
+  
+    background-image: url("../../img/popup-close-mobile.svg");
+  }
 }

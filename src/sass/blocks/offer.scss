@@ -1,5 +1,13 @@
 .offer {
   background-color: var(--basic);
+
+  @media (max-width: $max-tablet-width) {
+    margin-bottom: 60px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 48px;
+  }
 }
 
 

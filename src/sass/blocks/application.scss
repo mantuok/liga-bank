@@ -10,6 +10,20 @@
   padding-left: 70px;
 
   background-color: var(--basic);
+
+  @media (max-width: $max-tablet-width) {
+    padding: 0;
+
+    background-color: var(--background-basic);
+
+  }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 35px;
+
+    font-size: 22px;
+    line-height: 31px;
+  }
 }
 
 .application__heading {
@@ -26,11 +40,13 @@
 .application__submit {
   @include button-contrast-style;
 
+  width: 100%;
+
   padding-top: 20px;
   padding-right: 58px;
   padding-bottom: 20px;
   padding-left: 59px;
 
-  align-self: center;
+  align-self: stretch;
 
 }
