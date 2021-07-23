@@ -29,7 +29,6 @@ const Branches = () => {
   };
 
   const renderMap = (viewport) => {
-    console.log(MapParameters[viewport])
     return <Map 
       defaultState={{ center: MapParameters[viewport].CENTER, zoom: MapParameters[viewport].ZOOM}}
       width={MapParameters[viewport].WIDTH}

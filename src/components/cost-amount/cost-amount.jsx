@@ -1,12 +1,14 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import classNames from 'classnames';
+import NumberFormat from 'react-number-format';
 import {ActionCreator} from '../../store/action';
 import {
   LoanMeta,
   InputButtonType,
   InputError
 } from '../../const';
+import {getRubleSuffix} from '../../utils/common';
 
 const CostAmount = () => {
   const dispatch = useDispatch();
@@ -78,10 +80,13 @@ const CostAmount = () => {
     dispatch(ActionCreator.setCostAmount(value))
   };
 
+  
+
   return (
     <div className="form__cost-amount cost-amount">
       <label className="cost-amount__label" htmlFor="cost-amount">{LoanMeta[loanType].COST_AMOUNT_LABEL}</label>
       <div className="cost-amount__input-wrapper">
+        <NumberFormat className="cost-amount__input" thousandSeparator=" " suffix={getRubleSuffix(inputData.value)}/>
         <button 
           className="cost-amount__button cost-amount__button--minus"
           type="button"
