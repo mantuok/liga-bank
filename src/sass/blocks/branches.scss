@@ -1,0 +1,36 @@
+.branches {
+  @include container;
+
+  margin-bottom: 110px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-bottom: 80px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 60px;
+  }
+}
+
+.branches__heading {
+  margin: 0;
+  margin-bottom: 70px;
+
+  font-size: 41px;
+  line-height: 57px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-bottom: 45px;
+
+    font-size: 32px;
+    line-height: 45px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 35px;
+
+    font-size: 22px;
+    line-height: 31px;
+  }
+}
+

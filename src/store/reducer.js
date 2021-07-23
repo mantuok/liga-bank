@@ -2,12 +2,14 @@ import {ActionType} from './action';
 import {promos} from '../mocks/promos';
 import {services} from '../mocks/services';
 import {loans} from '../mocks/loans';
+import {branches} from '../mocks/branches';
 
 const initialState = {
   popupToBeOpen: false,
   promos: promos,
   services: services,
   loans: loans,
+  branches: branches,
   activeLoan: undefined,
   costAmount: 0,
   costAmountUpdated: true,

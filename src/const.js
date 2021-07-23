@@ -49,13 +49,16 @@ export const NavigationItem = {
 
 export const Viewport = {
   Desktop: {
+    NAME: `desktop`,
     MIN: `1024px`
   },
   Tablet: {
+    NAME: `tablet`,
     MIN: `768px`,
     MAX: `1023px`
   },
   Mobile: {
+    NAME: `mobile`,
     MIN: `320px`,
     MAX: `767px`
   }
@@ -130,3 +133,31 @@ export const InputButtonType = {
 };
 
 export const PERCENTS = 100;
+
+
+export const IconSize = {
+  SMALL: `iconSmall`,
+  BIG: `iconBig`
+}
+
+export const MapParameters = {
+  desktop: {
+    WIDTH: 1170,
+    HEIGHT: 462,
+    CENTER: [56.838011, 60.597474],
+    ZOOM: 5
+  },
+  tablet: {
+    WIDTH: 678,
+    HEIGHT: 462,
+    CENTER: [57.518944, 70.409608],
+    ZOOM: 5
+  },
+  mobile: {
+    WIDTH: 320,
+    HEIGHT: 381,
+    CENTER: [57.182082, 78.008241],
+    ZOOM: 5
+  }
+}
+
