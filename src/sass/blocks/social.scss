@@ -1,0 +1,15 @@
+.social__list {
+  display: flex;
+
+  width: 102px;
+
+  @include no-style-list;
+}
+
+.social__item {
+  margin-right: 15px;
+}
+
+.social__link {
+  @include opacity-on-hover;
+}

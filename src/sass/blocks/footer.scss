@@ -1,0 +1,13 @@
+.footer {
+  padding-top: 49px;
+  padding-bottom: 60px;
+
+  background-color: var(--basic);
+}
+
+.footer__container {
+display: flex;
+justify-content: space-between;
+
+@include container;
+}

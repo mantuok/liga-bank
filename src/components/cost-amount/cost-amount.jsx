@@ -49,11 +49,12 @@ const CostAmount = () => {
     } 
   };
 
-  const handleCostAmountChange = (evt) => {
-    const enteredValue = parseInt(evt.target.value);
-    if ((enteredValue < loan.minCost) || (enteredValue > loan.maxCost)) {
-      return setUpdatedState(enteredValue, false)
-    };
+  const handleCostAmountChange = (value) => {
+    const enteredValue = value.value;
+    console.log(value)
+    // if ((enteredValue < loan.minCost) || (enteredValue > loan.maxCost)) {
+    //   return setUpdatedState(enteredValue, false)
+    // };
     setUpdatedState(enteredValue, true)
   };
 
@@ -86,7 +87,7 @@ const CostAmount = () => {
     <div className="form__cost-amount cost-amount">
       <label className="cost-amount__label" htmlFor="cost-amount">{LoanMeta[loanType].COST_AMOUNT_LABEL}</label>
       <div className="cost-amount__input-wrapper">
-        <NumberFormat className="cost-amount__input" thousandSeparator=" " suffix={getRubleSuffix(inputData.value)}/>
+        {/* <NumberFormat className="cost-amount__input" thousandSeparator=" " suffix={getRubleSuffix(inputData.value)}/> */}
         <button 
           className="cost-amount__button cost-amount__button--minus"
           type="button"
@@ -94,14 +95,16 @@ const CostAmount = () => {
         >
           <span className="visually-hidden">{`Увеличить на ${LoanMeta[loanType].COST_STEP}`}</span>
         </button>
-        <input 
-          className={inputClass} 
-          type="number" 
+
+        <NumberFormat 
+          className={inputClass}  
           name="cost-amount" 
           id="cost-amount"
           placeholder={getInvalidPlaceholder()}
+          thousandSeparator=" "
+          suffix={getRubleSuffix(inputData.value)}
           value={inputData.value}
-          onChange={handleCostAmountChange}
+          onValueChange={handleCostAmountChange}
           onBlur={handleCostAmountBlur}
         />
         <button 

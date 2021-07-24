@@ -1,0 +1,21 @@
+.number {
+  width: 167px;
+}
+
+.number__tel {
+  color: inherit;
+  font-weight: 500;
+  
+  text-decoration: none;
+
+  @include opacity-on-hover;
+}
+
+.number__description {
+  margin: 0;
+  margin-top: 4px;
+
+  font-size: 12px;
+  line-height: 140%;
+  color: var(--font-additional);
+}

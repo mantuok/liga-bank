@@ -1,0 +1,16 @@
+.company__logo {
+  margin-bottom: 13px; 
+}
+
+.company__about {
+  color: var(--font-additional);
+
+  &--address,
+  &--license,
+  &--copyright {
+    margin: 0;
+
+    font-size: 12px;
+    line-height: 140%;
+  }
+}

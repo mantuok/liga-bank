@@ -1,0 +1,42 @@
+.contacts {
+  position: relative;
+
+  padding-top: 11px;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacts__short-number {
+  margin-right: 113px;
+
+  &::before {
+    content: "";
+    position: absolute;
+
+    top: 11px;
+    left: -28px;
+
+    width: 10px;
+    height: 16px;
+
+    background-image: url("../../img/short-tel-icon.svg");
+  }
+}
+
+.contacts__full-number {
+  margin-right: 33px;
+
+  &::before {
+    content: "";
+    position: absolute;
+
+    top: 11px;
+    left: 248px;
+
+    width: 16px;
+    height: 16px;
+
+    background-image: url("../../img/full-tel-icon.svg");
+  }
+}

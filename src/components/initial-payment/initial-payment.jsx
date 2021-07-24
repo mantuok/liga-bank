@@ -31,7 +31,7 @@ const InitialPayment = () => {
         amount: Math.round((costAmount * inputData.percent) / PERCENTS),
       });
     }
-  }, [costAmountUpdated, costAmount, inputData.percent, inputData]);
+  }, [costAmountUpdated, costAmount]);
     
   const getValidPercents = (percents) => {
     if (costAmount === 0) {
