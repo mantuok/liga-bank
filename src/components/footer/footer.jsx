@@ -1,22 +1,30 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {useMediaQuery} from 'react-responsive';
+import {Viewport} from '../../const';
 
 const Footer = () => {
+  const isDesktopOrTablet = useMediaQuery({query: `(min-width: ${Viewport.Tablet.MIN})`});
+
+  const renderCompanySectoin = () => {
+    return (
+      <section className="footer__company company">
+        <p className="company__address">150015, г. Москва, ул. Московская, д. 32</p>
+        <p className="company__license">Генеральная лицензия Банка России №1050</p>
+        <p className="company__copyright">Ⓒ Лига Банк, 2019</p>
+      </section>
+    );
+  };
+
   return (
     <footer className="page__footer footer">
       <div className="footer__container">
-        <section className="footer__company company">
-          <picture>
-            <source media="(max-width: 767px)" srcSet="../img/liga-logo-mobile.svg" />
-            <source media="(max-width: 1023px)" srcSet="../img/liga-logo-tablet.svg" />
-            <img className="company__logo" alt="ЛИГА Банк" src="../img/liga-logo-desktop.svg" width="150" height="27" />
-          </picture>
-          <section className="company__about">
-            <p className="company__about--address">150015, г. Москва, ул. Московская, д. 32</p>
-            <p className="company__about--license">Генеральная лицензия Банка России №1050</p>
-            <p className="company__about--copyright">Ⓒ Лига Банк, 2019</p>
-          </section>
-        </section>
+        <picture>
+          <source media="(max-width: 767px)" srcSet="../img/liga-logo-mobile.svg" />
+          <source media="(max-width: 1023px)" srcSet="../img/liga-logo-tablet.svg" />
+          <img className="footer__logo" alt="ЛИГА Банк" src="../img/liga-logo-desktop.svg" width="150" height="27" />
+        </picture>
+        {isDesktopOrTablet && renderCompanySectoin()}
         <nav className="footer__navigation footer-navigation">
           <ul className="footer-navigation__list">
             <li className="footer-navigation__item">

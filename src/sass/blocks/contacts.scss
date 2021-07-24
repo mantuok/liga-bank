@@ -5,10 +5,21 @@
 
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: $max-tablet-width) {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 }
 
 .contacts__short-number {
   margin-right: 113px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-right: 0;
+    margin-bottom: 30px;
+    padding-left: 33px;
+  }
 
   &::before {
     content: "";
@@ -21,11 +32,22 @@
     height: 16px;
 
     background-image: url("../../img/short-tel-icon.svg");
+
+    @media (max-width: $max-tablet-width) {
+      top: 13px;
+      left: 0px;
+    }
   }
 }
 
 .contacts__full-number {
   margin-right: 33px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-right: 0;
+    margin-bottom: 30px;
+    padding-left: 33px;
+  }
 
   &::before {
     content: "";
@@ -38,5 +60,10 @@
     height: 16px;
 
     background-image: url("../../img/full-tel-icon.svg");
+
+    @media (max-width: $max-tablet-width) {
+      top: 95px;
+      left: 0;
+    }
   }
 }

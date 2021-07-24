@@ -1,5 +1,9 @@
 .number {
   width: 167px;
+
+  @media (max-width: $max-tablet-width) {
+    width: 200px;
+  }
 }
 
 .number__tel {

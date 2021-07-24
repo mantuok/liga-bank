@@ -1,7 +1,17 @@
 .footer-navigation {
   margin-right: 23px;
   padding-top: 9px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-bottom: 35px;
+   }
+
+  @media (max-width: $max-mobile-width) {
+  margin-bottom: 29px;
+  }
 }
+
+
 
 .footer-navigation__list {
   display: flex;

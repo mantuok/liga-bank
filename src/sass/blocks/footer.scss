@@ -3,11 +3,58 @@
   padding-bottom: 60px;
 
   background-color: var(--basic);
+
+  @media (max-width: $max-mobile-width) {
+    padding-top: 38px;
+    padding-bottom: 49px;
+   }
 }
 
 .footer__container {
-display: flex;
-justify-content: space-between;
+  @include container;
+  display: grid;
+  grid-template-areas: 
+    "logo navigation contacts"
+    "company navigation contacts";
+  grid-template-rows: min-content 1fr;
 
-@include container;
+  @media (max-width: $max-tablet-width) {
+    grid-template-areas: 
+      "logo contacts"
+      "navigation contacts"
+      "company contacts";
+  }
+
+  @media (max-width: $max-mobile-width) {
+    grid-template-areas: 
+      "logo"
+      "navigation"
+      "contacts";
+  }
+}
+
+.footer__logo {
+  grid-area: logo;
+
+  margin-bottom: 13px; 
+
+  @media (max-width: $max-tablet-width) {
+   margin-bottom: 35px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 29px;
+   }
+}
+
+.footer__company {
+  grid-area: company;
+}
+
+.footer__navigation {
+  grid-area: navigation;;
+}
+
+.footer__contacts {
+  grid-area: contacts;
 }
