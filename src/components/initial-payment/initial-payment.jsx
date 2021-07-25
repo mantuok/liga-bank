@@ -73,15 +73,6 @@ const InitialPayment = () => {
     <div className="form__initial-payment initial-payment">
     <label className="initial-payment__label" htmlFor="initial-payment">{LoanMeta[loanType].INITIAL_PAYMENT_LABEL}</label>
     <div className="initial-payment__input-wrapper">
-      {/* <input 
-        className="initial-payment__input" 
-        type="number" 
-        name="initial-payment" 
-        id="initial-payment"
-        value={inputData.amount}
-        onChange={handleCostAmountChange}
-        onBlur={handleInitialPaymentBlur}
-      /> */}
       <NumberFormat 
         className="initial-payment__input" 
         name="initial-payment" 

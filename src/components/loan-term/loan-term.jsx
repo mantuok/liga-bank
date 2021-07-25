@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Range} from 'react-range';
+import NumberFormat from 'react-number-format';
 import {ActionCreator} from '../../store/action';
 import {
   LoanMeta
 } from '../../const';
+import { 
+  getYearSuffix 
+} from '../../utils/common';
 
 const LoanTerm = () => {
   const dispatch = useDispatch();
@@ -32,8 +36,8 @@ const LoanTerm = () => {
     return years;
   }
 
-  const handleLoanTermChange = (evt) => {
-    const changedYears = parseInt(evt.target.value) || 0;
+  const handleLoanTermChange = (value) => {
+    const changedYears = parseInt(value.value) || 0;
     setInputData({...inputData, typedYears: changedYears})
   };
 
@@ -49,13 +53,23 @@ const LoanTerm = () => {
     <div className="form__loan-term loan-term">
       <label className="loan-term__label" htmlFor="loan-term">{LoanMeta[loanType].LOAN_TERM_LABEL}</label>
       <div className="loan-term__input-wrapper">
-        <input 
+        {/* <input 
           className="loan-term__input" 
           type="number" 
           name="loan-term" 
           id="loan-term"
           value={inputData.typedYears}
           onChange={handleLoanTermChange}
+          onBlur={handleLoanTermBlur}
+        /> */}
+        <NumberFormat 
+          className="loan-term__input" 
+          name="loan-term" 
+          id="loan-term" 
+          thousandSeparator=" "
+          suffix={getYearSuffix(inputData.typedYears)}
+          value={inputData.typedYears}
+          onValueChange={handleLoanTermChange}
           onBlur={handleLoanTermBlur}
         />
         <div className="loan-term__range">
