@@ -8,7 +8,10 @@ import {
   InputButtonType,
   InputError
 } from '../../const';
-import {getRubleSuffix} from '../../utils/common';
+import {
+  getRubleSuffix,
+  getSeparatedNumber
+} from '../../utils/common';
 
 const CostAmount = () => {
   const dispatch = useDispatch();
@@ -20,10 +23,20 @@ const CostAmount = () => {
     isValid: true 
   });
 
-  const getInvalidPlaceholder = () => inputData.isValid ? `` : InputError.TEXT;
+  // const getInvalidPlaceholder = () => inputData.isValid ? `` : InputError.TEXT;
+  const getInvalidPlaceholder = () => {
+    // debugger
+    if (inputData.isValid) {
+      return ``
+    } else {
+      return InputError.TEXT
+    }
+  }
+
   const inputClass = classNames(`cost-amount__input`, {"cost-amount__input--invalid" : !inputData.isValid});
 
   const setUpdatedState = (value = inputData.value, status = inputData.isValid) => {
+    console.log(value)
     setInputData({
       ...inputData,
       value: value,
@@ -50,11 +63,14 @@ const CostAmount = () => {
   };
 
   const handleCostAmountChange = (value) => {
-    const enteredValue = value.value;
-    console.log(value)
-    // if ((enteredValue < loan.minCost) || (enteredValue > loan.maxCost)) {
-    //   return setUpdatedState(enteredValue, false)
-    // };
+    const enteredValue = parseInt(value.value);
+    console.log(enteredValue)
+    if ((enteredValue < loan.minCost) || 
+        (enteredValue > loan.maxCost) ||
+        (isNaN(enteredValue))
+        ) {
+      return setUpdatedState(enteredValue, false)
+    };
     setUpdatedState(enteredValue, true)
   };
 
@@ -69,6 +85,7 @@ const CostAmount = () => {
 
   const handleButtonClick = (clickType) => {
     const updatedInputValue = parseInt(getUpdatedInputValue(clickType));
+    console.log(updatedInputValue)
     if ((updatedInputValue < loan.minCost) || (updatedInputValue > loan.maxCost)) {
       setUpdatedState(``, false)
     } else {
@@ -80,8 +97,6 @@ const CostAmount = () => {
   const onCostAmountChange = (value) => {
     dispatch(ActionCreator.setCostAmount(value))
   };
-
-  
 
   return (
     <div className="form__cost-amount cost-amount">
@@ -115,7 +130,9 @@ const CostAmount = () => {
           <span className="visually-hidden">{`Уменьшить на ${LoanMeta[loanType].COST_STEP}`}</span>
         </button>
       </div>
-      <span className="cost-amount__hint">От {loan.minCost} до {loan.maxCost} рублей</span>
+      <span className="cost-amount__hint">
+        От {getSeparatedNumber(loan.minCost)} {getRubleSuffix(loan.minCost)} до {getSeparatedNumber(loan.maxCost)} {getRubleSuffix(loan.maxCost)}
+      </span>
     </div>
   )
 };
