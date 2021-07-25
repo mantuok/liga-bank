@@ -15,4 +15,19 @@ export const getRubleSuffix = (number) => {
     default:
       return ` рублей`
   }  
-}
+};
+
+export const getYearSuffix = (years) => {
+  const digitsArray = Array.from(String(years), Number);
+  const lastDigit = digitsArray[digitsArray.length - 1];
+
+  if ((years >= 11) && (years <= 14)){
+    return ` лет`
+  } else if (lastDigit === 1) {
+    return ` год`;
+  } else if ((lastDigit >= 2) && (lastDigit <= 4)) {
+    return ` года`
+  } else {
+    return ` лет`
+  }
+};

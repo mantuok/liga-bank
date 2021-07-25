@@ -24,6 +24,13 @@ const InitialPayment = () => {
     isUpdatedToCostAmount: false
   });
 
+  // const updateAmountToCostAmount = () => {
+  //   setInputData({
+  //     ...inputData,
+  //     amount: Math.round((costAmount * inputData.percent) / PERCENTS),
+  //   });
+  // }
+
   useEffect(() => {
     dispatch(ActionCreator.setInitialPayment(inputData.amount))
   }, [dispatch, inputData.amount]);

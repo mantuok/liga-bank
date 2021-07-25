@@ -4,6 +4,11 @@ import {ActionCreator} from '../../store/action';
 import {
   LoanMeta,
 } from '../../const';
+import {
+  getRubleSuffix,
+  getYearSuffix,
+  getSeparatedNumber
+} from '../../utils/common';
 
 const Application = () => {
   const dispatch = useDispatch();
@@ -36,15 +41,15 @@ const Application = () => {
         </li>
         <li className="loan-data__item">
           <span className="loan-data__name">{LoanMeta[loanType].COST_AMOUNT_LABEL}</span>
-          <span className="loan-data__value">{costAmount + `рублей`}</span>
+          <span className="loan-data__value">{getSeparatedNumber(costAmount) + getRubleSuffix(costAmount)}</span>
         </li>
         <li className="loan-data__item">
           <span className="loan-data__name">Первоначальный взнос</span>
-          <span className="loan-data__value">{initialPayment + `рублей`}</span>
+          <span className="loan-data__value">{getSeparatedNumber(initialPayment) + getRubleSuffix(initialPayment)}</span>
         </li>
         <li className="loan-data__item">
           <span className="loan-data__name">Срок кредитования</span>
-          <span className="loan-data__value">{loanTerm + `лет`}</span>
+          <span className="loan-data__value">{loanTerm + getYearSuffix(loanTerm)}</span>
         </li>
       </ul>
       <form className="application__client-data client-data" action="" onSubmit={handleApplicationSubmit}>
