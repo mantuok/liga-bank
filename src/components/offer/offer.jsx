@@ -8,8 +8,12 @@ import {
   getLoanRate,
   getMonthlyPayment,
   getIncome
-} from '../../utils/calculations'
-import { ActionCreator } from '../../store/action';
+} from '../../utils/calculations';
+import {ActionCreator} from '../../store/action';
+import {
+  getRubleSuffix,
+  getSeparatedNumber
+} from '../../utils/common';
 
 const Offer = () => {
   const dispatch = useDispatch();
@@ -63,7 +67,7 @@ const Offer = () => {
           <h4 className="offer-result__heading">Наше предложение</h4>
           <ul className="offer-result__list">
             <li className="offer-result__item">
-              <span className="offer-result__value">{loanAmount + ` рублей`}</span>
+              <span className="offer-result__value">{getSeparatedNumber(loanAmount) + getRubleSuffix(loanAmount)}</span>
               <span className="offer-result__label">{LoanMeta[loanType].LOAN_AMOUNT_LABEL}</span>
             </li>
             <li className="offer-result__item">
@@ -71,11 +75,11 @@ const Offer = () => {
               <span className="offer-result__label">Процентная ставка</span>
             </li>
             <li className="offer-result__item">
-              <span className="offer-result__value">{monthlyPayment + ` рублей`}</span>
+              <span className="offer-result__value">{getSeparatedNumber(monthlyPayment) + getRubleSuffix(monthlyPayment)}</span>
               <span className="offer-result__label">Ежемесячный платеж</span>
             </li>
             <li className="offer-result__item">
-              <span className="offer-result__value">{income + ` рублей`}</span>
+              <span className="offer-result__value">{getSeparatedNumber(income) + getRubleSuffix(income)}</span>
               <span className="offer-result__label">Необходимый доход</span>
             </li>
           </ul>
