@@ -110,7 +110,6 @@ const CostAmount = () => {
         >
           <span className="visually-hidden">{`Увеличить на ${LoanMeta[loanType].COST_STEP}`}</span>
         </button>
-
         <NumberFormat 
           className={inputClass}  
           name="cost-amount" 

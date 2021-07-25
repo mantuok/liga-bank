@@ -1,11 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Range} from 'react-range';
+import NumberFormat from 'react-number-format';
 import {ActionCreator} from '../../store/action';
 import {
   LoanMeta,
   PERCENTS
 } from '../../const';
+import {
+  getRubleSuffix
+} from '../../utils/common';
 
 const InitialPayment = () => {
   const dispatch = useDispatch();
@@ -44,8 +48,8 @@ const InitialPayment = () => {
     return percents;
   }
 
-  const handleCostAmountChange = (evt) => {
-    const changedAmount = parseInt(evt.target.value);
+  const handleInitialPaymentChange = (value) => {
+    const changedAmount = parseInt(value.value);
     setInputData({...inputData, amount: changedAmount})
   };
 
@@ -62,13 +66,23 @@ const InitialPayment = () => {
     <div className="form__initial-payment initial-payment">
     <label className="initial-payment__label" htmlFor="initial-payment">{LoanMeta[loanType].INITIAL_PAYMENT_LABEL}</label>
     <div className="initial-payment__input-wrapper">
-      <input 
+      {/* <input 
         className="initial-payment__input" 
         type="number" 
         name="initial-payment" 
         id="initial-payment"
         value={inputData.amount}
         onChange={handleCostAmountChange}
+        onBlur={handleInitialPaymentBlur}
+      /> */}
+      <NumberFormat 
+        className="initial-payment__input" 
+        name="initial-payment" 
+        id="initial-payment" 
+        thousandSeparator=" "
+        suffix={getRubleSuffix(inputData.amount)}
+        value={inputData.amount}
+        onValueChange={handleInitialPaymentChange}
         onBlur={handleInitialPaymentBlur}
       />
       <div className="initial-payment__range">
