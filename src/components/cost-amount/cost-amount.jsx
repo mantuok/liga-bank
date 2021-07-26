@@ -16,7 +16,6 @@ import {
 const CostAmount = () => {
   const dispatch = useDispatch();
   const loan = useSelector((state) => state.activeLoan);
-  const isloanDataToBeCleared = useSelector((state) => state.isloanDataToBeCleared)
   const loanType = loan.type;
   const INITIAL_VALUE = 0;
   const [inputData, setInputData] = useState({
@@ -25,14 +24,6 @@ const CostAmount = () => {
   });
 
   const getInvalidPlaceholder = () => inputData.isValid ? `` : InputError.TEXT;
-  // const getInvalidPlaceholder = () => {
-  //   // debugger
-  //   if (inputData.isValid) {
-  //     return ``
-  //   } else {
-  //     return InputError.TEXT
-  //   }
-  // }
 
   const inputClass = classNames(`cost-amount__input`, {"cost-amount__input--invalid" : !inputData.isValid});
 
@@ -63,7 +54,6 @@ const CostAmount = () => {
   };
 
   const handleCostAmountChange = (value) => {
-    // debugger
     const enteredValue = parseInt(value.value);
     if ((enteredValue < loan.minCost) || 
         (enteredValue > loan.maxCost) ||
@@ -85,7 +75,6 @@ const CostAmount = () => {
 
   const handleButtonClick = (clickType) => {
     const updatedInputValue = parseInt(getUpdatedInputValue(clickType));
-    // console.log(updatedInputValue)
     if ((updatedInputValue < loan.minCost) || (updatedInputValue > loan.maxCost)) {
       setUpdatedState(``, false)
     } else {

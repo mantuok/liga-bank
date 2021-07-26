@@ -53,11 +53,13 @@
 .user-login__button {
   @include no-style-button;
 
+  padding: 0;
+
   &::before {
     content: "";
     position: absolute;
     bottom: 0px;
-    right: 185px;
+    right: 183px;
 
     width: 20px;
     height: 22px;

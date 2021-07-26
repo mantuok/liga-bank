@@ -14,7 +14,8 @@ export const ActionType = {
   SET_APPLICATION_NUMBER: `loan/setApplicationNumber`,
   CREATE_APPLICATION: `application/createApplication`,
   OPEN_APPLICATION_SENT_POPUP: `applivation/openApplicationSentPopup`,
-  CLOSE_APPLICATION_SENT_POPUP: `applivation/closeApplicationSentPopup`
+  CLOSE_APPLICATION_SENT_POPUP: `applivation/closeApplicationSentPopup`,
+  SET_LOAN_DATA_IS_CLEARED: `loan/setLoanDataIsCleared`
 };
 
 export const ActionCreator = {
@@ -77,4 +78,7 @@ export const ActionCreator = {
   closeApplicationSentPopup: () => ({
     type: ActionType.CLOSE_APPLICATION_SENT_POPUP
   }),
+  setLoanDataIsCleared: () => ({
+    type: ActionType.SET_LOAN_DATA_IS_CLEARED
+  })
 };

@@ -51,17 +51,8 @@ const LoanTerm = () => {
 
   return (
     <div className="form__loan-term loan-term">
-      <label className="loan-term__label" htmlFor="loan-term">{LoanMeta[loanType].LOAN_TERM_LABEL}</label>
+      <label className="loan-term__label" htmlFor="loan-term">{LoanMeta[loanType].TERM_LABEL}</label>
       <div className="loan-term__input-wrapper">
-        {/* <input 
-          className="loan-term__input" 
-          type="number" 
-          name="loan-term" 
-          id="loan-term"
-          value={inputData.typedYears}
-          onChange={handleLoanTermChange}
-          onBlur={handleLoanTermBlur}
-        /> */}
         <NumberFormat 
           className="loan-term__input" 
           name="loan-term" 
@@ -106,30 +97,13 @@ const LoanTerm = () => {
                   alignItems: 'center',
                 }}
               >
-                {/* <div
-                  style={{
-                    position: 'absolute',
-                    bottom: '-28px',
-                    width: '40px',
-                    color: '#707C87',
-                    fontWeight: '400',
-                    fontSize: '14px',
-                    fontFamily: 'inherit',
-                    textAlign: 'center',
-                    padding: '4px',
-                    borderRadius: '4px',
-                    backgroundColor: '#FFFFFF'
-                  }}
-                >
-                  {inputData.rangeYears[0].toFixed(0)} */}
-                {/* </div> */}
               </div>
             )}
           />
         </div>
         <div className="loan-term__hint-wrapper">
-          <span className="loan-term__range loan-term__hint loan-term__hint--min">{loan.termMin}</span>
-          <span className="loan-term__range loan-term__hint loan-term__hint--max">{loan.termMax}</span>
+          <span className="loan-term__range loan-term__hint loan-term__hint--min">{loan.termMin + getYearSuffix(loan.termMin)}</span>
+          <span className="loan-term__range loan-term__hint loan-term__hint--max">{loan.termMax + getYearSuffix(loan.termMax)}</span>
         </div>  
       </div>
     </div>

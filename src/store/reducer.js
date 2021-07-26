@@ -118,6 +118,11 @@ const reducer = (state = initialState, action) => {
         ...state,
         applicationSentPopupToBeOpen: false
       }
+    case ActionType.SET_LOAN_DATA_IS_CLEARED:
+      return {
+        ...state,
+        isloanDataToBeCleared: false
+      }
     default:
       return state
   }

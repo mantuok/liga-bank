@@ -4,7 +4,7 @@
 }
 
 .loan-term__label {
-  margin-bottom: 15px;
+  margin-bottom: 11px;
 
   font-size: 16px;
 }
@@ -13,11 +13,11 @@
   @include calculator-input;
 
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 17px;
 }
 
 .loan-term__range {
-  margin-bottom: 15px;
+  margin-bottom: 11px;
 }
 
 .loan-term__hint {
@@ -30,7 +30,7 @@
   justify-content: space-between;
 
   width: 100%;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
 
   @media (max-width: $max-tablet-width) {
     margin-bottom: 8px;

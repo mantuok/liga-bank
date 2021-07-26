@@ -63,7 +63,7 @@ const Calculator = () => {
     control: (provided, state) => ({
       ...provided,
       height: 60,
-      paddingRight: 18,
+      paddingRight: 14,
       paddingLeft: 20,
       fontSize: 16,
       fontWeight: 500,

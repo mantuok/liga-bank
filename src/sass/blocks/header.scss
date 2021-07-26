@@ -1,6 +1,6 @@
 .header {
-  padding-top: 27px;
-  padding-bottom: 35px;
+  padding-top: 25px;
+  padding-bottom: 34px;
 
   background-color: var(--basic);
 
@@ -31,6 +31,8 @@
 }
 
 .header__logo {
+  max-width: max-content;
+
   @media (max-width: $max-mobile-width) {
     padding-left: 30px;
   }

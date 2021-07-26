@@ -1,7 +1,7 @@
 .calculator {
   @include container;
   
-  margin-bottom: 100px;
+  margin-bottom: 97px;
 
   @media (max-width: $max-tablet-width) {
     margin-bottom: 80px;
@@ -14,7 +14,7 @@
 
 .calculator__heading {
   margin: 0;
-  margin-bottom: 70px;
+  margin-bottom: 33px;
   
   font-size: 41px;
   line-height: 57px;

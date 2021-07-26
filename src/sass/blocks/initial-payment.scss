@@ -4,7 +4,7 @@
 }
 
 .initial-payment__label {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 
   font-size: 16px;
 }
@@ -13,11 +13,11 @@
   @include calculator-input;
 
   width: 100%;
-  margin-bottom: 15px;
+  margin-bottom: 22px;
 }
 
 .initial-payment__range {
-  margin-bottom: 55px;
+  margin-bottom: 52px;
 
   @media (max-width: $max-tablet-width) {
     margin-bottom: 50px;

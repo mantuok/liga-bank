@@ -8,9 +8,8 @@
 .services-tabs__tab {
   position: relative;
 
-  padding-top: 40px;
-  padding-bottom: 40px;
-  padding-left: 112px;
+  padding-top: 38px;
+  padding-bottom: 37px;
 
   width: 292px;
 
@@ -19,28 +18,34 @@
   text-align: left;
 
   background-repeat: no-repeat;
-  background-position: 68px 33px;
+  background-position: 91px 30px;
 
   cursor: pointer;
 
   @include opacity-on-hover;
 
   &--deposits {
+    padding-left: 135px;
     background-image: url("../../img/deposit-icon.svg");
+    background-position: 91px 30px;
   }
 
   &--loans {
+    padding-left: 132px;
     background-image: url("../../img/loan-icon.svg");
+    background-position: 87px 31px;
   }
 
   &--insurance {
+    padding-left: 112px;
     background-image: url("../../img/insurance-icon.svg");
-    background-position: 70px 33px;
+    background-position: 73px 29px;
   }
 
   &--online {
+    padding-left: 91px;
     background-image: url("../../img/online-icon.svg");
-    background-position: 77px 33px;
+    background-position: 60px 29px;
   }
 
   &--active {

@@ -48,7 +48,7 @@
 }
 
 @mixin button-general-style {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 500;
   border: none;
 
@@ -75,7 +75,8 @@
 
 @mixin no-style-button {
   font-family: inherit;
-  font-size: inherit;
+  font-size: 16px;
+  font-weight: 500;
   background-color: transparent;
   border: none;
 }
