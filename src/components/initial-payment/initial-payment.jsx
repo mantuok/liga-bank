@@ -26,7 +26,7 @@ const InitialPayment = () => {
 
   useEffect(() => {
     dispatch(ActionCreator.setInitialPayment(inputData.amount))
-  }, [dispatch, inputData.amount]);
+  }, [dispatch, inputData.amount, costAmountUpdated]);
 
   useEffect(() => {
     if (costAmountUpdated) {
