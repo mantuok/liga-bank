@@ -112,7 +112,7 @@ const Calculator = () => {
   };
 
   return (
-    <section className="main__calculator calculator">
+    <section className="main__calculator calculator" id="calculator">
       <h2 className="calculator__heading">Кредитный калькулятор</h2>
       <div className="calculator__calculation calculation">
         <div className="calculation__calculator-selection calculator-selection">

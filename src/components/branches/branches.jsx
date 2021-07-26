@@ -41,27 +41,17 @@ const Branches = () => {
       </Map>
   }
 
-
   return (
-    <div className="main__branches branches">
+    <section className="main__branches branches" id="branches">
       <h2 className="branches__heading">Отделения Лига Банка</h2>
       <YMaps>
         <div>
           {isDesktop && renderMap(Viewport.Desktop.NAME)}
           {isTablet && renderMap(Viewport.Tablet.NAME)}
           {isMobile && renderMap(Viewport.Mobile.NAME)}
-          {/* <Map 
-            defaultState={{ center: [56.838011, 60.597474], zoom: 5}}
-            width={1170}
-            height={462}
-          >
-            {isTablet && renderPlacemarks(IconSize.BIG)}
-            {isMobile && renderPlacemarks(IconSize.SMALL)}
-            <ZoomControl />
-          </Map> */}
         </div>
       </YMaps>
-    </div>
+    </section>
   )
 }
 

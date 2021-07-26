@@ -28,7 +28,7 @@ const Application = () => {
   }
 
   return (
-    <section className="calculation__application application">
+    <section className="calculation__application application" id="application">
       <h3 className="application__heading">Шаг 3. Оформление заявки</h3>
       <ul className="application__loan-data loan-data">
         <li className="loan-data__item">

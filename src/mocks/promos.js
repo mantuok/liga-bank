@@ -11,7 +11,7 @@ export const promos = [
     description: `Кредиты на любой случай`,
     style: `basic`,
     link: `Рассчитать кредит`,
-    directTo: `/`
+    directTo: `/#calculator`
   },
   {
     id: nanoid(),
@@ -35,6 +35,6 @@ export const promos = [
     description: `Всегда рядом`,
     style: `contrast`,
     link: `Найти отделение`,
-    directTo: `/`
+    directTo: `/#branches`
   },
-]
+] 

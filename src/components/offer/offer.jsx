@@ -1,5 +1,6 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import {HashLink} from 'react-router-hash-link';
 import {
   LoanMeta,
 } from '../../const';
@@ -83,13 +84,13 @@ const Offer = () => {
               <span className="offer-result__label">Необходимый доход</span>
             </li>
           </ul>
-          <button 
-          type="button" 
+        <HashLink 
           className="offer-result__checkout"
           onClick={handleCheckoutButtonClick}
+          to="/#application"
         >
           Оформить заявку
-        </button> 
+        </HashLink> 
       </div>
     )}
   }

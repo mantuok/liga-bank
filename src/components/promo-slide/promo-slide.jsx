@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {HashLink} from 'react-router-hash-link';
 
 const PromoSlide = (props) => {
   const {promo} = props;
@@ -12,7 +12,7 @@ const PromoSlide = (props) => {
   const renderPromoLink = () => 
     link === `` ? 
     `` : 
-    <Link className={getElementClass(`promo__link`)} to={directTo}>{link}</Link>
+    <HashLink className={getElementClass(`promo__link`)} to={directTo}>{link}</HashLink>
 
   return (
     <div className="promo__container">
