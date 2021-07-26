@@ -19,17 +19,10 @@ const InitialPayment = () => {
   const loanType = loan.type;
 
   const [inputData, setInputData] = useState({
-    amount: costAmount * loan.initialPaymentMin,
+    amount: ``,
     percent: [loan.initialPaymentMin],
     isUpdatedToCostAmount: false
   });
-
-  // const updateAmountToCostAmount = () => {
-  //   setInputData({
-  //     ...inputData,
-  //     amount: Math.round((costAmount * inputData.percent) / PERCENTS),
-  //   });
-  // }
 
   useEffect(() => {
     dispatch(ActionCreator.setInitialPayment(inputData.amount))
@@ -42,7 +35,7 @@ const InitialPayment = () => {
         amount: Math.round((costAmount * inputData.percent) / PERCENTS),
       });
     }
-  }, [costAmountUpdated, costAmount]);
+  }, [costAmountUpdated, costAmount, inputData]);
     
   const getValidPercents = (percents) => {
     if (costAmount === 0) {

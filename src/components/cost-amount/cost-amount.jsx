@@ -36,7 +36,6 @@ const CostAmount = () => {
   const inputClass = classNames(`cost-amount__input`, {"cost-amount__input--invalid" : !inputData.isValid});
 
   const setUpdatedState = (value = inputData.value, status = inputData.isValid) => {
-    console.log(value)
     setInputData({
       ...inputData,
       value: value,
@@ -64,7 +63,6 @@ const CostAmount = () => {
 
   const handleCostAmountChange = (value) => {
     const enteredValue = parseInt(value.value);
-    console.log(enteredValue)
     if ((enteredValue < loan.minCost) || 
         (enteredValue > loan.maxCost) ||
         (isNaN(enteredValue))
