@@ -29,7 +29,7 @@ const ApplicationSent = () => {
     dispatch(ActionCreator.closeApplicationSentPopup());
     dispatch(ActionCreator.clearLoanData());
     document.body.style.overflow = 'scroll';
-  }
+  };
 
   return (
     <section className="calculator_application-sent application-sent">

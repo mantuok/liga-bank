@@ -15,6 +15,12 @@
 .contacts__short-number {
   margin-right: 67px;
 
+  @media (max-width: $max-tablet-width) {
+    margin-right: 0;
+    margin-bottom: 25px;
+    padding-left: 19px;
+  }
+
   @media (max-width: $max-mobile-width) {
     margin-right: 0;
     margin-bottom: 18px;

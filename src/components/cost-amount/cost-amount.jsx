@@ -91,7 +91,6 @@ const CostAmount = () => {
     <div className="form__cost-amount cost-amount">
       <label className="cost-amount__label" htmlFor="cost-amount">{LoanMeta[loanType].COST_AMOUNT_LABEL}</label>
       <div className="cost-amount__input-wrapper">
-        {/* <NumberFormat className="cost-amount__input" thousandSeparator=" " suffix={getRubleSuffix(inputData.value)}/> */}
         <button 
           className="cost-amount__button cost-amount__button--minus"
           type="button"

@@ -9,14 +9,12 @@ import {
   MapParameters
 } from '../../const';
 
-
 const Branches = () => {
   const branches = useSelector((state) => state.branches);
 
   const isMobile = useMediaQuery({query: `(max-width: ${Viewport.Mobile.MAX})`});
   const isTablet = useMediaQuery({minWidth: Viewport.Tablet.MIN, maxWidth: Viewport.Tablet.MAX});
   const isDesktop = useMediaQuery({query: `(min-width: ${Viewport.Desktop.MIN})`});
-
 
   const renderPlacemarks = (iconSize) => {
     return branches.map((branch) => {

@@ -4,7 +4,7 @@
   margin-bottom: 95px;
 
   @media (max-width: $max-tablet-width) {
-    margin-bottom: 68px;
+    margin-bottom: 73px;
   }
 
   @media (max-width: $max-mobile-width) {
@@ -35,9 +35,10 @@
 }
 
 .branches__map-wrapper {
-  margin-right: -15px;
-  margin-left:  -16px;
-
-  width: 320px;
+  @media (max-width: $max-mobile-width) {
+    margin-right: -15px;
+    margin-left:  -16px;
+    width: 320px;
+  }
 }
 

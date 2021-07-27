@@ -16,7 +16,6 @@ const AdditionalCondition = (props) => {
 
   const addCondition = (currentCondition) => {
     changedConditions.push(currentCondition);
-    // additionalConditions.push(currentCondition);
     onAdditionalConditionChange(changedConditions);
   }
 
