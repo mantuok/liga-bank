@@ -13,6 +13,11 @@
   text-decoration: none;
 
   @include opacity-on-hover;
+
+  @media (max-width: $max-mobile-width) {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .number__description {
@@ -22,4 +27,8 @@
   font-size: 12px;
   line-height: 140%;
   color: var(--font-additional);
+
+  @media (max-width: $max-mobile-width) {
+    margin-top: 0;
+  }
 }

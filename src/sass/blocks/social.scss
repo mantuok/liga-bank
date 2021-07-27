@@ -8,6 +8,10 @@
   @media (max-width: $max-tablet-width) {
     margin-left: -11px;
   }
+
+  @media (max-width: $max-mobile-width) {
+    margin-left: 0;
+  }
 }
 
 .social__item {

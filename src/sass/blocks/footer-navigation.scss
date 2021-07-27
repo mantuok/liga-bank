@@ -7,11 +7,9 @@
    }
 
   @media (max-width: $max-mobile-width) {
-  margin-bottom: 29px;
+  margin-bottom: 0;
   }
 }
-
-
 
 .footer-navigation__list {
   display: flex;
@@ -22,6 +20,10 @@
 
 .footer-navigation__item {
   margin-bottom: 13px;
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 11px;
+    }
 }
 
 .footer-navigation__link {

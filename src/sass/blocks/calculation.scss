@@ -29,6 +29,10 @@
 .calculation__application {
   grid-area: application;
   margin: auto;
+
+  @media (max-width: $max-mobile-width) {
+    margin: 0;
+  }
 }
 
 .calculation__offer {

@@ -40,14 +40,21 @@
 
     font-size: 18px;
   }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 18px;
+
+    font-size: 16px;
+    line-height: 22px;
+  }
 }
 
 .application__submit {
   @include button-contrast-style;
 
-  padding-top: 20px;
+  padding-top: 16px;
   padding-right: 58px;
-  padding-bottom: 20px;
+  padding-bottom: 19px;
   padding-left: 59px;
 
   align-self: center;

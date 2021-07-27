@@ -45,7 +45,7 @@ const Branches = () => {
     <section className="main__branches branches" id="branches">
       <h2 className="branches__heading">Отделения Лига Банка</h2>
       <YMaps>
-        <div>
+        <div className="branches__map-wrapper">
           {isDesktop && renderMap(Viewport.Desktop.NAME)}
           {isTablet && renderMap(Viewport.Tablet.NAME)}
           {isMobile && renderMap(Viewport.Mobile.NAME)}

@@ -15,10 +15,10 @@
 .contacts__short-number {
   margin-right: 67px;
 
-  @media (max-width: $max-tablet-width) {
+  @media (max-width: $max-mobile-width) {
     margin-right: 0;
-    margin-bottom: 25px;
-    padding-left: 18px;
+    margin-bottom: 18px;
+    padding-left: 29px;
   }
 
   &::before {
@@ -37,6 +37,11 @@
       top: 11px;
       left: -12px;
     }
+
+    @media (max-width: $max-mobile-width) {
+      top: 13px;
+      left: 0px;
+    }
   }
 }
 
@@ -45,6 +50,11 @@
     margin-right: 0;
     margin-bottom: 27px;
     padding-left: 22px;
+  }
+
+  @media (max-width: $max-mobile-width) {
+    margin-bottom: 20px;
+    padding-left: 33px;
   }
 
   &::before {
@@ -62,6 +72,11 @@
     @media (max-width: $max-tablet-width) {
       top: 92px;
       left: -11px;
+    }
+
+    @media (max-width: $max-mobile-width) {
+      top: 86px;
+      left: 0px;
     }
   }
 }

@@ -8,9 +8,9 @@
   padding-left: 58px;
 
   @media (max-width: $max-mobile-width) {
-    padding-top: 40px;
+    padding-top: 34px;
     padding-right: 15px;
-    padding-bottom: 40px;
+    padding-bottom: 38px;
     padding-left: 15px;
   }
 }
@@ -28,7 +28,7 @@
   }
 
   @media (max-width: $max-mobile-width) {
-    margin-bottom: 35px;
+    margin-bottom: 23px;
 
     font-size: 18px;
     line-height: 25px;
@@ -48,7 +48,9 @@
   @media (max-width: $max-mobile-width) {
     grid-template-columns: max-content;
     column-gap: 0;
-    row-gap: 25px;
+    row-gap: 16px;
+
+    margin-bottom: 32px;
   }
 }
 
@@ -67,6 +69,9 @@
 
   @media (max-width: $max-mobile-width) {
     margin-bottom: 2px;
+
+    font-size: 18px;
+    line-height: 25px;
   }
 }
 
