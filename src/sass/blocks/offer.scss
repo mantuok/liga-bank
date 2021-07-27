@@ -2,6 +2,10 @@
   margin-top: 22px;
   background-color: var(--basic);
 
+  @media (min-width: $min-desktop-width) {
+    width: 500px;
+  }
+
   @media (max-width: $max-tablet-width) {
     margin-bottom: 51px;
   }

@@ -7,6 +7,8 @@ const loanMaternalCondition = LoanMeta.mortgage.AdditionalCondition.MATERNAL;
 const loanLifeInsuranceCondition = LoanMeta.auto.AdditionalCondition.LIFE_INSURANCE;
 const loanAutoInsuranceCondition = LoanMeta.auto.AdditionalCondition.AUTO_INSURANCE;
 
+const roundToDecimal = (number) => (Math.round(number * 10)) / 10
+
 export const getLoanAmount = (loanType, costAmount, initialPayment, additionalConditions, loanConditions) => {
   let loanAmount = 0;
   switch (loanType) {
@@ -29,7 +31,6 @@ export const getLoanRate = (loanType, loanRate, loanConditions, costAmount, init
   let rate = 0;
   switch (loanType) {
     case LoanMeta.mortgage.TYPE: 
-    // debugger
       if (
         ((initialPayment / costAmount) < loanRate.condition) ||
         (initialPayment === 0)
@@ -38,7 +39,7 @@ export const getLoanRate = (loanType, loanRate, loanConditions, costAmount, init
       } else {
         rate = loanRate.rate2 * PERCENTS;
       }
-      return rate;
+      return roundToDecimal(rate);
     case LoanMeta.auto.TYPE:
       if ((
         additionalConditions.includes(loanLifeInsuranceCondition)) &&
@@ -55,7 +56,7 @@ export const getLoanRate = (loanType, loanRate, loanConditions, costAmount, init
       } else if (costAmount < loanRate.condition) {
         rate = loanRate.rate1 * PERCENTS
       }
-      return rate;
+      return roundToDecimal(rate);
     default:
       return
   }
