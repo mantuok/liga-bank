@@ -30,6 +30,9 @@ const Navigation = () => {
   const userLoginClass = classNames(`header-navigation__user-login user-login`, 
   {"user-login--open-menu": menuMobileStatus.isMenuOpen});
 
+  const headerNavigationListClass = classNames(`header-navigation__list`,
+  {"header-navigation__list--open-menu": menuMobileStatus.isMenuOpen})
+
   const renderNavigationItems = () => {
     return Object.values(NavigationItem.header).map((element) => {
       return <NavigationElement
@@ -62,10 +65,12 @@ const Navigation = () => {
   const handleMenuButtonClick = (type) => {
     switch (type) {
       case MenuButton.Open:
+        document.body.style.overflow = 'hidden';
         return setMenuMobileStatus({
           isMenuOpen: true
         })
       case MenuButton.Close: 
+      document.body.style.overflow = 'scroll';
         return setMenuMobileStatus({
           isMenuOpen: false
         })
@@ -82,7 +87,7 @@ const Navigation = () => {
     <nav className="header__navigation header-navigation">
       {isMobile && renderMenuButton(MenuButton.Open)}
       {menuMobileStatus.isMenuOpen && renderMenuButton(MenuButton.Close)}
-      <ul className="header-navigation__list">
+      <ul className={headerNavigationListClass}>
         {
           (menuMobileStatus.isMenuOpen && renderNavigationItems()) || 
           (isDesktopOrTablet && renderNavigationItems())
