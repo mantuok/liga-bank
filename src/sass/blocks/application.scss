@@ -34,6 +34,12 @@
   font-size: 22px;
   font-weight: 500;
   line-height: 31px;
+
+  @media (max-width: $max-tablet-width) {
+    margin-bottom: 23px;
+
+    font-size: 18px;
+  }
 }
 
 .application__submit {
@@ -45,5 +51,9 @@
   padding-left: 59px;
 
   align-self: center;
+
+  @media (max-width: $max-tablet-width) {
+    width: 100%;
+  }
 
 }

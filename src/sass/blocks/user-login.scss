@@ -70,8 +70,8 @@
     @include opacity-on-hover;
 
     @media (max-width: $max-tablet-width) {
-      right: 15px;
-      bottom: -4px;
+      right: 0;
+      bottom: 0;
 
       background-image: url("../../img/login-tablet.svg");
       background-repeat: no-repeat;

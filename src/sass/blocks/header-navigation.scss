@@ -1,5 +1,9 @@
 .header-navigation {
   width: 100%;
+
+  @media (max-width: $max-tablet-width) {
+   align-self: center;
+  }
 }
 
 .header-navigation__open {
@@ -55,7 +59,7 @@
     }
 
     @media (max-width: $max-tablet-width) {
-      margin-right: 26px;
+      margin-right: 36px;
     }
 
     @media (max-width: $max-mobile-width) {
@@ -64,7 +68,7 @@
   }
 
   @media (max-width: $max-tablet-width) {
-    margin-right: 20px;
+    margin-right: 25px;
   }
 
   @media (max-width: $max-mobile-width) {

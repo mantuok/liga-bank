@@ -68,7 +68,7 @@
   margin-bottom: 34px;
 
   @media (max-width: $max-tablet-width) {
-    margin-bottom: 25px;
+    margin-bottom: 31px;
   }
 
   @media (max-width: $max-mobile-width) {
@@ -91,7 +91,7 @@
     line-height: 20px;
 
     &:not(:last-child) {
-      margin-bottom: 15px;
+      margin-bottom: 16px;
     }
   }
 
@@ -152,8 +152,8 @@
 
   @media (max-width: $max-tablet-width) {
     margin-bottom: 25px;
-    padding-top: 18px;
-    padding-bottom: 19px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 
     font-size: 16px;
     line-height: 18px;

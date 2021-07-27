@@ -17,8 +17,8 @@
 
   @media (max-width: $max-tablet-width) {
     margin-right: 0;
-    margin-bottom: 30px;
-    padding-left: 33px;
+    margin-bottom: 25px;
+    padding-left: 18px;
   }
 
   &::before {
@@ -34,8 +34,8 @@
     background-image: url("../../img/short-tel-icon.svg");
 
     @media (max-width: $max-tablet-width) {
-      top: 13px;
-      left: 0px;
+      top: 11px;
+      left: -12px;
     }
   }
 }
@@ -43,8 +43,8 @@
 .contacts__full-number {
   @media (max-width: $max-tablet-width) {
     margin-right: 0;
-    margin-bottom: 30px;
-    padding-left: 33px;
+    margin-bottom: 27px;
+    padding-left: 22px;
   }
 
   &::before {
@@ -60,8 +60,8 @@
     background-image: url("../../img/full-tel-icon.svg");
 
     @media (max-width: $max-tablet-width) {
-      top: 95px;
-      left: 0;
+      top: 92px;
+      left: -11px;
     }
   }
 }
