@@ -117,9 +117,12 @@ const Calculator = () => {
       <div className="calculator__calculation calculation">
         <div className="calculation__calculator-selection calculator-selection">
           <h3 className="calculator-selection__heading">Шаг 1. Цель кредита</h3>
+          <label className="calculator-selection__label visually-hidden" htmlFor="calculator-select">Выберите тип кредита</label>
+          <label className="calculator-selection__label visually-hidden" htmlFor="react-select-2-input">Выберите тип кредита</label>
           <Select 
             className="calculator-selection__select select"
             classNamePrefix="select"
+            id="calculator-select"
             styles={customSelectStyle}
             onChange={handleCalculatorChange}
             options={options}
