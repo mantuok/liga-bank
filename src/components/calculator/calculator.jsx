@@ -103,8 +103,8 @@ const Calculator = () => {
     option: (provided, state) => ({
       ...provided,
       margin: 0,
-      paddingTop: 25,
-      paddingBottom: 24,
+      paddingTop: 20,
+      paddingBottom: 19,
       paddingLeft: 24,
       fontWeight: 400,
       borderBottom: `1px solid #C1C2CA`
