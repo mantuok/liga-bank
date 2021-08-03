@@ -15,7 +15,7 @@ const PromoSlide = (props) => {
     <HashLink className={getElementClass(`promo__link`)} to={directTo}>{link}</HashLink>
 
   return (
-    <div className="promo__container">
+    <div className="promo__details">
       <h1 className={getElementClass(`promo__header`)}>{heading}</h1>
       <p className={getElementClass(`promo__description`)}>{description}</p>
       {renderPromoLink()}

@@ -9,7 +9,7 @@ export const promos = [
     imageMobile: `../img/cards-mobile.jpg`,
     alt: `Пример карт банка`,
     description: `Кредиты на любой случай`,
-    style: `basic`,
+    style: `dark`,
     link: `Рассчитать кредит`,
     directTo: `/#calculator`
   },
@@ -21,7 +21,7 @@ export const promos = [
     imageMobile: `../img/man-mobile.jpg`,
     alt: `Клиент банка`,
     description: `Ваша уверенность в завтрашнем дне`,
-    style: `contrast`,
+    style: `grey`,
     link: ``,
     directTo: ``
   },
@@ -33,7 +33,7 @@ export const promos = [
     imageMobile: `../img/woman-mobile.jpg`,
     alt: `Клиентка банка`,
     description: `Всегда рядом`,
-    style: `contrast`,
+    style: `blue`,
     link: `Найти отделение`,
     directTo: `/#branches`
   },

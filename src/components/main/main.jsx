@@ -6,7 +6,7 @@ import Branches from '../branches/branches';
 
 const Main = () => {
   return (
-    <main className="page__main Main">
+    <main className="page__main main">
       <Promo />
       <Services />
       <Calculator />

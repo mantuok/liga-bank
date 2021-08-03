@@ -107,7 +107,8 @@ const Calculator = () => {
       paddingBottom: 19,
       paddingLeft: 24,
       fontWeight: 400,
-      borderBottom: `1px solid #C1C2CA`
+      borderBottom: `1px solid #C1C2CA`,
+      cursor: `pointer`
     }),
   };
 

@@ -23,6 +23,8 @@ const Promo = () => {
     onSwipedRight: () => handleSwipe(SwipeEvent.SWIPE_TO_RIGHT)
   });
 
+  const getPromoClass = `main__promo promo main__promo--` + promos[activeSlidePromo.elementIndex].style
+
   useEffect(() => {
     const interval = setInterval(() => {
       increaseActivePromoSlide(SwipeEvent.INTERVAL)
@@ -71,15 +73,17 @@ const Promo = () => {
 
   return (
     <section 
-      className="main__promo promo"
+      className={getPromoClass}
       {...swipeHandler}
     >
-      <PromoSlide promo={promos[activeSlidePromo.elementIndex]} />
-      <Dots
-        section={`promo`}
-        activeIndex={activeSlidePromo.elementIndex}
-        dotsNumber={dotsNumber}
-      />
+      <div className="promo__container">
+        <PromoSlide promo={promos[activeSlidePromo.elementIndex]} />
+        <Dots
+          section={`promo`}
+          activeIndex={activeSlidePromo.elementIndex}
+          dotsNumber={dotsNumber}
+        />
+      </div>
     </section>
   )
 };

@@ -1,20 +1,63 @@
-.promo {
+// .promo {
+//   // background-color: red;
+
+//   // position: relative;
+//   // display: flex;
+//   // flex-direction: column;
+//   // justify-content: space-between;
+
+//   // min-height: 400px;
+
+//   // @include container;
+
+//   // padding: auto;
+
+//   // margin-right: -45px;
+//   // margin-bottom: 60px;
+//   // margin-left: -45px;
+
+//   // padding-top: 125px;
+//   // padding-left: 268px;
+//   // padding-bottom: 40px;
+
+//   // @media (max-width: $max-tablet-width) {
+//   //   width: 768px;
+//   //   min-height: 300px;
+
+//   //   margin-bottom: 0;
+
+//   //   padding-top: 83px;
+//   //   padding-left: 86px;
+//   //   padding-bottom: 15px;
+//   // }
+
+//   // @media (max-width: $max-mobile-width) {
+//   //   width: 320px;
+//   //   min-height: 226px;
+
+//   //   padding-top: 52px;
+//   //   padding-left: 15px;
+//   //   padding-bottom: 10px;
+//   // }
+// }
+
+.promo__container {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  min-height: 400px;
-
   @include container;
 
-  margin-bottom: 60px;
+  min-height: 400px;
 
+  margin-bottom: 60px;
   padding-top: 125px;
   padding-left: 268px;
   padding-bottom: 40px;
 
   @media (max-width: $max-tablet-width) {
+    width: 768px;
     min-height: 300px;
 
     margin-bottom: 0;
@@ -25,6 +68,7 @@
   }
 
   @media (max-width: $max-mobile-width) {
+    width: 320px;
     min-height: 226px;
 
     padding-top: 52px;
@@ -33,7 +77,7 @@
   }
 }
 
-.promo__container {
+.promo__details {
   display: flex;
   flex-direction: column;
 
@@ -50,11 +94,12 @@
 
   z-index: 1;
 
-  &--basic {
+  &--dark {
     color: var(--basic);
   }
 
-  &--contrast {
+  &--grey,
+  &--blue {
     color: var(--font-basic);
   }
 
@@ -72,16 +117,25 @@
 .promo__image {
   position: absolute;
 
+
+  //Для масшитабирования изобрадения
+
+  // @media (max-width: $max-tablet-width)  {
+  //   max-height: 300px;
+  //   object-fit: contain;
+  // }
+
+
   top: 0;
   left: 0;
 
-  &--basic {
-    background-color: var(--basic-contrast);
-  }
+  // &--basic {
+  //   background-color: var(--basic-contrast);
+  // }
 
-  &--contrast {
-    background-color: var(--font-light);
-  }
+  // &--contrast {
+  //   background-color: var(--font-light);
+  // }
 }
 
 .promo__description {
@@ -92,11 +146,12 @@
 
   z-index: 1;
 
-  &--basic {
+  &--dark {
     color: var(--font-light);
   }
 
-  &--contrast {
+  &--grey,
+  &--blue {
     color: var(--font-dark);
   }
 
@@ -127,11 +182,12 @@
 
   z-index: 1;
 
-  &--basic {
+  &--dark {
     @include button-basic-style;
   }
 
-  &--contrast {
+  &--grey,
+  &--blue {
     @include button-contrast-style;
   }
 

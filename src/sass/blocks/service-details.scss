@@ -30,6 +30,12 @@
     
     margin-bottom: 21px;
     padding-top: 55px;
+
+    grid-template-areas: 
+    "heading heading"
+    "points image"
+    "description image"
+    "link link";
   }
 }
 
@@ -99,7 +105,8 @@
   }
 
   @media (max-width: $max-mobile-width) {
-    padding-left: 15px;
+    margin-right: -11px;
+    padding-left: 17px;
 
     font-size: 14px;
     line-height: 18px;
@@ -183,9 +190,12 @@
   grid-area: image;
 
   @media (max-width: $max-mobile-width) {
-    position: absolute;
-    top: 96px;
-    right: 0;
+    // position: absolute;
+    // top: 96px;
+    // right: 0;
+
+    margin-top: -16px;
+    margin-right: -16px;
 
     width: 87px;
     height: 113px;
