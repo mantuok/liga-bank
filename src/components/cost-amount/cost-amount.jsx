@@ -76,8 +76,12 @@ const CostAmount = () => {
 
   const handleButtonClick = (clickType) => {
     const updatedInputValue = parseInt(getUpdatedInputValue(clickType));
-    if ((updatedInputValue < loan.minCost) || (updatedInputValue > loan.maxCost)) {
+    if ((updatedInputValue < loan.minCost) || 
+        (updatedInputValue > loan.maxCost) ||
+        (isNaN(updatedInputValue))
+      ) {
       setUpdatedState(``, false)
+      onCostAmountChange(INITIAL_VALUE)
     } else {
       setUpdatedState(updatedInputValue, true)
       onCostAmountChange(updatedInputValue)
