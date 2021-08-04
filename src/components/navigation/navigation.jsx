@@ -65,7 +65,7 @@ const Navigation = () => {
   const handleMenuButtonClick = (type) => {
     switch (type) {
       case MenuButton.Open:
-        document.body.style.overflow = 'hidden';
+        document.body.style.overflow = 'hidden'; 
         return setMenuMobileStatus({
           isMenuOpen: true
         })

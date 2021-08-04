@@ -29,7 +29,9 @@ const Branches = () => {
   const renderMap = (viewport) => {
     return <Map 
       defaultState={{ center: MapParameters[viewport].CENTER, zoom: MapParameters[viewport].ZOOM}}
-      width={MapParameters[viewport].WIDTH}
+      // width={MapParameters[viewport].WIDTH}
+      // height={MapParameters[viewport].HEIGHT}
+      width="100%"
       height={MapParameters[viewport].HEIGHT}
       >
         {isDesktop && renderPlacemarks(IconSize.BIG)}

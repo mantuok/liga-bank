@@ -1,46 +1,3 @@
-// .promo {
-//   // background-color: red;
-
-//   // position: relative;
-//   // display: flex;
-//   // flex-direction: column;
-//   // justify-content: space-between;
-
-//   // min-height: 400px;
-
-//   // @include container;
-
-//   // padding: auto;
-
-//   // margin-right: -45px;
-//   // margin-bottom: 60px;
-//   // margin-left: -45px;
-
-//   // padding-top: 125px;
-//   // padding-left: 268px;
-//   // padding-bottom: 40px;
-
-//   // @media (max-width: $max-tablet-width) {
-//   //   width: 768px;
-//   //   min-height: 300px;
-
-//   //   margin-bottom: 0;
-
-//   //   padding-top: 83px;
-//   //   padding-left: 86px;
-//   //   padding-bottom: 15px;
-//   // }
-
-//   // @media (max-width: $max-mobile-width) {
-//   //   width: 320px;
-//   //   min-height: 226px;
-
-//   //   padding-top: 52px;
-//   //   padding-left: 15px;
-//   //   padding-bottom: 10px;
-//   // }
-// }
-
 .promo__container {
   position: relative;
   display: flex;
@@ -48,6 +5,7 @@
   justify-content: space-between;
 
   @include container;
+  // width: 1024px;
 
   min-height: 400px;
 
@@ -55,6 +13,10 @@
   padding-top: 125px;
   padding-left: 268px;
   padding-bottom: 40px;
+
+  @media (min-width: $min-desktop-width) {
+    // width: 1024px;
+  }
 
   @media (max-width: $max-tablet-width) {
     width: 768px;
@@ -117,17 +79,14 @@
 .promo__image {
   position: absolute;
 
-
-  //Для масшитабирования изобрадения
-
-  // @media (max-width: $max-tablet-width)  {
-  //   max-height: 300px;
-  //   object-fit: contain;
-  // }
-
-
   top: 0;
   left: 0;
+
+  @media (min-width: $min-desktop-width)  {
+    // object-fit: cover;
+    // right: 0;
+  }
+
 
   // &--basic {
   //   background-color: var(--basic-contrast);

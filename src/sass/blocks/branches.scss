@@ -1,6 +1,9 @@
 .branches {
   @include container;
 
+  display: flex;
+  flex-direction: column;
+
   margin-bottom: 95px;
 
   @media (max-width: $max-tablet-width) {
@@ -35,10 +38,22 @@
 }
 
 .branches__map-wrapper {
+  // width: 100%;
+  // min-width: 1024px;
+
+  @media (max-width: $max-tablet-width) {
+    width: 100%;
+    min-width: 768px;
+  }
+
   @media (max-width: $max-mobile-width) {
+    align-self: center;
+
     margin-right: -15px;
     margin-left:  -16px;
-    width: 320px;
+    width: 100%;
+    min-width: 320px;
+    // width: 320px;
   }
 }
 

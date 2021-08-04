@@ -28,19 +28,19 @@
       left: 0;
     }
 
-    ::after {
-      content:"";
+    // ::after {
+    //   content:"";
 
-      position: fixed;
-      top: 409px;
-      left: 0;
-      bottom: 0;
-      right: 0;
+    //   position: fixed;
+    //   top: 409px;
+    //   left: 0;
+    //   bottom: 0;
+    //   right: 0;
 
-      background-color: var(--basic);
+    //   background-color: var(--basic);
 
-      z-index: 2;
-    }
+    //   z-index: 2;
+    // }
   }
 }
 

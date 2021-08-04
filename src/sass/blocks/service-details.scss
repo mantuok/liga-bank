@@ -81,7 +81,6 @@
 
   @media (max-width: $max-mobile-width) {
     margin-bottom: 26px;
-    padding-right: 31px;
   }
 }
 
@@ -190,10 +189,6 @@
   grid-area: image;
 
   @media (max-width: $max-mobile-width) {
-    // position: absolute;
-    // top: 96px;
-    // right: 0;
-
     margin-top: -16px;
     margin-right: -16px;
 
