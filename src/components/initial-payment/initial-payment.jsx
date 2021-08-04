@@ -19,7 +19,7 @@ const InitialPayment = () => {
   const loanType = loan.type;
 
   const [inputData, setInputData] = useState({
-    amount: ``,
+    amount: costAmount * loan.initialPaymentMin / PERCENTS,
     percent: [loan.initialPaymentMin],
     isUpdatedToCostAmount: false
   });

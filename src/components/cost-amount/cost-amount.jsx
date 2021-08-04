@@ -16,10 +16,11 @@ import {
 const CostAmount = () => {
   const dispatch = useDispatch();
   const loan = useSelector((state) => state.activeLoan);
+  const initialValue = useSelector((state) => state.costAmount)
   const loanType = loan.type;
   const INITIAL_VALUE = 0;
   const [inputData, setInputData] = useState({
-    value: '',
+    value: initialValue,
     isValid: true 
   });
 

@@ -11,7 +11,7 @@ const initialState = {
   loans: loans,
   branches: branches,
   activeLoan: undefined,
-  costAmount: 0,
+  costAmount: 1200000,
   costAmountUpdated: false,
   initialPayment: 0,
   loanTerm: 1,
