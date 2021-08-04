@@ -1,5 +1,6 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import NumberFormat from 'react-number-format';
 import {ActionCreator} from '../../store/action';
 import {
   LoanMeta,
@@ -56,14 +57,15 @@ const Application = () => {
         <label className="client-data__label visually-hidden" htmlFor="client-name">Фамилия Имя Отчество</label>
         <input className="client-data__value client-data__value--name" name="client-name" id="client-name" placeholder="ФИО" required />
         <label className="client-data__label visually-hidden" htmlFor="client-tel">Телефон</label>
-        <input 
+        <NumberFormat 
           className="client-data__value client-data__value--tel" 
-          type="tel" 
           name="client-tel"  
           placeholder="Телефон" 
           id="client-tel"
-          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-          required 
+          format="+7 ###-###-####"
+          pattern="[+]{1}[0-9]{1} [0-9]{3}-[0-9]{3}-[0-9]{4}"
+          mask="_"
+          required
         />
         <label className="client-data__label visually-hidden" htmlFor="client-email">E-mail</label>
         <input className="client-data__value client-data__value--email" name="client-email" id="client-email" placeholder="E-mail" required />
