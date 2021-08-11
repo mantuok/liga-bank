@@ -7,6 +7,10 @@
   grid-template-columns: 6fr 5fr;
   column-gap: 70px;
 
+  @media (max-width: 1365px) {
+    column-gap: 5.12vw;
+  }
+
   @media (max-width: $max-tablet-width) {
     grid-template-areas: 
     "calculator-selection"

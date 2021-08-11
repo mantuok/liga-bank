@@ -1,6 +1,5 @@
 .header-navigation {
-  // position: relative;
-  width: 100%;
+  // width: 100%;
 
   @media (max-width: $max-tablet-width) {
    align-self: center;
@@ -43,24 +42,13 @@
   @include no-style-list;
 
   @media (max-width: $max-mobile-width) {
-    // position: fixed;
     flex-direction: column;
-
-    // height: 100vh;
-
-    // top: 0;
-    // right: 0;
-    // bottom: 0;
-    // left: 0;
-    
     background-color: var(--basic);
-    // z-index: 2;
 
     &--open-menu {
       min-height: 100vh;
       justify-content: flex-start;
       overflow: scroll;
-      // z-index: 2;
     }
   }
 }

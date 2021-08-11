@@ -28,24 +28,44 @@
     padding-left: 135px;
     background-image: url("../../img/deposit-icon.svg");
     background-position: 91px 30px;
+
+    @media (max-width: 1365px) {
+      padding-left: 9.88vw;
+      background-position: 25% 30px;
+    }
   }
 
   &--loans {
     padding-left: 132px;
     background-image: url("../../img/loan-icon.svg");
     background-position: 87px 31px;
+
+    @media (max-width: 1365px) {
+      padding-left: 9.66vw;
+      background-position: 25% 30px;
+    }
   }
 
   &--insurance {
     padding-left: 112px;
     background-image: url("../../img/insurance-icon.svg");
     background-position: 73px 29px;
+
+    @media (max-width: 1365px) {
+      padding-left: 8.28vw;
+      background-position: 20% 30px;
+    }
   }
 
   &--online {
     padding-left: 91px;
     background-image: url("../../img/online-icon.svg");
     background-position: 60px 29px;
+
+    @media (max-width: 1365px) {
+      padding-left: 6.66vw;
+      background-position: 15% 30px;
+    }
   }
 
   &--active {

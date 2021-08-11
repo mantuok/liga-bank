@@ -14,6 +14,10 @@
   padding-left: 268px;
   padding-bottom: 40px;
 
+  @media (max-width: 1365px) {
+    padding-left: 19.6vw;
+  }
+
   @media (min-width: $min-desktop-width) {
     // width: 1024px;
   }
@@ -81,10 +85,21 @@
 
   top: 0;
   left: 0;
+  // left: calc(50vw - );
 
   @media (min-width: $min-desktop-width)  {
     // object-fit: cover;
     // right: 0;
+  }
+
+  @media (max-width: 1365px) {
+    width: 100vw;
+    object-fit: cover;
+  }
+
+  @media (max-width: $max-tablet-width) {
+    width: auto;
+    object-fit: none;
   }
 
 

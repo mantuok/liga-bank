@@ -17,6 +17,13 @@
 
   background-color: var(--basic);
 
+  @media (max-width: 1365px) {
+    column-gap: 9.73vw;
+
+    padding-right: 9.88vw;
+    padding-left: 5.12vw;
+  }
+
   @media (max-width: $max-tablet-width) {
     column-gap: 38px;
 
