@@ -19,11 +19,14 @@
   position: relative;
 
   display: flex;
-  // flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: baseline;
 
   @include container;
+
+  @media (max-width: $max-tablet-width) {
+    justify-content: space-between;
+  }
 
   @media (max-width: $max-mobile-width) {
     flex-direction: column;
@@ -34,7 +37,18 @@
 .header__logo {
   max-width: max-content;
 
+  margin-right: 108px;
+
+  @media (max-width: 1365px) {
+    margin-right: 7.9vw;
+  }
+
+  @media (max-width: $max-tablet-width) {
+    margin-right: 0;
+  }
+
   @media (max-width: $max-mobile-width) {
+    margin-right: 0;
     padding-left: 30px;
   }
 }

@@ -5,7 +5,6 @@
   justify-content: space-between;
 
   @include container;
-  // width: 1024px;
 
   min-height: 400px;
 
@@ -16,10 +15,6 @@
 
   @media (max-width: 1365px) {
     padding-left: 19.6vw;
-  }
-
-  @media (min-width: $min-desktop-width) {
-    // width: 1024px;
   }
 
   @media (max-width: $max-tablet-width) {
@@ -85,31 +80,18 @@
 
   top: 0;
   left: 0;
-  // left: calc(50vw - );
-
-  @media (min-width: $min-desktop-width)  {
-    // object-fit: cover;
-    // right: 0;
-  }
 
   @media (max-width: 1365px) {
     width: 100vw;
     object-fit: cover;
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   @media (max-width: $max-tablet-width) {
     width: auto;
     object-fit: none;
   }
-
-
-  // &--basic {
-  //   background-color: var(--basic-contrast);
-  // }
-
-  // &--contrast {
-  //   background-color: var(--font-light);
-  // }
 }
 
 .promo__description {
