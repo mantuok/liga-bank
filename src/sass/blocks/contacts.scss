@@ -39,6 +39,10 @@
 
     background-image: url("../../img/short-tel-icon.svg");
 
+    @media (max-width: 1365px) {
+      left: -4%;
+    }
+
     @media (max-width: $max-tablet-width) {
       top: 11px;
       left: -12px;
@@ -74,6 +78,10 @@
     height: 16px;
 
     background-image: url("../../img/full-tel-icon.svg");
+
+    @media (max-width: 1365px) {
+      left: 42%;
+    }
 
     @media (max-width: $max-tablet-width) {
       top: 92px;
