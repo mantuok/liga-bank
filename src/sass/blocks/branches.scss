@@ -38,8 +38,9 @@
 }
 
 .branches__map-wrapper {
-  // width: 100%;
-  // min-width: 1024px;
+  @media (max-width: 1365px) {
+    width: 85.65vw;
+  }
 
   @media (max-width: $max-tablet-width) {
     width: 100%;
@@ -53,7 +54,6 @@
     margin-left:  -16px;
     width: 100%;
     min-width: 320px;
-    // width: 320px;
   }
 }
 

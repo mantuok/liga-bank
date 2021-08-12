@@ -27,20 +27,6 @@
       top: 0;
       left: 0;
     }
-
-    // ::after {
-    //   content:"";
-
-    //   position: fixed;
-    //   top: 409px;
-    //   left: 0;
-    //   bottom: 0;
-    //   right: 0;
-
-    //   background-color: var(--basic);
-
-    //   z-index: 2;
-    // }
   }
 }
 
@@ -58,7 +44,7 @@
   &::before {
     content: "";
     position: absolute;
-    bottom: 0px;
+    top: 0px;
     right: 183px;
 
     width: 20px;

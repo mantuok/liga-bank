@@ -24,6 +24,10 @@
 
   @include opacity-on-hover;
 
+  @media (max-width: 1365px) {
+    width: 21.37vw;
+  }
+
   &--deposits {
     padding-left: 135px;
     background-image: url("../../img/deposit-icon.svg");

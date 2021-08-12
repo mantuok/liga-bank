@@ -1,4 +1,10 @@
 .main__promo {
+
+  @media (max-width: 1365px) {
+    // margin-right: -7.1vw;
+    // margin-left: -7.1vw;
+  }
+
   &--dark {
     background-color: var(--basic-contrast);
   }
