@@ -8,7 +8,7 @@
     "@testing-library/user-event": "12.8.3",
     "classnames": "2.3.1",
     "nanoid": "3.1.23",
-    "node-sass": "6.0.1",
+    "node-sass": "9.0.0",
     "rc-slider": "9.7.2",
     "react": "^17.0.2",
     "react-dom": "17.0.2",
@@ -27,7 +27,7 @@
     "web-vitals": "1.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
